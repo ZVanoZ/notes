@@ -2,7 +2,10 @@
 
 ## Залить локальный master в master на github.
 
-$git remote add origin https://github.com/ZVanoZ/sander.git
+Связываем локальный репозитарий с внешним.
+$git remote add origin https://github.com/ZVanoZ/notes.git
+
+Выгружаем локальные изменения на внешний репозитарий.
 $git push -u origin master
 
 ## Свалка
