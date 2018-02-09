@@ -46,6 +46,10 @@ http://learn.javascript.ru/screencast/react
 Написан на JavaScript
 http://learn.javascript.ru/screencast/webpack
 
+* jQuery - вспомогательная библиотека
+
+Позволяет находить элементы DOM и оперировать ими.
+
 # Backend
 
 * Twig
@@ -85,7 +89,9 @@ https://ru.wikipedia.org/wiki/Docker
 
 # @TODO:
 
-* Node.JS
+* Node.JS - Дима
+
+* Redux - Влад
 
 
 
