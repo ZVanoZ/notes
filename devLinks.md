@@ -18,6 +18,14 @@
 
 * [Курс лекций "Learn what's new in PHP 7"](https://www.udemy.com/php7-new-features/learn/v4/overview) @TODO: просмотреть
 
+# JavaScript
+
+* http://learn.javascript.ru/?map
+
+* * https://github.com/javascript-plunk/javascript-tutorial
+
+* * https://github.com/iliakan/javascript-tutorial-ru
+
 # ExtJs
 
 * [habrahabr/ExtJS – учимся правильно писать компоненты](https://habrahabr.ru/post/88261/)
