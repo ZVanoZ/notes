@@ -26,6 +26,8 @@
 
 * * https://github.com/iliakan/javascript-tutorial-ru
 
+* [Сборник сгруппированых ссылок на инструменты, компоненты и библиотеки](https://github.com/sorrycc/awesome-javascript) Полезно сначала посмотреть тут, а потом писать велосипед.
+
 # ExtJs
 
 * [habrahabr/ExtJS – учимся правильно писать компоненты](https://habrahabr.ru/post/88261/)
