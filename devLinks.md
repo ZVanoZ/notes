@@ -35,3 +35,10 @@
 # PCRE - Регулярные выражения
 
 * [Онлайн отладчик](https://regex101.com)
+
+
+# Уроки и учебники
+
+* https://webref.ru
+
+* * Уроки по HTML и CSS - https://webref.ru/layout/learn-html-css/
