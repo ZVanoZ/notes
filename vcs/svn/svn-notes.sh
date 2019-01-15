@@ -26,3 +26,16 @@ svn switch svn://svnserver/var/bump/branches/my-branch
 # Отмена локальных изменений в текущей папке и ниже.
 svn revert -R ./
 
+#-------------------------------
+# Работа со свойствами
+#----
+#  Получить список свойств для текущей папки "."
+svn proplist
+# Получить список игноров для текущей папки "." (значение свойства "svn:ignore").
+svn propget svn:ignore .
+# Для текущей папки "." установить игнорирование подпапки ".idea"
+svn propset svn:ignore .idea .
+# ???
+svn propedit svn:ignore .
+#  Удалить свойство игноров для текущей папки "."
+svn propdel svn:ignore
