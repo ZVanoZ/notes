@@ -1,0 +1,5 @@
+Прочитать/изучить.
+
+[20190329]
+https://tproger.ru/translations/webpack-from-zero-to-hero/
+Webpack на практике: с нуля до создания автотестов.
