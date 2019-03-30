@@ -1,3 +1,11 @@
+# Менторы
+
+* http://vladcode.ru
+
+Изучай программирование под руководством опытного наставника.
+
+ШАГ 1. УКАЖИ СВОЮ РОЛЬ: Ученик | Наставник
+
 # Java
 
 + [JAVA Курс от TellAll AboutPC](https://www.youtube.com/channel/UCRbxHBwKhlRnIkM50zkX0Ww)
