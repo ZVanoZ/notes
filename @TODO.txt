@@ -1,5 +1,10 @@
 Прочитать/изучить.
 
+[20190419]
+tags=web
+https://vimeo.com/117154389
+Анатомия веб-сервиса, Андрей Смирнов (ex-Skype).mp4
+
 [20190329]
 tags=Webpack; Babel; mocha; chai; SourceMap
 
