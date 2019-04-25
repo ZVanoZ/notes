@@ -1,6 +1,31 @@
 --------------------------------------------------------------
 -- Заметки о полезном софте
 --------------------------------------------------------------
+
+--------------------------------------------------------------
+[B]
+> brew
+Еще один установщик софта
+Например, устанавливаем "mitmproxy".
+$ brew install mitmproxy
+
+$ sudo apt install linuxbrew-wrapper
+# В Linux Mint устанавливается, но не работает 
+# Ошибка пры попытке установки ПО через brew
+## Warning: /home/linuxbrew/.linuxbrew/bin is not in your PATH.
+## /usr/bin/brew: 78: exec: /home/ivan/.linuxbrew/bin/brew: not found
+
+
+
+# Альтернатива.
+$ git clone https://github.com/Homebrew/linuxbrew.git ~/.linuxbrew
+touch ~/.bash_profile
+Добавляем строчки
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
+--------------------------------------------------------------
 [C]
 -----
 > cat
