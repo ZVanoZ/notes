@@ -61,8 +61,11 @@ https://mitmproxy.org/
 
 # Установка в Linux Mint
 https://community.linuxmint.com/software/view/mitmproxy
+# Не работает. Есть открытый баг.
+https://bugs.launchpad.net/ubuntu/+source/mitmproxy/+bug/1809179
 
 # Установка при помощи brew
+# Тоже не работает.
 $ brew install mitmproxy
 $ sudo apt install mitmproxy
 $ mitmproxy
