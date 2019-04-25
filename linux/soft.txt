@@ -81,6 +81,9 @@ echo 'workDir='`pwd` # вывод текущего пути
 ./mitmproxy 
 return 0;
 
+$ netstat -antp | grep LISTEN
+tcp6       0      0 :::8080                 :::*                    LISTEN      18602/./mitmproxy  
+
 
 --------------------------------------------------------------
 [T]
