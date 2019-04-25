@@ -70,6 +70,18 @@ https://github.com/mitmproxy/mitmproxy/issues/3471
 $ brew install mitmproxy
 $ sudo apt install mitmproxy
 $ mitmproxy
+
+# В итоге, просто скачал бинарник и запустил в sh-скрипте.
+Качаем https://github.com/mitmproxy/mitmproxy/releases/tag/v4.0.4
+Распаковываем в любую папку и в ней же создаем скрипт
+run-mitmproxy.sh
+#!/bin/bash
+cd $(dirname $(readlink -e $0)) #переход в директорию текущего скрипта
+echo 'workDir='`pwd` # вывод текущего пути
+./mitmproxy 
+return 0;
+
+
 --------------------------------------------------------------
 [T]
 > top
