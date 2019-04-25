@@ -58,6 +58,11 @@ $ glances
 https://mitmproxy.org/
 Позволяет быстро запустить HTTP(S) прокси сервер и анализировать трафик.
 Полезен Web-разработчикам.
+
+# Установка в Linux Mint
+https://community.linuxmint.com/software/view/mitmproxy
+
+# Установка при помощи brew
 $ brew install mitmproxy
 $ sudo apt install mitmproxy
 $ mitmproxy
