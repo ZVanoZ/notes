@@ -1,0 +1,6 @@
+Ссылки на курсы, которые планируется пройти.
+
+* VUE.JS
+https://tocode.ru/curses/
+https://tocode.ru/curses/vuejs-s-nylya-do-pro/
+КУРС ПО VUE.JS С НУЛЯ ДО ПРО
