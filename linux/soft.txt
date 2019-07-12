@@ -150,6 +150,20 @@ return 0;
 $ netstat -antp | grep LISTEN
 tcp6       0      0 :::8080                 :::*                    LISTEN      18602/./mitmproxy  
 
+--------------------------------------------------------------
+[S]
+
+[sslscan]
+# Позволяет посмотреть какие версии SSL поддерживаются веб-сервером.
+# Проект тут https://github.com/rbsec/sslscan
+# Установка 
+$ sudo apt install sslscan
+# Информация о версии 
+$ sslscan
+		1.11.5
+		OpenSSL 1.0.2n  7 Dec 2017
+# Использование
+$ sslscan https://google.com
 
 --------------------------------------------------------------
 [T]
