@@ -1,5 +1,10 @@
 Прочитать/изучить.
 
+[20190712]
+LoLo Switcher
+Разобраться и прикрутить смену раскладок на комбинации CTRL+1, CTRL+2 и CTRL+3
+https://webhamster.ru/site/page/index/articles/projectcode/181
+
 [20190618]
 tags=web
 https://learn.freecodecamp.org/
