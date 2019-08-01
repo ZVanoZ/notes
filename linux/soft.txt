@@ -40,8 +40,13 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 $ cat /proc/loadavg
 
 [cifs]
-Монтируем сетевые ресурсы на свой диск.
+Утилита позволяет монтировать сетевые ресурсы на свой диск.
 @see https://www.shellhacks.com/ru/mount-remote-windows-partition-share-linux/
+
+# Установка
+$ yum install cifs-utils
+$ sudo apt-get install cifs-utils
+
 
 # Монтируем сетевую папку, защищенную паролем
 $ mount -t cifs //172.16.10.1/private /mnt/win/ -o user=admin,pass=secret
