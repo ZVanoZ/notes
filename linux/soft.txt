@@ -38,8 +38,20 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 Ссылки:
 Примеры:
 $ cat /proc/loadavg
------
-> Cups-pdf
+
+[cifs]
+Монтируем сетевые ресурсы на свой диск.
+@see https://www.shellhacks.com/ru/mount-remote-windows-partition-share-linux/
+
+# Монтируем сетевую папку, защищенную паролем
+$ mount -t cifs //172.16.10.1/private /mnt/win/ -o user=admin,pass=secret
+# Монтируем незащищенную (гостевую) сетевую папку
+$ mount -t cifs //172.16.10.1/public /mnt/win/ -o guest
+# Монтируем целый диск
+$ mount -t cifs //172.16.10.1/c$ /mnt/win/ -o user=admin,pass=secret
+
+[Cups-pdf]
+
 Cups-pdf пакет создающий виртуальный PDF-принтер для системы печати CUPS
 Cups-pdf позволяет осуществлять печать в файл pdf-формата с любых приложений операционной среды и рабочих станций локальной сети. 
 Ссылки:
