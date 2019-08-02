@@ -60,16 +60,19 @@ $ cat /proc/loadavg
 $ yum install cifs-utils
 $ sudo apt-get install cifs-utils
 
-
-# Монтируем сетевую папку, защищенную паролем
+# Примеры:
+## Монтируем сетевую папку, защищенную паролем
 $ sudo mount -t cifs //172.16.10.1/private /mnt/win/ -o user=admin,pass=secret
-# Монтируем незащищенную (гостевую) сетевую папку
+## Монтируем незащищенную (гостевую) сетевую папку
 $ sudo mount -t cifs //172.16.10.1/public /mnt/win/ -o guest
-# Монтируем незащищенную (гостевую) сетевую папку с ресурса Windows10. Писать могут: root.
+## Монтируем незащищенную (гостевую) сетевую папку с ресурса Windows10. Писать могут: root.
 $ sudo mount -t cifs //10.10.10.21/share/ /mnt/samba/10.10.10.21/share/ -o sec=ntlmv2,user=guest,password=
-# Монтируем незащищенную (гостевую) сетевую папку с ресурса Windows10. Писать могут: root, ivan.
+## Монтируем незащищенную (гостевую) сетевую папку с ресурса Windows10. Писать могут: root, ivan.
+### Из консоли
 $ sudo mount -t cifs //10.10.10.21/share/ /mnt/samba/10.10.10.21/share/ -o sec=ntlmv2,user=user,password=user,uid=ivan
-# Монтируем целый диск
+### Через /etc/fstab
+//10.10.10.21/share/ /mnt/samba/10.10.10.21/share/ cifs iocharset=utf8,username=user,password=user,iocharset=utf8,sec=ntlmv2,uid=ivan 0 0
+## Монтируем целый диск
 $ sudo mount -t cifs //172.16.10.1/c$ /mnt/win/ -o user=admin,pass=secret
 
 [Cups-pdf]
