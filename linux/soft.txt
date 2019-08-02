@@ -65,6 +65,8 @@ $ sudo apt-get install cifs-utils
 $ mount -t cifs //172.16.10.1/private /mnt/win/ -o user=admin,pass=secret
 # Монтируем незащищенную (гостевую) сетевую папку
 $ mount -t cifs //172.16.10.1/public /mnt/win/ -o guest
+# Монтируем незащищенную (гостевую) сетевую папку с ресурса Windows10
+$ sudo mount -t cifs //10.10.10.21/share/ /mnt/samba/10.10.10.21/share/ -o sec=ntlmv2,user=guest,password=
 # Монтируем целый диск
 $ mount -t cifs //172.16.10.1/c$ /mnt/win/ -o user=admin,pass=secret
 
