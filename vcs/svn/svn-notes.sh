@@ -11,6 +11,8 @@ $ svn status
 # Загружает в локальную копию изменения с SVN-сервера
 $ svn update
 
+svn mkdir http:/svnserver/svn/some-project/ -m "mktir for new project"
+
 # Сделать ветку на удаленном сервере.
 $ svn copy svn://svnserver/var/bump/trunk svn://svnserver/var/bump/branches/my-branch -m="Creating a private branch of /bump/trunk"
 
