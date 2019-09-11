@@ -51,3 +51,17 @@ git commit -m "Реорганизация песочницы"
 #
 git checkout
 
+# ----------------
+# Имеем локальный репозиторий с историей разработки.
+# Хотим залить все на github и не потерять историю
+# 1. Создаем пустой репозитарий на github
+# Получаем ссылку "https://github.com/ZVanoZ/zim-material-ui-sample.git"
+# 2. Переходим в папку локального проекта
+$ cd local-zim-material-ui-sample
+# 3. Связываем локалный проект с репозиторием github
+$ git remote add origin https://github.com/ZVanoZ/zim-material-ui-sample.git
+# 4. Выгружаем все ветки
+$ git push origin --all
+# 5. Выгружаем все теги
+$ git push origin --tags
+# ----------------
