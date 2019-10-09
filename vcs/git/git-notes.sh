@@ -64,4 +64,10 @@ $ git remote add origin https://github.com/ZVanoZ/zim-material-ui-sample.git
 $ git push origin --all
 # 5. Выгружаем все теги
 $ git push origin --tags
+#-----------------
+#-- Настройка прокси
+#-----
+git config --global http.proxy http://my-proxy.local:3128
+git config --global https.proxy http://my-proxy.local:3128
 # ----------------
+
