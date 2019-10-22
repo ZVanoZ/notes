@@ -5,7 +5,7 @@ outDir=`echo ~`
 echo 'inpDir='${inpDir}
 echo 'outDir='${outDir}
 echo '========'
-for DIRNAME in `ls -1d *`
+for DIRNAME in `ls -A1`
 do
     inpPath=$inpDir'/'$DIRNAME
     outPath=$outDir'/'$DIRNAME
@@ -16,6 +16,8 @@ do
 		  ln -s ${inpPath} ${outPath}
 		  echo 'LINKED  '$outPath 
 		fi
+	else
+	  echo 'SKIPPED NOT DIR'$outPath 
 	fi
 done
 
