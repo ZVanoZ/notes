@@ -158,6 +158,7 @@ root@a7aa1bd7665f:/# cat app/mounted-dir/readme.txt
 Внутри образа монтировать будем в "/app/.."
 -- Дополнение.  Информация о контейнере.
 --> 1. Пока висит bash, контейнер можно найти.
+$ docker ps -a
 CONTAINER ID        IMAGE                                COMMAND                  CREATED             STATUS                     PORTS                                      NAMES
 a7aa1bd7665f        ubuntu:latest                        "bash"                   2 hours ago         Up 2 hours                                                            wonderful_dewdney
 --> 2. Полная информация о контейнере.
