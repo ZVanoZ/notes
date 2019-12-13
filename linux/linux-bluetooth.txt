@@ -1,0 +1,18 @@
+-----------------------------------------------
+Почитать:
+https://wiki.archlinux.org/index.php/Bluetooth_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
+-----------------------------------------------
+-- Примеры
+-----
+
+--Список устройств и их MAC-адреса
+$ bluetoothctl
+[NEW] Controller 00:1A:7D:DA:71:04 ivan-desktop [default]
+[NEW] Device FC:C6:48:A5:8B:5C Q1
+[NEW] Device 40:3F:8C:0B:1A:16 Neffos C5 Max
+[NEW] Device FC:9A:7E:5B:B9:E3 IFG ProSport
+[NEW] Device 30:45:11:4A:63:B1 IIT:203485
+[NEW] Device EE:9F:BB:4F:DC:3F TM-001
+
+-----------------------------------------------
+
