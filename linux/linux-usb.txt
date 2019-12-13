@@ -1,0 +1,24 @@
+--------------------------------
+-- Ссылки
+-----
+
+@TODO: 
+
+--------------------------------
+-- Примеры
+-----
+
+-- Выводит список USB-устройств
+$ lsusb
+Bus 002 Device 013: ID 1bcf:0005 Sunplus Innovation Technology Inc. Optical Mouse
+Bus 002 Device 010: ID 13fe:4100 Kingston Technology Company Inc. Flash drive
+Bus 002 Device 006: ID 0a12:0001 Cambridge Silicon Radio, Ltd Bluetooth Dongle (HCI mode)
+Bus 002 Device 004: ID 1a40:0101 Terminus Technology Inc. Hub
+Bus 002 Device 014: ID 03f0:1841 Hewlett-Packard 
+Bus 002 Device 002: ID 8087:0020 Intel Corp. Integrated Rate Matching Hub
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 003: ID 03eb:9301 Atmel Corp. 
+Bus 001 Device 002: ID 8087:0020 Intel Corp. Integrated Rate Matching Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+--------------------------------
