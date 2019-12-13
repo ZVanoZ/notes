@@ -11,14 +11,17 @@ https://github.com/wsargent/docker-cheat-sheet/tree/master/ru
 -----
 
 -- Образ 
-- аналог ISO-образа.
+- аналогия - ISO-образ.
+- аналогия - базовый диск VirtualBox (без снапшотов), с которого запускаемся
 Обычно хранятся на dockerhub и тянутся для использования локально.
 
 -- Контейнер 
-- данные, которые образовались после использования образа.
+- Аналогия - снапшоты VirtualBox + текущее состояние.
+- Хранит данные, которые образовались после использования образа.
 Например, хотим установить "mc" на базе образа "ubuntu"
 Запускаем команду.
-
+$ docker run ubuntu:latest apt install mc
+1. С dockerhub скачается образ "ubuntu:latest" и разместится где-то в служебны
 
 --------------------------------------------------
 -- Жизненный цикл
@@ -153,6 +156,18 @@ root@a7aa1bd7665f:/# cat app/mounted-dir/readme.txt
 Это тестовая директория для монтирования каталогов внутрь образов.
 Реально находится в "/var/www/5-edu/docker/dirs-for-mount/"
 Внутри образа монтировать будем в "/app/.."
+-- Дополнение.  Информация о контейнере.
+--> 1. Пока висит bash, контейнер можно найти.
+CONTAINER ID        IMAGE                                COMMAND                  CREATED             STATUS                     PORTS                                      NAMES
+a7aa1bd7665f        ubuntu:latest                        "bash"                   2 hours ago         Up 2 hours                                                            wonderful_dewdney
+--> 2. Полная информация о контейнере.
+$ docker inspect  a7aa1bd7665f
+... много данных ...
+--> 3. Смотрим какие папки примонтированы (частичная выборка информации).
+$ docker inspect  --format '{{ .Mounts }}' a7aa1bd7665f
+[{bind  /var/www/5-edu/docker/dirs-for-mount /app/mounted-dir   true rprivate}]
+
+
 
 
 
