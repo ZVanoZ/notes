@@ -129,10 +129,32 @@ Ubuntu 18.04.3 LTS \n \l
 root@7e2c18a4ac42:/# exit
 exit
 
+-- Запустить команду "bash" в среде образа "ubuntu:latest" в интерактивном режиме,
+--> прилинковать внутрь виртуалки папку (внутри "/app/mounted-dir", снаружи "/var/www/5-edu/docker/dirs-for-mount")
+--> и удалить контейнер после завершения
+-->
+---> В данном примере внутри виртуалки выполнены команды:
+---> 1. find app
+----> Показывает ысе файлы, которые находятся внутри вмртуалки в папке "/app/"
+---> 2. cat app/mounted-dir/readme.txt
+----> Выводит содержимое файла. Внутри виртуалки         "app/mounted-dir/readme.txt" 
+----> Снаружи этот файл находится в "/var/www/5-edu/docker/dirs-for-mount/readme.txt"
+-- Вариант 1.
+$ docker run --rm -ti -v /var/www/5-edu/docker/dirs-for-mount/:/app/mounted-dir ubuntu:latest bash
+-- Вариант 2.
+$ cd  /var/www/5-edu/docker/dirs-for-mount
+$ docker run --rm -ti (pwd):/app/mounted-dir
+--
+root@a7aa1bd7665f:/# find app
+app
+app/mounted-dir
+app/mounted-dir/readme.txt
+root@a7aa1bd7665f:/# cat app/mounted-dir/readme.txt 
+Это тестовая директория для монтирования каталогов внутрь образов.
+Реально находится в "/var/www/5-edu/docker/dirs-for-mount/"
+Внутри образа монтировать будем в "/app/.."
 
-$ docker run --rm -ti \
--v /var/www/5-edu/docker/dirs-for-mount/:/app/mounted-dir \
-ubuntu:latest bash
+
 
 
 --------------------------------------------------
