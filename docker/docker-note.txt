@@ -96,6 +96,7 @@ bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  s
 ---> 1. ls
 ---> 2. ll
 ---> 3. cat /etc/issue
+---> 4. exit
 $ docker run --rm -ti ubuntu:latest bash
 root@7e2c18a4ac42:/# ls
 bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
@@ -125,6 +126,13 @@ drwxr-xr-x   1 root root 4096 Oct 29 21:25 usr/
 drwxr-xr-x   1 root root 4096 Oct 29 21:25 var/
 root@7e2c18a4ac42:/# cat /etc/issue
 Ubuntu 18.04.3 LTS \n \l
+root@7e2c18a4ac42:/# exit
+exit
+
+
+$ docker run --rm -ti \
+-v /var/www/5-edu/docker/dirs-for-mount/:/app/mounted-dir \
+ubuntu:latest bash
 
 
 --------------------------------------------------
