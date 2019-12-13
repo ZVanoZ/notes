@@ -67,6 +67,8 @@ $ docker export
 ----- 
 
 -- Запустить команду "uname -a" в среде образа "ubuntu:latest"
+--> Каждый запуск будет создавать новый контейнер, что приводит к замусориванию диска
+--> Чтобы избежать замусоривания, нужно добавить --rm
 $ docker run ubuntu:latest uname -a
 Unable to find image 'ubuntu:latest' locally
 latest: Pulling from library/ubuntu
@@ -79,7 +81,50 @@ Status: Downloaded newer image for ubuntu:latest
 
 Linux c1359dc04594 4.15.0-70-generic #79-Ubuntu SMP Tue Nov 12 10:36:11 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 
+-- Запустить команду "ls" в среде образа "ubuntu:latest" и удалить контейнер после завершения
+--> 1. При запуске будет создан контейнер.
+--> 2. Затем внутри него выполнится "$ ls". Т.е. выведенный листинг покажет файлы внутри виртуалки.
+--> 3. Затем будет удален контейнер, созданный на шаге "1."
+$ docker run --rm ubuntu:latest ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 
+-- Запустить команду "bash" в среде образа "ubuntu:latest" в интерактивном режиме
+--> и удалить контейнер после завершения
+--> В результате мы получаем терминал, который выполняется в виртуальной среде.
+--> Таким образм мы можем исследовать внутренности, устанавливать и удалять программы, копировать и удалять файлы.
+---> В данном примере внутри виртуалки выполнены команды:
+---> 1. ls
+---> 2. ll
+---> 3. cat /etc/issue
+$ docker run --rm -ti ubuntu:latest bash
+root@7e2c18a4ac42:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@7e2c18a4ac42:/# ll
+total 72
+drwxr-xr-x   1 root root 4096 Dec 13 15:35 ./
+drwxr-xr-x   1 root root 4096 Dec 13 15:35 ../
+-rwxr-xr-x   1 root root    0 Dec 13 15:35 .dockerenv*
+drwxr-xr-x   2 root root 4096 Oct 29 21:25 bin/
+drwxr-xr-x   2 root root 4096 Apr 24  2018 boot/
+drwxr-xr-x   5 root root  360 Dec 13 15:35 dev/
+drwxr-xr-x   1 root root 4096 Dec 13 15:35 etc/
+drwxr-xr-x   2 root root 4096 Apr 24  2018 home/
+drwxr-xr-x   8 root root 4096 May 23  2017 lib/
+drwxr-xr-x   2 root root 4096 Oct 29 21:25 lib64/
+drwxr-xr-x   2 root root 4096 Oct 29 21:25 media/
+drwxr-xr-x   2 root root 4096 Oct 29 21:25 mnt/
+drwxr-xr-x   2 root root 4096 Oct 29 21:25 opt/
+dr-xr-xr-x 360 root root    0 Dec 13 15:35 proc/
+drwx------   2 root root 4096 Oct 29 21:25 root/
+drwxr-xr-x   1 root root 4096 Oct 31 22:20 run/
+drwxr-xr-x   1 root root 4096 Oct 31 22:20 sbin/
+drwxr-xr-x   2 root root 4096 Oct 29 21:25 srv/
+dr-xr-xr-x  13 root root    0 Dec 13 15:35 sys/
+drwxrwxrwt   2 root root 4096 Oct 29 21:25 tmp/
+drwxr-xr-x   1 root root 4096 Oct 29 21:25 usr/
+drwxr-xr-x   1 root root 4096 Oct 29 21:25 var/
+root@7e2c18a4ac42:/# cat /etc/issue
+Ubuntu 18.04.3 LTS \n \l
 
 
 --------------------------------------------------
