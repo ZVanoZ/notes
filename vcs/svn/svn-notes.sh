@@ -13,6 +13,10 @@ $ svn status | grep "^[^MA]"
 # Загружает в локальную копию изменения с SVN-сервера
 $ svn update
 
+# Коммит указанной директории (закоммитится только папка "docker", а остальное останется в текущем состоянии)
+$ svn commit ./docker/ -m "Commit notes for our dockerfiles"
+
+
 svn mkdir http:/svnserver/svn/some-project/ -m "mktir for new project"
 
 # Сделать ветку на удаленном сервере.
