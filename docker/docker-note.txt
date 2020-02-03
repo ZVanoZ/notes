@@ -11,6 +11,9 @@ https://github.com/wsargent/docker-cheat-sheet/tree/master/ru
 -- "infinite" - имя контейнера, на для которого даны примеры команд
 https://habr.com/ru/company/flant/blog/336654/
 
+@TODO:
+* https://habr.com/ru/post/460173/
+Разработка под Docker. Локальное окружение. Часть 2 — Nginx+PHP+MySql+phpMyAdmin
 
 --------------------------------------------------
 -- Концепция
