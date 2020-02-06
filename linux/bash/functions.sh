@@ -3,7 +3,7 @@
 # Аргумент2: назначение. Путь к файлу-ссылке, который создаем.
 function makeLink() {
   echo '-- makeLink'
-  if [[ $# -ne 2]]; then
+  if [[ $# -ne 2 ]]; then
     echo "fail: invalid arguments count"
   else
     inpPath=$1
