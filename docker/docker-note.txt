@@ -7,6 +7,12 @@ https://docs.docker.com/engine/reference/commandline
 https://github.com/wsargent/docker-cheat-sheet/tree/master/ru
 
 
+* https://dker.ru/docs/
+Docker документация на русском
+** https://dker.ru/docs/docker-compose/
+*** https://dker.ru/docs/docker-compose/compose-file-reference/
+Руководство по Docker Compose файлу
+
 -- Шпаргалка с командами Docker
 -- "infinite" - имя контейнера, на для которого даны примеры команд
 https://habr.com/ru/company/flant/blog/336654/

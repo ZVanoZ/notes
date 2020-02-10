@@ -1,0 +1,83 @@
+[test]
+Описание: Проверяет типы файлов и сравнивает значения.
+0 - true
+1 - false
+
+-------------------------------------------------------------------------------
+-- Проверка файлов
+-----
+Ключи для проверки файлов:
+-b FILE exists and is block special
+   файл является блочным устройством (floppy, cdrom и т.п.)
+-c FILE exists and is character special
+   файл является символьным устройством (клавиатура, модем, звуковая карта и т.п.)
+-d FILE exists and is a directory
+   файл является каталогом
+   +Каталог, -Файл, -Cимволическая ссылка.
+-e FILE exists
+   Файл существует
+   +Каталог, +Файл, +Cимволическая ссылка.
+-f FILE exists and is a regular file
+   Файл существует и это обычный файл
+   -Каталог, +Файл, +Cимволическая ссылка.
+-g ??? FILE exists and is set-group-ID
+   set-group-id (sgid) флаг для файла или каталога установлен
+-G FILE exists and is owned by the effective group ID
+   вы принадлежите к той же группе, что и файл
+-h FILE exists and is a symbolic link (same as -L)
+   -Каталог, -Файл, +Cимволическая ссылка.
+-k ??? FILE exists and has its sticky bit set
+-L FILE exists and is a symbolic link (same as -h)
+   см. "-h"
+-N Описание отсутствует в MAN
+   файл был модифицирован с момента последнего чтения
+-O FILE exists and is owned by the effective user ID
+   вы являетесь владельцем файла
+-p ??? FILE exists and is a named pipe
+-r FILE exists and read permission is granted
+   файл доступен для чтения (пользователю, запустившему сценарий)
+   +Каталог, +Файл, +Cимволическая ссылка.
+-s FILE exists and has a size greater than zero
+   -Каталог, +Файл(если не пустой), +Cимволическая ссылка.
+-S FILE exists and is a socket
+   Файл существует и это сокет
+-t FD  file descriptor FD is opened on a terminal
+   файл (дескриптор) связан с терминальным устройством
+-u FILE exists and its set-user-ID bit is set
+-w FILE exists and write permission is granted
+   файл доступен для записи (пользователю, запустившему сценарий)
+-x FILE exists and execute (or search) permission is granted
+   Файл существует и он доступен для исполнения (пользователю, запустившему сценарий)
+
+Если "tmp" каталог, то выведет TRUE
+$ if [ -d "tmp/" ]; then echo "TRUE"; else echo "FALSE"; fi
+
+Если "dest.txt" НЕ каталог, то выведет TRUE
+$ if [ ! -d "tmp/" ]; then echo "TRUE - это НЕ каталог"; else echo "FALSE - Это каталог "; fi
+
+Если "dest.txt" файл. TRUE - файл или символическая ссылка.
+$ if [ -f "tmp/dest.txt" ]; then echo "TRUE"; else echo "FALSE"; fi
+
+Если "dest.txt" символическая ссылка.
+$ if [ -h "tmp/dest.txt" ]; then echo "TRUE"; else echo "FALSE"; fi
+
+-------------------------------------------------------------------------------
+-- Проверка чисел
+-----
+$ test 3 -eq 3; echo $?
+0
+$ test 3 -eq 4; echo $?
+1
+$ test 3 -eq 3 && echo TRUE || echo FALSE
+TRUE
+$ test 3 -eq 4 && echo TRUE || echo FALSE
+FALSE
+test "abc" = "def" ;echo $?
+1
+$ test "abc" = "abc" ;echo $?
+0
+$ test "abc" = "abcd" ;echo $?
+1
+-------------------------------------------------------------------------------
+-- @TODO: Проверка строк
+-----
