@@ -34,15 +34,21 @@
 
 Начальный уровень
 
+-- Справочники
+
+* https://basicweb.ru/
+
+* * [HTML справочник - таблицы](https://basicweb.ru/html/html_tags.php)
+
 # CSS
 
 -- Учебники
 
-* * [basicweb.ru - Актуальный учебник CSS](https://basicweb.ru/css/css_book.php)
+* [ basicweb.ru - Актуальный учебник CSS](https://basicweb.ru/css/css_book.php)
 
 Средний уровень
 
-* * [webref.ru - Уроки по HTML и CSS](https://webref.ru/layout/learn-html-css/)
+* [webref.ru - Уроки по HTML и CSS](https://webref.ru/layout/learn-html-css/)
 
 Начальный уровень
 
