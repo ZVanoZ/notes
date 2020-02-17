@@ -28,9 +28,13 @@
 
 # CSS
 
-* https://basicweb.ru/
+-- CSS Учебники
 
-* * [Актуальный учебник CSS](https://basicweb.ru/css/css_book.php)
+* * [basicweb.ru - Актуальный учебник CSS](https://basicweb.ru/css/css_book.php)
+
+-- CSS справочники
+
+* https://basicweb.ru/
 
 * * [Селекторы, псевдоклассы и псевдоэлементы - таблица](https://basicweb.ru/css/css_selectors.php)
 
