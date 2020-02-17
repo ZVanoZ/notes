@@ -28,7 +28,7 @@
 
 # HTML
 
--- HTML Учебники
+-- Учебники
 
 * * [webref.ru - Уроки по HTML и CSS](https://webref.ru/layout/learn-html-css/)
 
@@ -36,7 +36,7 @@
 
 # CSS
 
--- CSS Учебники
+-- Учебники
 
 * * [basicweb.ru - Актуальный учебник CSS](https://basicweb.ru/css/css_book.php)
 
@@ -46,13 +46,19 @@
 
 Начальный уровень
 
--- CSS справочники
+-- Справочники
 
 * https://basicweb.ru/
 
 * * [Селекторы, псевдоклассы и псевдоэлементы - таблица](https://basicweb.ru/css/css_selectors.php)
 
 * * [CSS функции - таблица](https://basicweb.ru/css/css_functions.php)
+
+# CSS >> LESS
+
+-- Учебники
+
+* [basicweb.ru - Актуальный учебник LESS](https://basicweb.ru/css/less_book.php)
 
 # JavaScript
 
