@@ -26,6 +26,16 @@
 
 * [Курс лекций "Learn what's new in PHP 7"](https://www.udemy.com/php7-new-features/learn/v4/overview) @TODO: просмотреть
 
+# CSS
+
+* https://basicweb.ru/
+
+* * [Актуальный учебник CSS](https://basicweb.ru/css/css_book.php)
+
+* * [Селекторы, псевдоклассы и псевдоэлементы - таблица](https://basicweb.ru/css/css_selectors.php)
+
+* * [CSS функции - таблица](https://basicweb.ru/css/css_functions.php)
+
 # JavaScript
 
 * http://learn.javascript.ru/?map
