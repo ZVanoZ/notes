@@ -56,3 +56,23 @@ svn propset svn:ignore .idea .
 svn propedit svn:ignore .
 #  Удалить свойство игноров для текущей папки "."
 svn propdel svn:ignore
+#------ 
+# Работа со свойством "svn:externals"
+# @see: http://sysadminnotebook.blogspot.com/2012/02/set-svn-svnexternals-in-command-line.html
+#--
+$ cd docs/ext3
+# Текущему каталогу "." (он же "docs/ext3") добавить атрибут "svn:externals"
+# Этот атрибут загружает в папку "src" содержимое 3й ревизии ("-r3") из 
+# внешнего репозитария "http://company.repo.com/svn/repo1/libs/ExtJs/3.4.0.full/src"
+$ svn propset svn:externals 'src -r3 http://company.repo.com/svn/repo1/libs/ExtJs/3.4.0.full/src' .
+$ svn commit -m "Добавили ссылку на внешний репо"
+# Обновляем папку. Выполнится попытка затянуть файлы из внешего репозитария
+$ svn update
+Updating '.':
+Fetching external item into 'src':
+A    src/adapter
+A    src/state
+A    src/ext-core
+...
+
+#------
