@@ -60,13 +60,15 @@ svn propdel svn:ignore
 # Работа со свойством "svn:externals"
 # @see: http://sysadminnotebook.blogspot.com/2012/02/set-svn-svnexternals-in-command-line.html
 #--
+# 1. Переходим внутри проекта в папку, которой будем лепить атрибут
 $ cd docs/ext3
-# Текущему каталогу "." (он же "docs/ext3") добавить атрибут "svn:externals"
+# 2. Текущему каталогу "." (он же "docs/ext3") добавить атрибут "svn:externals"
 # Этот атрибут загружает в папку "src" содержимое 3й ревизии ("-r3") из 
 # внешнего репозитария "http://company.repo.com/svn/repo1/libs/ExtJs/3.4.0.full/src"
-$ svn propset svn:externals 'src -r3 http://company.repo.com/svn/repo1/libs/ExtJs/3.4.0.full/src' .
+$ svn propset svn:externals 'src -r3 http://my-company-repo.com/svn/repo1/libs/ExtJs/3.4.0.full/src' .
+# 3. Коммитимся. @TODO: Разобраться - возможно, этот шаг необязательно делать на данном этапе.
 $ svn commit -m "Добавили ссылку на внешний репо"
-# Обновляем папку. Выполнится попытка затянуть файлы из внешего репозитария
+# 4. Обновляем папку. Выполнится попытка затянуть файлы из внешего репозитария
 $ svn update
 Updating '.':
 Fetching external item into 'src':
@@ -74,5 +76,17 @@ A    src/adapter
 A    src/state
 A    src/ext-core
 ...
-
+#-- То же самое через конфиг
+# 1. создаем файл конфига (находимся в корне выгруженного проекта)
+$ touch ./.svn-settings/svn.externals
+# В файл добавляем строчки
+./docs/ext3/src -r3 http://my-company-repo.com/svn/repo1/libs/ExtJs/3.4.0.full/src
+# 2. Применяем конфиг
+# Текущей директории "." добавится атрибут "svn:externals", значение 
+# которого будет взято из файла ".svn-settings/svn.externals"
+$  svn propset svn:externals -F .svn-settings/svn.externals .
+# 3. Обновляем папку. Выполнится попытка затянуть файлы из внешего репозитария
+$ svn update
+# 4. Коммитимся.
+$ svn commit -m "Добавили ссылку на внешний репо"
 #------
