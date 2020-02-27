@@ -26,6 +26,8 @@
 
 * [Курс лекций "Learn what's new in PHP 7"](https://www.udemy.com/php7-new-features/learn/v4/overview) @TODO: просмотреть
 
+* [Использование преимуществ встроенного PHP сервера](https://habr.com/ru/post/155853/)
+
 # HTML
 
 -- Учебники
