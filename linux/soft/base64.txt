@@ -1,0 +1,24 @@
+Проверяем наличие команды.
+$ type base64
+base64 is hashed (/usr/bin/base64)
+
+-----
+
+Кодируем строку 'Hello!' в base64
+Стандартный вывод команды "echo" направляем в стандартный ввод команды "base64"
+$ echo 'Hello!' | base64
+SGVsbG8hCg==
+
+Декодируем BASE64-строку 'SGVsbG8hCg=='
+$ echo 'SGVsbG8hCg==' | base64 -d
+Hello!
+
+-----
+
+Кодируем строку 'Hello!' в base64 и сохраняем в файл "data-base64.txt"
+$ echo 'Hello!' | base64 &>data-base64.txt
+
+Декодируем BASE64-данные из файла "data-base64.txt", а результат сохраняем в файл "data-base64.bin"
+$ base64 -d data-base64.txt &>data-base64.bin
+
+-----
