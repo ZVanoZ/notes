@@ -1,5 +1,9 @@
 Ссылки на курсы, которые планируется пройти.
 
+* React + Redux - Профессиональная Разработка
+https://coursehunter.net/course/react-redux-professionalnaya-razrabotka
+В этом курсе весь набор технологий - начиная от JS и заканчивая деплоем.
+
 * VUE.JS
 https://tocode.ru/curses/
 https://tocode.ru/curses/vuejs-s-nylya-do-pro/
