@@ -10,7 +10,7 @@ $ svn status
 # Показывает изменения в локальной копии, при этом не учитывает (M - modified, A - added, D - deleted) файлы
 $ svn status | grep "^[^MAD]"
 
-# Добавить паку "src" в список "для коммита". При этом содержимое папки тоже попадет в список..
+# Добавить паку "src" в список "для коммита". При этом содержимое папки тоже попадет в список.
 $ svn add src 
 
 # Добавить паку "build" в список "для коммита". При этом не добавлять  содержимое папки.
@@ -52,16 +52,27 @@ $ svn log -v -r 4112:4112 http://svnserver/many-projects-root/
 #-------------------------------
 # Работа со свойствами
 #----
+# Справка по синтаксису команды
+$ svn help propset
+
 #  Получить список свойств для текущей папки "."
-svn proplist
+$ svn proplist
+
 # Получить список игноров для текущей папки "." (значение свойства "svn:ignore").
-svn propget svn:ignore .
+$ svn propget svn:ignore .
+# Получить список игноров для папки ".gradle"
+$ svn propget svn:ignore .gradle/
+
 # Для текущей папки "." установить игнорирование подпапки ".idea"
-svn propset svn:ignore .idea .
+$ svn propset svn:ignore .idea .
+# Для папки ".gradle" установить свойство "svn:ignore *"  
+# - т.е. игнорировать все в этой папке, но сама папка под управлением SVN (закоммичена).
+svn propset svn:ignore "*" .gradle
+
 # ???
-svn propedit svn:ignore .
+$ svn propedit svn:ignore .
 #  Удалить свойство игноров для текущей папки "."
-svn propdel svn:ignore
+$ svn propdel svn:ignore
 #------ 
 # Работа со свойством "svn:externals"
 # @see: http://sysadminnotebook.blogspot.com/2012/02/set-svn-svnexternals-in-command-line.html
