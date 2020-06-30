@@ -1,4 +1,17 @@
 Прочитать/изучить.
+[20200630]
+-- PHP Server Monitor
+http://www.phpservermonitor.org
+https://github.com/phpservermon/phpservermon
+https://github.com/phpservermon/docker-phpservermonitor
+Ознакомиться с:
+1. Интеграцией с SMS-сервисами.
+2. Telegram и Jabber нотификациями.
+3. Реализацией JOBов при помощи "cron + PHP".
+https://github.com/phpservermon/phpservermon/blob/develop/cron/status.cron.php
+4. Реализацией окружения Docker.
+https://github.com/phpservermon/docker-phpservermonitor
+
 
 [20190726]
 P2P в браузере
