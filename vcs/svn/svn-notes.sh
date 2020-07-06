@@ -41,6 +41,11 @@ svn list svn://svnserver/var/bump/branches
 # Например, если выполнили "$ svn move ..."
 svn switch svn://svnserver/var/bump/branches/my-branch
 
+# Предварительно ("--dry-run") посмотреть что будет, если попытаемся слить trunk с my-branch1
+# \> На момент вызова текущая директория  trunk
+$ svn merge svn://svnserver/my-project1/trunk svn://svnserver/my-project1/branches/my-branch1 --dry-run
+
+
 # Отмена локальных изменений в текущей папке и ниже.
 svn revert -R ./
 
