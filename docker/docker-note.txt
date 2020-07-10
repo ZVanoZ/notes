@@ -189,6 +189,11 @@ $ docker inspect  a7aa1bd7665f
 $ docker inspect  --format '{{ .Mounts }}' a7aa1bd7665f
 [{bind  /var/www/5-edu/docker/dirs-for-mount /app/mounted-dir   true rprivate}]
 
+# Запустить "ex3to6.sh" в среде PHP 5.3
+# \> при этом текущая папка линкуется внутрь контейнера в точку "/app"
+$ docker run --rm  --mount type=bind,src=$(pwd),dst=/app tomsowerby/php-5.3:cli bash /app/tools/ex3to6.sh
+
+
 
 
 
