@@ -196,7 +196,22 @@ $ docker run --rm  --mount type=bind,src=$(pwd),dst=/app tomsowerby/php-5.3:cli 
 
 
 
-
+-- Выводит список контейнеров с использованием форматирования
+$ docker container list -a --format ' \
+ID        = {{.ID}} \
+Image     = {{.Image}} \
+Command   = {{.Command}} \
+CreatedAt = {{.CreatedAt}} \
+RunningFor= {{.RunningFor}}} \
+Ports     = {{.Ports}}} \
+Status    = {{.Status}} \
+Size      = {{.Size}} \
+Names     = {{.Names}} \
+Labels    = {{.Labels}} \
+Labels    = {{.Labels}} \
+Mounts    = {{.Mounts}} \
+Networks  = {{.Networks}} \
+'
 
 
 --------------------------------------------------
