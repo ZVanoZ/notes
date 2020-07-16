@@ -197,6 +197,7 @@ $ docker run --rm  --mount type=bind,src=$(pwd),dst=/app tomsowerby/php-5.3:cli 
 
 
 -- Выводит список контейнеров с использованием форматирования
+-- https://docs.docker.com/engine/reference/commandline/ps/#formatting
 $ docker container list -a --format ' \
 ID        = {{.ID}} \
 Image     = {{.Image}} \
@@ -213,5 +214,10 @@ Mounts    = {{.Mounts}} \
 Networks  = {{.Networks}} \
 '
 
+-- Выводит список контейнеров, которые завершились с кодом 0 (корректный выход)
+-- https://docs.docker.com/engine/reference/commandline/ps/#filtering
+$ docker container list -a --filter 'exited=0'
+-- Выводит список контейнеров, которые завершились с кодом 100 (не корректный выход)
+$ docker container list -a --filter 'exited=100'
 
 --------------------------------------------------
