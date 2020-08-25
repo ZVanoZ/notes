@@ -244,3 +244,7 @@ $ docker rmi $(docker images -f "dangling=true" -q)
 
 
 --------------------------------------------------
+-- Задача: Обновить библиотеки PHP при поиощи composer в среде PHP 5.3
+-- Текущая папка должна содержать "composer.json"
+docker run --rm -v $(pwd):/app  tomsowerby/php-5.3-composer -vvv update
+--------------------------------------------------
