@@ -217,6 +217,11 @@ $ hexdump /~/images/myImage.jpg
 -- [I] ABCDEFGHI JKLMNOPQRSTUVWXYZ
 -------
 
+[ifconfig]
+
+$ ifconfig | grep 172.17.0.1 -A 6 -B2
+
+
 [iostat]
 Внутренняя.
 Связанные команды:
