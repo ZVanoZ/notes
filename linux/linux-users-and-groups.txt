@@ -16,3 +16,41 @@ $ id ivan
 
 uid=1000(ivan) gid=1000(ivan) groups=1000(ivan),4(adm),24(cdrom),27(sudo),30(dip),33(www-data),46(plugdev),112(lpadmin),127(sambashare),130(docker),131(kvm),128(vboxusers)
 -- Видим, что добавилось "33(www-data)"
+
+---------------------------------
+# Теперь проверяем появились ли права на запись в каталог, созданный пользователем "www-data"
+
+## 1. Смотрим от какого пользователя сидим
+$ who
+ivan     tty7         2020-09-02 09:09 (:0)
+$ users
+ivan
+
+## 2. Переходим в каталог, созданный пользователем "www-data"
+$ cd /var/www/5-edu/laminas/api-tools-skeleton-1/module/
+
+$ ll
+total 24
+drwxrwxrwx  6 ivan     ivan     4096 сен  2 12:10 ./
+drwxrwxrwx 10 ivan     ivan     4096 сен  2 10:17 ../
+drwxrwxrwx  6 ivan     ivan     4096 авг 31 18:09 Application/
+drwxr-xr-x  5 www-data www-data 4096 сен  2 12:10 Log/
+drwxrwxrwx  5 www-data www-data 4096 сен  2 12:10 Logs/
+drwxrwxrwx  5 www-data www-data 4096 сен  2 11:35 Server/
+
+$ cd Log
+
+$ ll
+total 24
+drwxr-xr-x 5 www-data www-data 4096 сен  2 12:10 ./
+drwxrwxrwx 6 ivan     ivan     4096 сен  2 12:10 ../
+drwxr-xr-x 2 www-data www-data 4096 сен  2 12:10 config/
+-rw-r--r-- 1 www-data www-data  493 сен  2 12:10 Module.php
+drwxr-xr-x 3 www-data www-data 4096 сен  2 12:10 src/
+drwxr-xr-x 2 www-data www-data 4096 сен  2 12:10 view/
+
+$ mkdir 1
+mkdir: cannot create directory ‘1’: Permission denied
+-- Видим, что прав на создание каталога нет
+
+---------------------------------
