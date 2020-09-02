@@ -2,8 +2,11 @@
 
 -- Добавить пользователя "ivan" с домашней директорией "/home/ivan"
 $ sudo useradd -d /home/ivan -m
+-- Либо добавить пользователя в виде консольного визарда
+$ sudo adduser ivan
+... диалоги...
 
--- Сменить gfhjkmвателю "ivan"
+-- Сменить пароль пользователю "ivan"
 $ sudo passwd ivan
 Enter new UNIX password: ***
 Retype nrew UNIX password: ***
