@@ -92,5 +92,17 @@ $ sudo chown -vR ivan:www-data /var/www/5-edu/laminas/api-tools-skeleton-1
 -- Либо сменим владельца всех файлов и каталогов на "www-data"
 $ sudo chown -vR www-data /var/www/5-edu/laminas/api-tools-skeleton-1/
 
+-- Но єто все равно не поможет т.к. фалы генерируемые "api-tools-skeleton",
+-- имеют права "r-x" для пользователей группы "www-data", и 
+-- пользователь "ivan" все равно не сможет их править.
+-- ivan@ivan-desktop:/var/www/5-edu/laminas/api-tools-skeleton-1/module
+$ ll |grep Log
+drwxr-xr-x  5 www-data www-data 4096 сен  2 15:45 Log/
+-- Таким образом у нас остаются вариантв:
+-- 1.  заставить "api-tools-skeleton" устанавливать "rwx" для группы "www-data"
+-- 2. запускать приложение в "docker" со сменой пользователя на "ivan".
+-- в этом варианте будут проблемы с исспользованием пользователем "ivan" 
+-- порта "80" на виртуальных интерфейсах. 
+
 
 ---------------------------------
