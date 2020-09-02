@@ -44,8 +44,8 @@ uid=1000(ivan) gid=1000(ivan) groups=1000(ivan),4(adm),24(cdrom),27(sudo),30(dip
 $ groups
 $ groups ivan
 ivan : ivan adm cdrom sudo dip www-data plugdev lpadmin sambashare docker kvm vboxusers
--- Что за фак? Где группа "www-data"
-А в каких группах пользователь "www-data"?
+-- Видим, что группа "www-data присутствует"
+-- А в каких группах пользователь "www-data"?
 $ groups www-data
 www-data : www-data
 
