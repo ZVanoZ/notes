@@ -40,12 +40,20 @@ $ id ivan
 uid=1000(ivan) gid=1000(ivan) groups=1000(ivan),4(adm),24(cdrom),27(sudo),30(dip),33(www-data),46(plugdev),112(lpadmin),127(sambashare),130(docker),131(kvm),128(vboxusers)
 -- Видим, что добавилось "33(www-data)"
 
+-- Перероверяем.
+$ groups
+ivan adm cdrom sudo dip plugdev lpadmin sambashare vboxusers docker kvm
+-- Что за фак? Где группа "www-data"
+
+
 ---------------------------------
 # Теперь проверяем появились ли права на запись в каталог, созданный пользователем "www-data"
 
 ## 1. Смотрим от какого пользователя сидим
 $ who
 ivan     tty7         2020-09-02 09:09 (:0)
+$ whoami
+ivan
 $ users
 ivan
 
