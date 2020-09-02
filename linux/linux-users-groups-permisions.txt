@@ -42,9 +42,12 @@ uid=1000(ivan) gid=1000(ivan) groups=1000(ivan),4(adm),24(cdrom),27(sudo),30(dip
 
 -- Перероверяем.
 $ groups
-ivan adm cdrom sudo dip plugdev lpadmin sambashare vboxusers docker kvm
+$ groups ivan
+ivan : ivan adm cdrom sudo dip www-data plugdev lpadmin sambashare docker kvm vboxusers
 -- Что за фак? Где группа "www-data"
-
+А в каких группах пользователь "www-data"?
+$ groups www-data
+www-data : www-data
 
 ---------------------------------
 # Теперь проверяем появились ли права на запись в каталог, созданный пользователем "www-data"
