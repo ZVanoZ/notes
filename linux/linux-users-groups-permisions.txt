@@ -76,4 +76,8 @@ $ mkdir 1
 mkdir: cannot create directory ‘1’: Permission denied
 -- Видим, что прав на создание каталога нет
 
+-- Рекурсивно сменим владельца на "ivan", а группу на "www-data"
+sudo chown -vR ivan:www-data /var/www/5-edu/laminas/api-tools-skeleton-1
+
+
 ---------------------------------
