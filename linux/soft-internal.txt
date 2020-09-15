@@ -397,6 +397,11 @@ $ nmap -p T:139 10.10.10.21
 --------------------------------------------------------------------------------
 -- [P] ABCDEFGHIJKLMNOP QRSTUVWXYZ
 -------
+
+[ping]
+
+$ apt install inetutils-ping
+
 --------------------------------------------------------------------------------
 -- [Q] ABCDEFGHIJKLMNOPQ RSTUVWXYZ
 -------
@@ -478,6 +483,17 @@ x  - распаковать
 
 # Распаковать Java JDK в указанную директорию
 $ sudo tar xfvz jdk-7u80-linux-x64.tar.gz -C  /usr/lib/jvm/
+
+------
+
+[telnet]
+
+apt install inetutils-telnet
+
+$ telnet 172.17.0.1 9000
+> close
+
+Если находимся в режиме ожидания ответа, то для прерывания жмем CTRL + ]
 
 ------
 
