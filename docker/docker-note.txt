@@ -89,7 +89,10 @@ $ docker export
 -- Логи контейнера
 $ docker container logs --since 30s myContainerName
 
-
+-- Показать список сетей
+$ docker network ls
+-- Удалить неимпользуемые сети
+$ docker network prune
 
 --------------------------------------------------
 -- Примеры
