@@ -13,3 +13,17 @@ docker run --rm --interactive --tty \
 composer:2.0 \
 composer update
 #------------------------------------------------------------------------------
+# Если composer установлен внутрь контейнера, то можно так
+#-----
+# Перегенерировать autoload
+# Выполняем, когда  в "composer.json" (autoload/psr-4):
+# > 1. добавляем модуль;
+# > 2. удаляем модуль
+
+# Вариант 1. Раздельная команда
+# docker container exec laminas-mvc-skeleton composer -v dump-autoload
+# docker container exec laminas-mvc-skeleton chmod -vR 777 ./vendor/
+
+# Вариант 2. Одной командой
+docker container exec laminas-mvc-skeleton bash -c 'composer -vvv dump-autoload && chmod -vR 777 ./vendor/'
+#------------------------------------------------------------------------------
