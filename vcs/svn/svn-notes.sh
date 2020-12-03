@@ -11,6 +11,8 @@ $ svn info
 # D - (deleted) Помечен на удаление в SVN
 # ! - Удален в локальной файловой системе, но не помечен на удаление в SVN
 # X - Внешняя ссылка на ресурс, подключаемый через атрибут "svn:externals"
+# L - (locked) файл или папка заблокированы. Разрешение конфликтов совместного доступа.
+# см. "Три значения «Блокировки»" в https://tortoisesvn.net/docs/release/TortoiseSVN_ru/tsvn-dug-locking.html 
 $ svn status
 # Показывает изменения в локальной копии, при этом не учитывает (M - modified, A - added, D - deleted) файлы
 $ svn status | grep "^[^MAD]"
