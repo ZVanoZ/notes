@@ -1,6 +1,6 @@
 # 1. Найти "221" в результате вывода ifconfig
 # 2. Вывести 8 строк после найденой позиции и 9 после
-$ ifconfig |grep 221 -A 8 -B 9
+ifconfig |grep 221 -A 8 -B 9
 -- Результат
 br-a822f5f24767: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         inet 172.22.0.1  netmask 255.255.0.0  broadcast 172.22.255.255
