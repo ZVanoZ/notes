@@ -281,4 +281,10 @@ docker image build \
     --build-arg APP_IS_CLEAN=true \
     --file ./_docker/Dockerfile \
     .
+# Проверяем собрался ли образ.
+if [ ! "$?" == "0" ]
+then
+    echo "ERROR: can not build an image from a dockerfile."
+    exit 1
+fi    
 --------------------------------------------------
