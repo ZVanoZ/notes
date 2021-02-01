@@ -255,4 +255,30 @@ $ docker rmi $(docker images -f "dangling=true" -q)
 -- Задача: Обновить библиотеки PHP при поиощи composer в среде PHP 5.3
 -- Текущая папка должна содержать "composer.json"
 docker run --rm -v $(pwd):/app  tomsowerby/php-5.3-composer -vvv update
+
+--------------------------------------------------
+-- Собрать проект "my.project1.local" с указанием режима сборки
+-- 
+
+# Выносим название проекта в отдельную переменную (потом будем использовать для указания имени образа и контейнера).
+appName=my.project1.local
+
+# https://docs.docker.com/engine/reference/commandline/image_build/
+# https://docs.docker.com/engine/reference/builder/#arg
+# --tag       - появится локальный образ "my.project1.local:latest"
+# --force-rm  - временные образы будут удалены, в том числе при ошибке сборки
+# --build-arg - передаем в Dockerfile два аргумента.
+#             - Обязательно в Dockerfile объявляем эти переменные
+#             - Dockerfile:
+#             - ARG APP_ENV
+#             - ARG APP_IS_CLEAN
+# --file      - Указываем путь к Dockerfile
+# .           - Указываем контекст сбоки. Текущая директория будет корнем при сборке.
+docker image build \
+    --tag ${appName}:latest \
+    --force-rm \
+    --build-arg APP_ENV=LOCAL \
+    --build-arg APP_IS_CLEAN=true \
+    --file ./_docker/Dockerfile \
+    .
 --------------------------------------------------
