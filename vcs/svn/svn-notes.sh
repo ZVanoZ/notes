@@ -57,6 +57,9 @@ $ svn merge svn://svnserver/my-project1/trunk svn://svnserver/my-project1/branch
 ## После выполнения команды открываем графическую утилиту и страдаем от улаживания трехсторонних конфликтов :(
 svn merge --accept postpone svn://svnserver/my-project1/trunk ./
 
+# Улаживание конфликта деревьев.
+## Принять текущее состояние папки "./docker/web" как рабочее
+svn resolve --accept working -R ./docker/web
 
 
 # Отмена локальных изменений в текущей папке и ниже.
