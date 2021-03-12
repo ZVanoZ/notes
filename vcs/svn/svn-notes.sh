@@ -54,7 +54,7 @@ $ svn merge svn://svnserver/my-project1/trunk svn://svnserver/my-project1/branch
 ## Если конфликтов с локальной копией овердофига, то задолбаемся улаживать в консоли.
 ## Поэтому применяем "--accept postone"
 ## Например, на локальном диске в "./" лежит копия бренча и в нее нужно влить изменения с trunk
-svn merge --accept postone svn://svnserver/my-project1/trunk ./
+svn merge --accept postpone svn://svnserver/my-project1/trunk ./
 
 
 
