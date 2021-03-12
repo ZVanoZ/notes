@@ -51,6 +51,11 @@ svn switch svn://svnserver/var/bump/branches/my-branch
 # Предварительно ("--dry-run") посмотреть что будет, если попытаемся слить trunk с my-branch1
 # \> На момент вызова текущая директория  trunk
 $ svn merge svn://svnserver/my-project1/trunk svn://svnserver/my-project1/branches/my-branch1 --dry-run
+## Если конфликтов с локальной копией овердофига, то задолбаемся улаживать в консоли.
+## Поэтому применяем "--accept postone"
+## Например, на локальном диске в "./" лежит копия бренча и в нее нужно влить изменения с trunk
+svn merge --accept postone svn://svnserver/my-project1/trunk ./
+
 
 
 # Отмена локальных изменений в текущей папке и ниже.
