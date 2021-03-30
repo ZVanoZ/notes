@@ -130,6 +130,20 @@ $ svn update
 $ svn commit -m "Добавили ссылку на внешний репо"
 #------
 #-------------------------------
+# Сценарий: создать структуру папок под новый проект
+# Допустим, проект с названием "my-project-1"
+#----
+$ cd ~/projects
+$ mkdir my-project-1
+$ cd my-project-1
+$ mkdir branches tags tags 
+$ svn import . http://svn.my.server.net/my-project-1 -m 'Создание директорий под проект'
+$ svn ls http://svn.my.server.net/my-project-1
+branches/
+tags/
+trunk/
+$ svn checkout http://svn.my.server.net/my-project-1/trunk ~/projects/my-project-1.trunk
+#-------------------------------
 # Сценарий: откатить последний коммит
 # Допустим, коммит с ошибкой имеет номер 5271
 #----
