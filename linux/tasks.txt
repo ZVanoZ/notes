@@ -1,5 +1,6 @@
 Сценарии решения различных проблем в Linux
 ------------------------------------------------------------
+Debian 10, PhpStorm 2019.2, svn 1.10.4 (r1850624)
 При обновлении проекта из PhpStorm получаю ошибку:
 09:15	Can't use Subversion command line client: svn
 			svn: warning: cannot set LC_CTYPE locale
