@@ -1,0 +1,21 @@
+Сценарии решения различных проблем в Linux
+------------------------------------------------------------
+При обновлении проекта из PhpStorm получаю ошибку:
+09:15	Can't use Subversion command line client: svn
+			svn: warning: cannot set LC_CTYPE locale
+			svn: warning: environment variable LC_ALL is en_US.UTF-8
+			svn: warning: please check that your locale name is correct
+      
+Решение:
+Раскомментировать локаль "en_US.UTF-8 UTF-8" в "/etc/locale.gen"
+
+$ sudo mcedit /etc/locale.gen 
+en_US.UTF-8 UTF-8
+ru_UA.UTF-8 UTF-8
+
+$ sudo locale-gen
+Generating locales (this might take a while)...
+  en_US.UTF-8... done
+  ru_UA.UTF-8... done
+------------------------------------------------------------
+------------------------------------------------------------
