@@ -1,5 +1,33 @@
 Сценарии решения различных проблем в Linux
 ------------------------------------------------------------
+Настроить монтирование дисков при старте системы
+
+1. Назначаем метки, если требуется .
+$ sudo e2label /dev/sdb1 dio-zim-120g-sys
+
+2. Создаем каталоги для монтирования в них дисков
+$ sudo mkdir /media/dio-zim-1tb
+$ sudo mkdir /media/dio-zim-120g-sys
+
+3. Прописываем монтирование 
+
+$ sudo mcedit /etc/fstab
+
+# Вносим строчки
+
+# mount /mnt/dio-zim-1tb по "uuid"
+#/dev/disk/by-uuid/933438ad-8152-44e9-937a-86f62a8eaa94 /mnt/dio-zim-1tb auto nosuid,nodev,nofail,x-gvfs-show 0 0
+
+# mount /mnt/dio-zim-1tb по "label" (см. п.1)
+/dev/disk/by-label/dio-zim-1tb /media/dio-zim-1tb auto nosuid,nodev,nofail,x-gvfs-show 0 0
+
+# SSD 120
+/dev/disk/by-label/dio-zim-120g-sys /media/dio-zim-120g-sys auto nosuid,nodev,nofail,x-gvfs-show 0 0
+
+4. Монтируем, чтобы не перегзаружать систему (в дальнейшем монтирование будет происходить автоматически)
+$ sudo mount -a
+
+------------------------------------------------------------
 Debian 10, PhpStorm 2019.2, svn 1.10.4 (r1850624)
 При обновлении проекта из PhpStorm получаю ошибку:
 09:15	Can't use Subversion command line client: svn
