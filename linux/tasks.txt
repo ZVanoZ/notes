@@ -2,6 +2,17 @@
 ------------------------------------------------------------
 Настроить монтирование дисков при старте системы
 
+0. Смотрим что у нас вообще есть из дисков
+
+$ sudo blkid 
+[sudo] password for ivan: 
+/dev/sda1: UUID="bd2dcca7-e963-40f2-bf7c-5c89640d7abc" TYPE="ext4" PARTUUID="95e3d9c4-01"
+/dev/sda5: UUID="0e3e7559-9627-45e9-8daa-cd40e2f799b7" TYPE="swap" PARTUUID="95e3d9c4-05"
+/dev/sdc: LABEL="dio-zim-1tb" UUID="933438ad-8152-44e9-937a-86f62a8eaa94" TYPE="ext4"
+/dev/sdb1: UUID="b1e8618b-8074-4654-8dd6-eea602e7fed5" TYPE="ext4" PARTUUID="6a1e9125-01"
+/dev/sdd: LABEL="zim16g" UUID="3C16265916261484" TYPE="ntfs"
+/dev/mapper/truecrypt1: UUID="D27EFF1B7EFEF757" TYPE="ntfs"
+
 1. Назначаем метки, если требуется .
 $ sudo e2label /dev/sdb1 dio-zim-120g-sys
 
