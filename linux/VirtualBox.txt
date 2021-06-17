@@ -1,13 +1,53 @@
 ------------------------------------------------------------
-Кстановка "Guest Extension Pack" внутри виртуалки
+-- Установка "Guest Extension Pack" внутри виртуалки
+-- Причина - при попытке поднять "laminas-db" получаю ошибку "mounting failed with the error: No such device"
+-- Создал issue в проете "laminas-db" https://github.com/laminas/laminas-db/issues/194
+-- И продолжил искать причину.
+-- Причина в том, что GuestAdditions не ставится внутрь виртуалки.
 
-$ mount /dev/cdrom /mnt/cdrom
-$ ls /mnt/cdrom
-...
-VBoxLinuxAdditions.run
-...
-$ cd /mnt/cdrom
-$ sh VBoxLinuxAdditions.run
+1. После падения "vagrant up" на проекте "laminas-db" руками правим образ.
+Останавливаем.
+Добавляем cd-rom.
+Указываем в "cd-rom" путь к образу "/usr/share/virtualbox/VBoxGuestAdditions.iso"
+Запускаем виртуалку VirtualBox.
+Логинимся пользователем "vagrant" с паролем "vagrant".
+
+2. Вручную устанавливаем "GuestAdditions"
+Находясь в терминале виртульной машины выполняем команды.
+
+$ sudo apt-get update
+$ sudo apt-get install linux-headers-virtual
+
+$ sudo mkdir /media/cdrom1
+$ sudo mount /dev/cdrom /media/cdrom1\
+$ cd /media/cdrom1
+$ sudo ./VBoxLinuxAdditions.run 
+$ sudo reboot
+
+-- Проверяем результат
+-- В списке вывода должно быть "vboxsf" и "vboxguest"
+$ lsmod | grep vbox
+vboxsf                 49152  1
+vboxvideo              53248  1
+ttm                    98304  1 vboxvideo
+drm_kms_helper        155648  1 vboxvideo
+drm                   364544  4 ttm,drm_kms_helper,vboxvideo
+vboxguest             286720  3 vboxsf,vboxvideo
+syscopyarea            16384  2 drm_kms_helper,vboxvideo
+sysfillrect            16384  2 drm_kms_helper,vboxvideo
+sysimgblt              16384  2 drm_kms_helper,vboxvideo
+
+-- Проверяем наличие группы "vboxsf"
+$ cat /etc/group | grep vb
+vboxsf:x:999:
+
+3. Запускаем "vagrant" в каталоге "laminas-db"
+Сначала останавливаем виртуалку virualbox (из ГУИ, либо выполнив "$ sudo shutdown now" в терминале виртуалки)
+Открываем на хост-системе терминал в каталоге "laminas-db".
+Выполняем 
+$ vagrant up
+
+
 
 #--- TRASH ---
 # $ /sbin/rcvboxadd setup
