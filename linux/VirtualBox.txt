@@ -1,0 +1,15 @@
+------------------------------------------------------------
+Кстановка "Guest Extension Pack" внутри виртуалки
+
+$ mount /dev/cdrom /mnt/cdrom
+$ ls /mnt/cdrom
+...
+VBoxLinuxAdditions.run
+...
+$ cd /mnt/cdrom
+$ sh VBoxLinuxAdditions.run
+
+#--- TRASH ---
+# $ /sbin/rcvboxadd setup
+
+------------------------------------------------------------
