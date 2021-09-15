@@ -11,4 +11,6 @@ $ vagrant provision
 
 $ vagrant up --debug
 $ vagrant up --debug &> ./tmp/vagrant-debug.log
+Запустить виртуальную машину, а затем скрипты.
+$ vagrant up --debug --provision
 -------------------------------------------------------------------------------
