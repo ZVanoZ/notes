@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
+Если при запуске "$ vagrant up" получаем 
+> /sbin/mount.vboxsf: mounting failed with the error: No such device
+то нужно просто установить vagrant-plugin "vagrant-vbguest"
+https://github.com/laminas/laminas-db/issues/194#issuecomment-920977911
+$ vagrant plugin install vagrant-vbguest
+$ vagrant up
+
+-------------------------------------------------------------------------------
 Если хотим у нас уже есть образ VirtialBox, но мы хотим запустить повторно
 скрипты инициализации.
 $ cd my-project
