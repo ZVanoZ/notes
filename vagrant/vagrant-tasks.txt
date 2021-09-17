@@ -1,8 +1,12 @@
 -------------------------------------------------------------------------------
 Если при запуске "$ vagrant up" получаем 
+
 > /sbin/mount.vboxsf: mounting failed with the error: No such device
+
 то нужно просто установить vagrant-plugin "vagrant-vbguest"
-https://github.com/laminas/laminas-db/issues/194#issuecomment-920977911
+См.: https://github.com/laminas/laminas-db/issues/194#issuecomment-920977911
+Исходники плагина на Ruby: https://github.com/dotless-de/vagrant-vbguest
+
 $ vagrant plugin install vagrant-vbguest
 $ vagrant up
 
