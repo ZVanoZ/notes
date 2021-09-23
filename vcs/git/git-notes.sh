@@ -64,6 +64,28 @@ $ git remote add origin https://github.com/ZVanoZ/zim-material-ui-sample.git
 $ git push origin --all
 # 5. Выгружаем все теги
 $ git push origin --tags
+# ----------------
+# Имеем клон репозитория.
+# Нужно следить за актуальностью.
+#-----
+
+$ git status
+# На ветке 2.13.x
+# Ваша ветка отстает от «origin/2.13.x» на 27 коммитов и может быть перемотана вперед.
+#   (используйте «git pull», чтобы обновить вашу локальную ветку)
+
+$ git pull
+# remote: Enumerating objects: 23, done.
+# remote: Counting objects: 100% (23/23), done.
+# remote: Compressing objects: 100% (16/16), done.
+# remote: Total 23 (delta 9), reused 21 (delta 7), pack-reused 0
+# Распаковка объектов: 100% (23/23), готово.
+# Из https://github.com/laminas/laminas-db
+# ...
+# 338 files changed, 6490 insertions(+), 5591 deletions(-)
+# delete mode 100644 phpcs.xml
+# create mode 100644 phpcs.xml.dist
+
 #-----------------
 #-- Настройка прокси
 #-----
