@@ -64,10 +64,15 @@ $ git remote add origin https://github.com/ZVanoZ/zim-material-ui-sample.git
 $ git push origin --all
 # 5. Выгружаем все теги
 $ git push origin --tags
+
 # ----------------
 # Имеем клон репозитория.
 # Нужно следить за актуальностью.
 #-----
+
+$ git remote -v
+# origin	https://github.com/laminas/laminas-db.git (fetch)
+# origin	https://github.com/laminas/laminas-db.git (push)
 
 $ git status
 # На ветке 2.13.x
@@ -85,6 +90,23 @@ $ git pull
 # 338 files changed, 6490 insertions(+), 5591 deletions(-)
 # delete mode 100644 phpcs.xml
 # create mode 100644 phpcs.xml.dist
+
+
+$ git branch -a
+#  2.12.x
+#* 2.13.x
+#  2.14.x
+#  remotes/origin/2.11.x
+#  remotes/origin/2.12.x
+#  remotes/origin/2.13.x
+#  remotes/origin/2.13.x-merge-up-into-2.14.x_3Y5r1t4x
+#  remotes/origin/2.13.x-merge-up-into-2.14.x_LxxfGKFv
+#  remotes/origin/2.14.x
+#  remotes/origin/HEAD -> origin/2.13.x
+#  remotes/origin/dev-3.0.0
+#  remotes/origin/dev-3.0.0-old
+#  remotes/origin/gh-pages
+
 
 #-----------------
 #-- Настройка прокси
