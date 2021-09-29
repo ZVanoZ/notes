@@ -14,6 +14,12 @@ git config --global core.editor "atom --wait"
 git config --global http.proxy http://my-proxy.local:3128
 git config --global https.proxy http://my-proxy.local:3128
 
+# Настройка глобального .gitignore, чтобы игнорить папки типа ".idea"
+# @see: https://git-scm.com/docs/gitignore
+# search: "$HOME/.config/git/ignore is used instead"
+touch ~/.config/git/ignore
+echo ".idea" >> ~/.config/git/ignore
+
 #-------------------------------------------------------------------------------
 # Первые шаги. Создаем локальное хранилище и связываем с удаленным  на githib
 #---
@@ -118,13 +124,6 @@ $ git branch -a
 #  remotes/origin/dev-3.0.0-old
 #  remotes/origin/gh-pages
 
-#----------------
-#-- Настройка глобального .gitignore, чтобы игнорить папки типа ".idea"
-#-- https://git-scm.com/docs/gitignore
-#-- search: "$HOME/.config/git/ignore is used instead"
-#-----
-$ touch ~/.config/git/ignore
-$ echo ".idea" >> ~/.config/git/ignore
 # ----------------
 
 
