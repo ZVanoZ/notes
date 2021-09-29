@@ -77,6 +77,16 @@ $ git commit --amend
 # Date: Fri Sep 24 11:50:25 2021 +0300
 # 1 file changed, 122 insertions(+), 21 deletions(-)
 
+# Нужно подписать коммит перед pool-reqest т.к. на принимающей стороне DCO не
+# пропускает коммиты без подписи
+## 1. Локально подписываем коммит.
+$ git commit --amend --no-edit --signoff
+#[origin-issue#214 29f3b1c9] @fix: #214 "MySQL integration test fail in section testNamedParameters
+# Date: Fri Sep 24 11:50:25 2021 +0300
+# 1 file changed, 122 insertions(+), 21 deletions(-)
+## 2. Отправляем изменения на github
+## опция "-q" нужна в случае, когда для авторизации используется токен.
+$ git push -q --force-with-lease origin origin-issue#214
 
 #-------------------------------------------------------------------------------
 # Задача:
