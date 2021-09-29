@@ -2,6 +2,17 @@
 #-------------------------------------------------------------------------------
 # https://git-scm.com/book/ru/v2
 #-------------------------------------------------------------------------------
+# Настройка
+#---
+
+#   Глобально назначить текстовый редактор "atom" для редактирования 
+# комментариев к коммитам, либо при указании правил обхединения коммитов для
+# команды rebase.
+git config --global core.editor "atom --wait"
+
+# Настройка прокси.
+git config --global http.proxy http://my-proxy.local:3128
+git config --global https.proxy http://my-proxy.local:3128
 
 #-------------------------------------------------------------------------------
 # Первые шаги. Создаем локальное хранилище и связываем с удаленным  на githib
@@ -107,12 +118,6 @@ $ git branch -a
 #  remotes/origin/dev-3.0.0-old
 #  remotes/origin/gh-pages
 
-
-#-----------------
-#-- Настройка прокси
-#-----
-git config --global http.proxy http://my-proxy.local:3128
-git config --global https.proxy http://my-proxy.local:3128
 #----------------
 #-- Настройка глобального .gitignore, чтобы игнорить папки типа ".idea"
 #-- https://git-scm.com/docs/gitignore
