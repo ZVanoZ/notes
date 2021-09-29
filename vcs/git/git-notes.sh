@@ -82,7 +82,8 @@ $ git push origin --all
 # 5. Выгружаем все теги
 $ git push origin --tags
 
-# ----------------
+#-------------------------------------------------------------------------------
+# Задача:
 # Имеем клон репозитория.
 # Нужно следить за актуальностью.
 #-----
@@ -124,6 +125,40 @@ $ git branch -a
 #  remotes/origin/dev-3.0.0-old
 #  remotes/origin/gh-pages
 
-# ----------------
+#-------------------------------------------------------------------------------
+#   Задача: выполнить слияние нескольких коммитов, чтобы затем сделать 
+# pool-request с одним коммитом.
+#---
 
+# Проверяем, что мы назодимся на нужной ветке (в нашем случае это "origin-issue#214")
+$ git branch
+  2.13.fix.vagranfile
+  2.13.x
+  2.14.x
+  2.14.x-fix-uniqid-in-test
+  2.14.x-zvanoz-trashed
+  2.14.x.test-by-docker
+  2.14.x.zvanoz-fixtures
+* origin-issue#214
+  origin-issue#214-local
 
+# Смотрим коммиты, которые были сделаны с момента ответвления от основной 
+# ветки с названием "2.14.x"
+$ git cherry -v 2.14.x
++ 1bef71c0e03d30925b03508fd2318b9362de73ab #214 @fix: "MySQL integration test fail in section testNamedParameters"
++ b4605830a83018863ac13ec6c5695b9401ef972e #214 @fix: "MySQL integration test fail in section testNamedParameters"/change failure test to any exception (because github-ci messages different of local messages)
++ a957818aad4fbfa433e2d2074f3066d060170b63 #214 @fix: "MySQL integration test fail in section testNamedParameters"/change code style by phpcs and "laminas/laminas-coding-standard"
++ 343b33b371dabb320da745e56d3caa99fb852e3c #214 @fix: "MySQL integration test fail in section testNamedParameters"/delete commited "phpcs.xml" (i'm sorry)
++ 808c64af56293e771f2a496ec27c7f69eec83555 #214 @fix: "MySQL integration test fail in section testNamedParameters"/fix test "testBindParamByFieldNameIsFail" - wrong name of a fieldName
++ 171cbec2a11e687a68a82e3793b7d0341a814451 Revert "#214 @fix: "MySQL integration test fail in section testNamedParameters"/fix test "testBindParamByFieldNameIsFail" - wrong name of a fieldName"
++ e8e55c252b44a04af6b1ae6e46f295268a1092d4 #214 @fix: "MySQL integration test fail in section testNamedParameters"/fix test "testBindParamByFieldNameIsFail" - wrong name of a fieldName
+
+# Просим git посчитать сколько было коммитов. Получаем 7 штук.
+$ git cherry -v 2.14.x |wc -l
+7
+
+# Объединяем 7 коммитов.
+# Фактически, создаентся новый коммит в котором объединены все 7 коммитов.
+# Затем ссылка текущей ветки("origin-issue#214") переставляется на новый коммит.
+$ git rebase -i HEAD~7
+#-------------------------------------------------------------------------------
