@@ -36,6 +36,7 @@ COPY src/ .
 
 # Устанавливаем из исходников с github.
 # В секции <git checkout "2.3.3"> выбираем ту версию, которая нам нужна.
+# Выбираем тут: https://github.com/xdebug/xdebug/releases?after=XDEBUG_2_4_0
 # "2.3.3" - on 19 Jun 2015    - PHP 5.6
 RUN git clone https://github.com/xdebug/xdebug.git  /usr/src/php/ext/xdebug\
     && cd /usr/src/php/ext/xdebug \
