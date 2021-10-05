@@ -29,6 +29,10 @@ RUN pecl install -o -f redis \
 # Установка расширения xdebug в Dockerfile
 #  решаем проблему со старой версией PHP
 #-----
+FROM php:5.6-apache
+
+WORKDIR /var/www/
+COPY src/ .
 
 # Устанавливаем из исходников с github.
 # В секции <git checkout "2.3.3"> выбираем ту версию, которая нам нужна.
@@ -41,6 +45,7 @@ RUN git clone https://github.com/xdebug/xdebug.git  /usr/src/php/ext/xdebug\
 # Создаем ссылку на "xdebug.ini"
 RUN cp  ./configs/xdebug.ini.sample ./configs/xdebug.ini \
     && ln -sfv `pwd`/configs/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+    
 #------------------------------------------------------------------------------
 # Обновление библиотек "vendor" при помощи PHP composer, который установлен 
 # в какой-то другой контейнер. 
