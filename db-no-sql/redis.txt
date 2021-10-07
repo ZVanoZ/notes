@@ -5,6 +5,47 @@
 * Redis Cheat Sheet 
 http://lzone.de/cheat-sheet/Redis
 Шпаргалка по командам Redis. Команды разбиты на группы.
+* Redis для начинающих 
+https://webdevblog.ru/redis-dlya-nachinajushhij/
+
+-----------------------------------------------------------------------------
+-- Шпаргалка по командам.
+-----
+
+-- Скалярные данные. Работаем с одним елючем
+SET; GET; EXISTS;  GETSET; DEL; APPEND; RENAME
+SETNX;
+MGET; MSET;
+-- Время жизни ключа
+TTL; PERSIST;
+-- Работаем с множеством ключей
+FLUSHALL; KEYS;
+-- Счетчики
+INCR; DECR;
+-- Комплексные типы данных
+--- Хеш таблицы
+HSET; HGET; HGETALL; HDEL;
+HSETNX
+HKEYS
+HLEN
+HMGET
+HINCRBY
+HINCRBFLOAT
+---- Множества
+SADD; SMEMBERS
+---- Упорядоченные множества
+ZADD; ZRANGE
+---- Списки
+LPUSH; LRANGE; LINDEX; LLEN; LSET; 
+LTRIM;
+LPUSH; LPUSHX;
+LPOP;
+RPUSH; 
+RPOP
+-- Транзакции в Redis
+MULTI; EXEC
+-- Механиз подписок PUS-SUB
+SUBSCRIBE; PUBLISH
 
 -----------------------------------------------------------------------------
 -- Примеры.
