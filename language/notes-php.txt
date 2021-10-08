@@ -5,6 +5,10 @@
 * PhpDoc
 https://docs.phpdoc.org
 https://docs.phpdoc.org/3.0/guide/getting-started/installing.html
+https://docs.phpdoc.org/3.0/guide/references/phpdoc/
+https://docs.phpdoc.org/3.0/guide/references/phpdoc/basic-syntax.html#basic-syntax
+https://docs.phpdoc.org/3.0/guide/references/phpdoc/types.html#definition-of-a-type
+https://docs.phpdoc.org/3.0/guide/references/phpdoc/inline-tags/index.html#inline-tag-reference
 
 ------------------------------------------------------------------------------------
 -- Tool "phpdoc"
