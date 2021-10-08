@@ -63,6 +63,8 @@
 
 ## Использование SVN репозитария для затягивания конкретного пакета
 
+* https://getcomposer.org/doc/05-repositories.md#package-2
+
 ```js
 // my-app/composer.json
 {
@@ -99,5 +101,31 @@
         "mylibs/zendframework" :"1.11.11",
     }
 }
+```
+
+* https://getcomposer.org/doc/05-repositories.md#artifact
+
+Вроде, этот вариант правильнее. Но я его не использовал.
+
+**@TODO: попробовать и описать**
+
+```js
+// my-app/composer.json
+// Подключаем библиотеку "some-company/their-library": "10.3.5"
+// Библиотека находится по пути "my-app/path/to/directory/with/zips/some-company-their-library-10.3.5.zip"
+// Внимание! Формат названия архива должен соответствовать формату.
+{
+    "repositories": [
+        {
+            "type": "artifact",
+            "url": "path/to/directory/with/zips/"
+        }
+    ],
+    "require": {
+        "some-company/their-library": "10.3.5"
+    }
+}
+
+```
 
 <hr/>
