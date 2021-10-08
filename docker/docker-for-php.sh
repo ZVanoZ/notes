@@ -54,6 +54,9 @@ RUN cp  ./configs/xdebug.ini.sample ./configs/xdebug.ini \
 
 # Обновление библиотек "vendor" для PHP 5.3
 docker run --rm -v $(pwd):/app  tomsowerby/php-5.3-composer -vvv install
+# Добавить в composer.json зависимость от библиотеки "some-company/their-library"
+docker run --rm -v $(pwd):/app  tomsowerby/php-5.3-composer require some-company/their-library
+
 
 # composer:2.0 (какая версия PHP внутри - не помню) 
 docker run --rm --interactive --tty --volume $PWD:/app composer:2.0 composer install
