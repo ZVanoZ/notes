@@ -27,18 +27,66 @@ $ docker run --rm -v $(pwd):/data phpdoc/phpdoc:3 -d . -t ./docs/app/
 -- Tool "php-composer"
 
 -- Использование SVN репозитария
+-->  @TODO: поэкспериментировать и описать подробнее
 {
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "http://svn.example.org/projectA/",
-            "trunk-path": "Trunk",
-            "branches-path": "Branches",
-            "tags-path": "Tags"
-        }
-    ]
+    "name": "company/project",
+    "description": "Description",
+    "minimum-stability": "stable",
+    "config" : {
+        "secure-http": false
+    },
+    {
+        "repositories": [
+            {
+                "type": "vcs",
+                "url": "http://svn.example.org/projectA/",
+                "trunk-path": "Trunk",
+                "branches-path": "Branches",
+                "tags-path": "Tags"
+            }
+        ]
+    },
+    "require": {    
+        ...@TODO: а как использовать то?
+    }
 }
 
+-- Использование SVN репозитария для затягивания конкретного пакета
+
+{
+    "name": "company/project",
+    "description": "Description",
+    "minimum-stability": "stable",
+    "config" : {
+        "secure-http": false
+    },
+    {
+        "repositories": [
+        {
+            "type" : "package",
+            "package"  : {
+                "name"    : "mylibs/zendframework",
+                "version" : "1.11.11",
+                "dist"  : {
+                    "type"  : "zip",
+                    "url"  : "http://svn.example.org/svn/libs/archive/ZendFramework/ZendFramework-1.11.11.zip"
+                },
+                "autoload": {
+                    "psr-0" : {
+                        "Zend" : "",
+                        "ZendX" : ""
+                    }
+                },
+                "include-path": [""]
+            }
+        },
+        ]
+    },
+    "require": {
+        "php": "^5.3.0",
+        "mylibs/zendframework" :"1.11.11",
+    }
+}
 
 -----
 
