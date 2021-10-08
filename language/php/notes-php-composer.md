@@ -129,3 +129,61 @@
 ```
 
 <hr/>
+
+## Подключаем пакет с "composer.json" из папки 
+
+Такой вариант может пригодиться, когда разравбатываем прототип пакета.
+
+Допустим, приложение имеет структуру
+```TEXT
+[my-app]
+|>[library]
+| \>[my-library]
+|   |>[src]
+|   | \> ...тут исходники библиотеки
+|   \>composer.json  - конфиг библиотеки
+|>[vendor]
+| \>...
+|>composer.json  - конфиг приложения
+```
+```js
+// my-app/library/my-library/composer.json
+{
+  "name": "my-company/my-library",
+  "type": "library",
+  "version": "0.0.1",
+  "autoload": {
+    "psr-0": {
+      "MyLibrary_": "src/"
+    }
+  }
+}
+```
+Чтобы подключить эту библиотеку
+```JS
+// 1. Прописываем путь к ней в "composer.json" приложения
+// "my-app/composer.json"
+{
+  // ...
+  "repositories": [
+    {
+      "type": "path",
+      "url": "library/my-library"   // утилита composer при установке пакетов будет искать в этой директории. Найдет тут "composer.json" и выполнит установку.
+    }
+  ],
+  // ...
+}
+```
+```BASH
+# 2. Запускаем установку библиотеки через composer
+# Внимание! Добавлять юиюлиотеку через вызов обязательно т.к. composer создает символичкскую ссылку 
+# "my-app/vendor/my-company/my-library" которая ссылается на
+# "my-app/library/my-company/my-library"
+# Если добавить руками зависимость в "my-app/composer.json" 
+#   require "my-company/my-library": "^0.0.1" 
+# то ссылка не создается и автолоадер не работает.
+cd my-app
+docker run --rm -v $(pwd):/app  tomsowerby/php-5.3-composer require "my-company/my-library"
+```
+
+<hr/>
