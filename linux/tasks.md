@@ -1,41 +1,67 @@
-Сценарии решения различных проблем в Linux
+<h1>Сценарии решения различных проблем в Linux</h1>
 
-------------------------------------------------------------
+<hr/>
+
+# Узнать какой дистрибутив установлен
+
+```BASH
+cat /etc/os-release
+```
+Получим что-то типа
+```TEXT
+RETTY_NAME="Debian GNU/Linux jessie/sid"
+NAME="Debian GNU/Linux"
+ID=debian
+ANSI_COLOR="1;31"
+HOME_URL="http://www.debian.org/"
+SUPPORT_URL="http://www.debian.org/support/"
+BUG_REPORT_URL="https://bugs.debian.org/"
+```
+
+<hr/>
 
 В терминале переключиться на рута 
 
-$ sudo su -
-...
-$ exit
+```BASH
+sudo su -
+exit
+```	
+<hr/>
 
-------------------------------------------------------------
+# Настроить монтирование дисков при старте системы
 
-Настроить монтирование дисков при старте системы
+## 0. Смотрим что у нас вообще есть из дисков
 
-0. Смотрим что у нас вообще есть из дисков
-
-$ sudo blkid 
-[sudo] password for ivan: 
+```BASH
+sudo blkid 
+```
+Получим что-то типа такого	
+```TEXT
 /dev/sda1: UUID="bd2dcca7-e963-40f2-bf7c-5c89640d7abc" TYPE="ext4" PARTUUID="95e3d9c4-01"
 /dev/sda5: UUID="0e3e7559-9627-45e9-8daa-cd40e2f799b7" TYPE="swap" PARTUUID="95e3d9c4-05"
 /dev/sdc: LABEL="dio-zim-1tb" UUID="933438ad-8152-44e9-937a-86f62a8eaa94" TYPE="ext4"
 /dev/sdb1: UUID="b1e8618b-8074-4654-8dd6-eea602e7fed5" TYPE="ext4" PARTUUID="6a1e9125-01"
 /dev/sdd: LABEL="zim16g" UUID="3C16265916261484" TYPE="ntfs"
 /dev/mapper/truecrypt1: UUID="D27EFF1B7EFEF757" TYPE="ntfs"
+```
+	
+## 1. Назначаем метки, если требуется .
 
-1. Назначаем метки, если требуется .
-$ sudo e2label /dev/sdb1 dio-zim-120g-sys
+```BASH
+sudo e2label /dev/sdb1 dio-zim-120g-sys
+# 2. Создаем каталоги для монтирования в них дисков
+sudo mkdir /media/dio-zim-1tb
+sudo mkdir /media/dio-zim-120g-sys
+```
 
-2. Создаем каталоги для монтирования в них дисков
-$ sudo mkdir /media/dio-zim-1tb
-$ sudo mkdir /media/dio-zim-120g-sys
+## 3. Прописываем монтирование в "/etc/fstab"
 
-3. Прописываем монтирование в "/etc/fstab"
-
-$ sudo mcedit /etc/fstab
-
+```BASH
+sudo mcedit /etc/fstab
+```
+	
+```TEXT
 # Вносим строчки
-
 # mount /mnt/dio-zim-1tb по "uuid"
 #/dev/disk/by-uuid/933438ad-8152-44e9-937a-86f62a8eaa94 /mnt/dio-zim-1tb auto nosuid,nodev,nofail,x-gvfs-show 0 0
 
@@ -44,11 +70,15 @@ $ sudo mcedit /etc/fstab
 
 # SSD 120
 /dev/disk/by-label/dio-zim-120g-sys /media/dio-zim-120g-sys auto nosuid,nodev,nofail,x-gvfs-show 0 0
-
+```
+	
 4. Монтируем, чтобы не перегзаружать систему (в дальнейшем монтирование будет происходить автоматически)
-$ sudo mount -a
+```BASH
+sudo mount -a
+```
 
-------------------------------------------------------------
+<hr/>
+
 
 Debian 10, PhpStorm 2019.2, svn 1.10.4 (r1850624)
 При обновлении проекта из PhpStorm получаю ошибку:
