@@ -1,4 +1,9 @@
 Прочитать/изучить.
+[2021-10-13]
+@TODO: Ознакомиться с базовыми функциями Photoshop
+Курс по дизайну.
+https://www.youtube.com/watch?v=Rh3b5fJMTzE&list=PLVvUmXLMEyqsgAJO8z20QTFQW6mG6zRiF
+
 [20200630]
 -- PHP Server Monitor
 http://www.phpservermonitor.org
