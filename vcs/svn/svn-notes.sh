@@ -29,8 +29,11 @@ $ svn update
 # Коммит указанной директории (закоммитится только папка "docker", а остальное останется в текущем состоянии)
 $ svn commit ./docker/ -m "Commit notes for our dockerfiles"
 
-
+# Создаем папку "some-project" в корне репозитария. 
+# Таким способом базовую структуру можно создать за 4 коммита
 svn mkdir http:/svnserver/svn/some-project/ -m "mktir for new project"
+# Создаем базовую структуру для проекта "some-project" за один коммит
+svn mkdir --parents http:/svnserver/svn/some-project/trunk http:/svnserver/svn/some-project/branches http:/svnserver/svn/some-project/tags -m "#0000 create empty structure for some-project"
 
 # Сделать ветку на удаленном сервере.
 $ svn copy svn://svnserver/var/bump/trunk svn://svnserver/var/bump/branches/my-branch -m="Creating a private branch of /bump/trunk"
