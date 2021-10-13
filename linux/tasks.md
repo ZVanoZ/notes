@@ -90,6 +90,7 @@ sudo mount -a
 
 <hr/>
 
+# Добавить поддершку локали
 
 Debian 10, PhpStorm 2019.2, svn 1.10.4 (r1850624)
 При обновлении проекта из PhpStorm получаю ошибку:
@@ -101,13 +102,24 @@ Debian 10, PhpStorm 2019.2, svn 1.10.4 (r1850624)
 Решение:
 Раскомментировать локаль "en_US.UTF-8 UTF-8" в "/etc/locale.gen"
 
-$ sudo mcedit /etc/locale.gen 
+Выполняем
+```bash
+sudo mcedit /etc/locale.gen 
+```
+Находим строчки и раскомментируем
+```TEXT
 en_US.UTF-8 UTF-8
 ru_UA.UTF-8 UTF-8
-
-$ sudo locale-gen
+```
+Запускаем
+```BASH
+sudo locale-gen
+```
+Видим
+```TEXT
 Generating locales (this might take a while)...
   en_US.UTF-8... done
   ru_UA.UTF-8... done
+```
 
-------------------------------------------------------------
+<hr/>
