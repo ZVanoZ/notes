@@ -20,7 +20,7 @@ cat /etc/os-release
 ```
 Получим что-то типа
 ```TEXT
-RETTY_NAME="Debian GNU/Linux jessie/sid"
+RETTY_NAME="Debian GNU/Linux jessie/sid"        № Вот это нас и интересует. Гуглим "debian jessy"
 NAME="Debian GNU/Linux"
 ID=debian
 ANSI_COLOR="1;31"
