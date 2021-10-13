@@ -4,6 +4,17 @@
 
 # Узнать какой дистрибутив установлен
 
+## Раз
+
+```BASH
+uname -a
+```
+```TEXT
+Linux 00821c2bcae8 4.19.0-18-amd64 #1 SMP Debian 4.19.208-1 (2021-09-29) x86_64 GNU/Linux
+```
+
+## Два
+
 ```BASH
 cat /etc/os-release
 ```
@@ -20,7 +31,7 @@ BUG_REPORT_URL="https://bugs.debian.org/"
 
 <hr/>
 
-В терминале переключиться на рута 
+# В терминале переключиться на рута 
 
 ```BASH
 sudo su -
