@@ -53,6 +53,7 @@ $ docker run ubuntu:latest apt install mc
 
 Например: хотим получить терминал в рабочей среде любого образа, который переопределил
 запуск bash на что-то свое.
+$ docker run --rm -it --entrypoint /bin/bash tomsowerby/php-5.3-composer
 $ docker run --rm -it php:5.3.29-cli /bin/bash
 После запуска появится терминал (за это отвечают опции "-it"). 
 Можем выполнять команды, которые будут работать в среде образа.
