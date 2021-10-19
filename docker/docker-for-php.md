@@ -69,6 +69,7 @@ docker run --rm --interactive --tty --volume $PWD:/app composer:2.0 composer upd
 ```
 
 <hr>
+
 ## На базе чужого образа с PHP 5.3 + php-composer создаем свой, но с subversion. 
 Затем обновляем библиотеки используя php-composer + subversion 
 
