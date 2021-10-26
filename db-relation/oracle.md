@@ -1,3 +1,19 @@
+<hr/>
+
+## Подключиться через SQLPlus к БД на внешнем хосте
+```bash
+# Логин "ldbtUser", пароль "Password123"
+# БД на хосте "172.18.0.1:1521"
+# ServiceName "laminasdb_test"
+sqlplus ldbtUser/Password123@172.18.0.1:1521/laminasdb_test
+```
+
+## Подключиться через SQLPlus к БД на текушем хосте (с правами суперпользователя)
+```bash
+# Подключиться к локальной БД и выполнить скрипт
+qlplus / as sysdba @create-db.sql
+```
+
 <hr>
 
 ## Пример для извлечения данных из таблицы XML
