@@ -16,6 +16,7 @@ git config --global https.proxy http://my-proxy.local:3128
 
 # Настройка глобального .gitignore, чтобы игнорить папки типа ".idea"
 # @see: https://git-scm.com/docs/gitignore
+# @see: https://tyapk.ru/blog/post/gitignore
 # search: "$HOME/.config/git/ignore is used instead"
 touch ~/.config/git/ignore
 echo ".idea" >> ~/.config/git/ignore
