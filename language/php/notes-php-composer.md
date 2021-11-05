@@ -185,5 +185,37 @@
 cd my-app
 docker run --rm -v $(pwd):/app  tomsowerby/php-5.3-composer require "my-company/my-library"
 ```
+<hr />
+
+## Использование GIT репозитария для затягивания форка пакета и его подключение вместо стандартного
+
+```js
+// Рабочий пример подключения форка "laminas-db"
+// composer.json
+{
+  "repositories": [
+    {
+      "type": "package", // Объявляем репозитарий
+      "package": {
+        "name": "zvanoz/laminas-db",   // Объявляем фейковое имя пакета (любое, которое не используется в packagist)
+        "version":"dev-master",        // Объявляем версию пакета (любую. В данном случае "dev-master" но могла бы быть и такой"2.14.20211105")
+        "source": {
+          "url": "https://github.com/ZVanoZ/laminas-db.git",   // Указываем репозиторий
+          "type": "git",                                       // Указываем тип репозитария
+          "reference": "2.14.dio" // Указываем тег или ветку или хеш ревизии, которая будет затянута (должно соответствовать реальности)
+        }
+      }
+    }
+  ],
+  "require": {
+    "zvanoz/laminas-db": "dev-master" // Подключаем пакет по фейковому имени
+  },
+  "autoload": {
+    "psr-4": {
+      "Laminas\\Db\\": "vendor/zvanoz/laminas-db/src" // Переопределяем путь поиска "laminas-db" на наш фейковый пакет в папке "vendor"
+    }
+
+}
+```
 
 <hr/>
