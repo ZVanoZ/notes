@@ -22,7 +22,11 @@ $ nvm use 16.14.1
 ... переключились на версию 16.14.1
 $ node -v
 v16.14.1
+$ type node
+node является /home/ivan/.nvm/versions/node/v16.14.1/bin/node
 ```
 
 
 ## Настройка
+
+*@TODO: Описать как можно использовать NodeJs*
