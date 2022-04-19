@@ -90,7 +90,7 @@ sudo mount -a
 
 <hr/>
 
-# Добавить поддершку локали
+# Добавить поддержку локали
 
 Debian 10, PhpStorm 2019.2, svn 1.10.4 (r1850624)
 При обновлении проекта из PhpStorm получаю ошибку:
@@ -123,3 +123,19 @@ Generating locales (this might take a while)...
 ```
 
 <hr/>
+
+# Вывести список установленных пакетов, которые не являются родными для Debian
+```
+# Эти пакеты рекомендуется удалить перед большим обновлением системы (например, Debian 10 на 11)
+# $ sudo apt install aptitude 
+$ aptitude search '?narrow(?installed, ?not(?origin(Debian)))'
+...
+i   atom                        - A hackable text editor for the 21st Century.                                                                                             
+i   containerd.io               - An open and reliable container runtime                                                                                                   
+i   docker-ce                   - Docker: the open-source application container engine                                                                                     
+i   docker-ce-cli               - Docker CLI: the open-source application container engine                                                                                 
+i A docker-ce-rootless-extras   - Rootless support for Docker.                                                                                                             
+i A docker-scan-plugin          - Docker scan cli plugin.                                                                                                                  
+i   eusw                        - IIT End User CA-1. Sign (web)                                                                                                            
+i   jdk-17                      - Java Platform Standard Edition Development Kit                         
+```
