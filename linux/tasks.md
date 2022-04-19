@@ -29,6 +29,12 @@ SUPPORT_URL="http://www.debian.org/support/"
 BUG_REPORT_URL="https://bugs.debian.org/"
 ```
 
+## Три (для Debian, текущая версия)
+```bash
+$ cat /etc/debian_version
+10.12
+```
+
 <hr/>
 
 # В терминале переключиться на рута 
