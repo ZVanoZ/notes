@@ -91,5 +91,13 @@ wine:
      4.0-2 500
         500 http://deb.debian.org/debian buster/main amd64 Packages
         500 http://deb.debian.org/debian buster/main i386 Packages
+$ apt policy anydesk
+anydesk:
+  Установлен: 6.1.1
+  Кандидат:   6.1.1
+  Таблица версий:
+ *** 6.1.1 500
+        500 http://deb.anydesk.com all/main amd64 Packages
+        100 /var/lib/dpkg/status
 
 ```
