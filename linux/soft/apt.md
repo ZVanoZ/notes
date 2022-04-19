@@ -3,6 +3,7 @@
 https://ravesli.com/difference-between-apt-and-apt-get-in-linux/
 
 <h2>apt cache</h2>
+
 ```bash
 # @TODO: добавить примеры использования
 ```
