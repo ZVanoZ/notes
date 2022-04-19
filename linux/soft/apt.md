@@ -91,13 +91,15 @@ wine:
      4.0-2 500
         500 http://deb.debian.org/debian buster/main amd64 Packages
         500 http://deb.debian.org/debian buster/main i386 Packages
-$ apt policy anydesk
-anydesk:
-  Установлен: 6.1.1
-  Кандидат:   6.1.1
+$ apt policy playonlinux
+playonlinux:
+  Установлен: 4.3.4
+  Кандидат:   4.3.4
   Таблица версий:
- *** 6.1.1 500
-        500 http://deb.anydesk.com all/main amd64 Packages
+ *** 4.3.4 500
+        500 http://deb.playonlinux.com squeeze/main amd64 Packages
+        500 http://deb.playonlinux.com squeeze/main i386 Packages
         100 /var/lib/dpkg/status
+
 
 ```
