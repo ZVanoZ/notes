@@ -42,6 +42,8 @@ $ svn copy svn://svnserver/var/bump/trunk svn://svnserver/var/bump/branches/my-b
 # В данном случае переименование someProgect1 в someProgect2
 $ svn move svn://svnserver/someProgect1 svn://svnserver/someProgect2
 
+# Локально. Перенести папку "myCompany-myLibrary" в папку "./my-company/my-library"
+svn mv myCompany-myLibrary ./my-company/my-library
 
 # Отобразить список файлов и каталогов в удаленном репозитарии
 svn list svn://svnserver/var/bump/branches
