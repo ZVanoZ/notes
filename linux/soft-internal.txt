@@ -164,6 +164,20 @@ $ expr 5 \!= 5
 -- [F] ABCDEF GHIJKLMNOPQRSTUVWXYZ
 -------
 
+[find]
+Поиск файлов м папок.
+
+-- Ищет в субдиректориях "~" файлы и папки по маске "*agent*.jar" с учетом регистра
+find ~ -name *agent*.jar
+
+-- Ищет в субдиректориях "~" файлы и папки по маске "*agent*.jar" без учета регистра
+find ~ -iname *agent*.jar
+
+-- найти файлы
+find ~ -type f -iname *cache*
+-- найти директории
+find ~ -type d -iname *cache*
+
 [fg]
 Внутренняя.
 Связанные команды: jobs, bg 
