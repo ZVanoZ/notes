@@ -100,6 +100,32 @@
         "mylibs/zendframework" :"1.11.11",
     }
 }
+// Вариант 2
+// Грузим библиотеку "mycompany/tcpdf-fonts": "trunk" из  "url": "http://svn.my-company.local/svn/web/libs/tcpdf-fonts/trunk",
+{
+  "require-dev": {
+    "mycompany/tcpdf-fonts": "trunk"
+  },
+ "repositories": [
+   "config" : {
+    "secure-http": false
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "mycompany/tcpdf-fonts",
+        "version":"trunk",
+        "source": {
+          "url": "http://svn.my-company.local/svn/web/libs/tcpdf-fonts/trunk",
+          "type": "svn",
+          "reference": "trunk"
+        }
+      }
+    }
+  ]
+}
+
 ```
 
 * https://getcomposer.org/doc/05-repositories.md#artifact
