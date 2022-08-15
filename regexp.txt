@@ -1,7 +1,30 @@
 -------------------------------------------------------------------
-Негативная ретроспективная проверка
-regexp: '(?<!@)editable'
-text false: '@editable'
-text true: '@ editable'
-https://regex101.com/r/Ko2WQD/1
+-- Негативная ретроспективная проверка
+-- https://regex101.com/r/Ko2WQD/1
+-----
+
+-- regexp:
+(?<!@)editable
+
+
+-- text false:
+@editable
+
+-- text true:
+@ editable
+
+
+-------------------------------------------------------------------
+-- Проверить соответствие URL:
+-----
+
+-- https://regex101.com/r/b8ELvT/1
+REGEX:
+\/journal((\?{1}.*)|($))
+
+TEXT:
+/journal
+/journal?
+/journal?aaa=bbb
+
 -------------------------------------------------------------------
