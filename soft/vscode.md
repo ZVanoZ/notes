@@ -1,4 +1,6 @@
-Расширения для работы с PHP в VSCode:
+-------------------------------------------------------------------------------
+-- Расширения для работы с PHP в VSCode:
+-----
 
 * Composer
 v0.8.0
@@ -28,6 +30,7 @@ Ben Mewburn
 6 548 069 
 (335)
 PHP code intelligence for Visual Studio Code
+CTRL+SHIFT+I - Форматировать документ
 
 * PHP IntelliSense
 v1.0.11
@@ -83,3 +86,18 @@ fantasytyx
 190 835
 (9)
 tortoise-svn is a simple extension for VSCode to use TortoiseSVN.
+
+-------------------------------------------------------------------------------
+-- HOWTO: ...
+------
+
+-- Добавить папку в игнор для функции скана методов и навигации по CTRL+LClick
+https://stackoverflow.com/questions/33258543/how-to-exclude-folder-from-explore-tab
+1. Жмем "CTRL+,"
+2. Поиск "exclude"
+3. Идем в "Пользователь/Часто используемые/Files: Exclude"
+4. Жмем "Добавить элемент" и вводим шаблон пути.
+Например.
+**/src/library/*vendor**
+
+-------------------------------------------------------------------------------
