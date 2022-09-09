@@ -1,21 +1,37 @@
-# Извлекает проект "someProgect" с сервера в текущую папку 
+#------------------------------------------------------------------------------
+# Полезные ссылки
+#---
+
+# "Краткая шпаргалка по основным командам Subversion":https://eax.me/svn-commands/
+
+#------------------------------------------------------------------------------
+# Работа с репозитарием на внешнем сервере
+#----
+
+# Создаем папку "some-project" в корне репозитария.
+# Таким способом базовую структуру можно создать за 4 коммита
+svn mkdir http:/svnserver/svn/some-project/ -m "mktir for new project"
+# Создаем базовую структуру для проекта "some-project" за один коммит
+svn mkdir --parents http:/svnserver/svn/some-project/trunk http:/svnserver/svn/some-project/branches http:/svnserver/svn/some-project/tags -m "#0000 create empty structure for some-project"
+
+# Сделать ветку на удаленном сервере.
+$ svn copy svn://svnserver/var/bump/trunk svn://svnserver/var/bump/branches/my-branch -m="Creating a private branch of /bump/trunk"
+
+# Перенести на удаленном сервере папку из одного места в другое
+# В данном случае переименование someProgect1 в someProgect2
+$ svn move svn://svnserver/someProgect1 svn://svnserver/someProgect2
+
+# Отобразить список файлов и каталогов в удаленном репозитарии
+svn list svn://svnserver/var/bump/branches
+
+#------------------------------------------------------------------------------
+# Работа с локальной копией
+#----
+
+# Извлекает проект "someProgect" с сервера в текущую папку
 # В текущей папке появится подкаталог "someProgect", который будет связан с удаленнын репозитарием
-$svn checkout svn://svnserver/someProgect
+$ svn checkout svn://svnserver/someProgect
 
-# Показывает информацию о локальной копии
-$ svn info
-
-# Показывает изменения в локальной копии:
-# M - (modified) изменен
-# A - (added) Добавлен
-# D - (deleted) Помечен на удаление в SVN
-# ! - Удален в локальной файловой системе, но не помечен на удаление в SVN
-# X - Внешняя ссылка на ресурс, подключаемый через атрибут "svn:externals"
-# L - (locked) файл или папка заблокированы. Разрешение конфликтов совместного доступа.
-# см. "Три значения «Блокировки»" в https://tortoisesvn.net/docs/release/TortoiseSVN_ru/tsvn-dug-locking.html 
-$ svn status
-# Показывает изменения в локальной копии, при этом не учитывает (M - modified, A - added, D - deleted) файлы
-$ svn status | grep "^[^MAD]"
 
 # Добавить паку "src" в список "для коммита". При этом содержимое папки тоже попадет в список.
 $ svn add src 
@@ -29,24 +45,9 @@ $ svn update
 # Коммит указанной директории (закоммитится только папка "docker", а остальное останется в текущем состоянии)
 $ svn commit ./docker/ -m "Commit notes for our dockerfiles"
 
-# Создаем папку "some-project" в корне репозитария. 
-# Таким способом базовую структуру можно создать за 4 коммита
-svn mkdir http:/svnserver/svn/some-project/ -m "mktir for new project"
-# Создаем базовую структуру для проекта "some-project" за один коммит
-svn mkdir --parents http:/svnserver/svn/some-project/trunk http:/svnserver/svn/some-project/branches http:/svnserver/svn/some-project/tags -m "#0000 create empty structure for some-project"
-
-# Сделать ветку на удаленном сервере.
-$ svn copy svn://svnserver/var/bump/trunk svn://svnserver/var/bump/branches/my-branch -m="Creating a private branch of /bump/trunk"
-
-# Перенести на удаленном сервере папку из одного места в другое 
-# В данном случае переименование someProgect1 в someProgect2
-$ svn move svn://svnserver/someProgect1 svn://svnserver/someProgect2
-
 # Локально. Перенести папку "myCompany-myLibrary" в папку "./my-company/my-library"
 svn mv myCompany-myLibrary ./my-company/my-library
 
-# Отобразить список файлов и каталогов в удаленном репозитарии
-svn list svn://svnserver/var/bump/branches
 
 # Переключить локальную копию на ветку.
 # Эту же команду использовать, если проект переехал в другое место.
@@ -70,12 +71,44 @@ svn resolve --accept working -R ./docker/web
 # Отмена локальных изменений в текущей папке и ниже.
 svn revert -R ./
 
+
+#------------------------------------------------------------------------------
+# Просмотр истории
+#----
+
 # Получить список измененныз файлов зная ревизию.
 # Полезно когда в одной директории сервра много проектов и не знаем в каком проекте сделать изменения.
 # По номеру ревизии получаем путь к проекту.
 $ svn log -v -r 4112:4112 http://svnserver/many-projects-root/
 
-#-------------------------------
+
+#------------------------------------------------------------------------------
+# Просмотр изменений в локальной копии
+#----
+
+# Показывает информацию о локальной копии
+$ svn info
+
+# Показывает изменения в локальной копии:
+# M - (modified) изменен
+# A - (added) Добавлен
+# D - (deleted) Помечен на удаление в SVN
+# ! - Удален в локальной файловой системе, но не помечен на удаление в SVN
+# X - Внешняя ссылка на ресурс, подключаемый через атрибут "svn:externals"
+# L - (locked) файл или папка заблокированы. Разрешение конфликтов совместного доступа.
+# см. "Три значения «Блокировки»" в https://tortoisesvn.net/docs/release/TortoiseSVN_ru/tsvn-dug-locking.html
+$ svn status
+
+# Показывает изменения в локальной копии, при этом не учитывает (M - modified, A - added, D - deleted) файлы
+$ svn status | grep "^[^MAD]"
+
+
+# Показывает все изменения в локальной копии
+$ svn diff
+# Показывает изменения файла "my-file.txt" в локальной копии
+$ svn diff my-dir/my-file.txt
+
+#------------------------------------------------------------------------------
 # Работа со свойствами
 #----
 # Справка по синтаксису команды
