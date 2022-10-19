@@ -32,3 +32,20 @@ egrep "\[[0-9]{2}-[a-zA-Z]{3}-[0-9]{4}" php.log | cut -c 32- | sort | uniq -c | 
 grep "LBUID" development.log|awk '{pos=index($0, "LBUID"); $0=substr($0, pos + 20); print $0}'| sort | uniq -c
 
 #--------------------------------------------------------------------------------------
+# Диагностика неполадок при запуске приложений
+#-----
+
+# Проверить грузитс я ли динамическая библиотека.
+# Если чего-то не хватает, то будет написано "*.so => not found"
+ldd /usr/local/lib/php/extensions/no-debug-non-zts-20210902/oci8.so
+#>        linux-vdso.so.1 (0x00007ffcb273f000)
+#>        libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fedace4e000)
+#>        libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fedacd0a000)
+#>        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fedacb45000)
+#>        libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fedacb2b000)
+#>        libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007fedacb25000)
+#        /lib64/ld-linux-x86-64.so.2 (0x00007fedad308000)
+
+# Проверить считываются ли конфиги PHP
+# Для запуска нужно установить в систему "strace"
+strace -f -e trace=open php --ini
