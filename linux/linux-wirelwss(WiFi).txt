@@ -5,8 +5,8 @@
 ##
 
 # Список WiFi адаптеров, подключенных к USB
-`$ lsusb |grep 'Wire'`
-# Bus 002 Device 023: ID 148f:7601 Ralink Technology, Corp. MT7601U Wireless Adapter
+$ lsusb |grep 'Wire'
+Bus 002 Device 023: ID 148f:7601 Ralink Technology, Corp. MT7601U Wireless Adapter
 
 # Проверяем установлены ли утилиты 
 $ dpkg -l | grep wpasupplicant
@@ -55,5 +55,12 @@ $ sudo apt install firmware-iwlwifi
 # Предполагаем из за присутствия текста "rtl" в строчке "firmware: failed to load rtlwifi/rtl8188eufw.bin (-2)"
 # Устанавливаем драйвера Realtek
 $ sudo apt-get install firmware-realtek
+
+
+# Не помогает.
+# Ищем дальше 
+$ sudo dmesg | grep wlan
+[   53.279145] r8188eu 2-10.4:1.0 wlx64eeb7164314: renamed from wlan0
+
 
 
