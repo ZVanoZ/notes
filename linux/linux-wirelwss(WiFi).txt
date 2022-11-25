@@ -1,3 +1,44 @@
-Список WiFi адаптеров, подключенных к USB
+# Ссылки:
+## 1. https://mnorin.com/nastrojka-wifi-iz-komandnoj-stroki.html
+## Настройка WiFi из командной строки
+## 2. ...
+##
+
+# Список WiFi адаптеров, подключенных к USB
 `$ lsusb |grep 'Wire'`
-Bus 002 Device 023: ID 148f:7601 Ralink Technology, Corp. MT7601U Wireless Adapter
+# Bus 002 Device 023: ID 148f:7601 Ralink Technology, Corp. MT7601U Wireless Adapter
+
+# Проверяем установлены ли утилиты 
+$ dpkg -l | grep wpasupplicant
+#ii  wpasupplicant                                               2:2.9.0-21                                       amd64        client support for WPA and WPA2 (IEEE 802.11i)
+
+$ dpkg -l | grep wireless-tools
+#ii  wireless-tools                                              30~pre9-13.1                                     amd64        Tools for manipulating Linux Wireless Extensions
+
+# Если не установлено, то
+$ sudo apt-get install wpasupplicant wireless-tools
+
+# Пытаемся найти интерфейс.
+# Но его нет в списке доступных
+$ iwlist scanning
+lo        Interface doesn't support scanning.
+enp3s0    Interface doesn't support scanning.
+veth9ca9ce3  Interface doesn't support scanning.
+bnep0     Interface doesn't support scanning.
+tun0      Interface doesn't support scanning.
+
+Видим какие-то ошибки
+$ sudo dmesg | grep wifi
+[   71.728057] r8188eu 2-10.4:1.0: firmware: failed to load rtlwifi/rtl8188eufw.bin (-2)
+[   71.728207] r8188eu 2-10.4:1.0: Direct firmware load for rtlwifi/rtl8188eufw.bin failed with error -2
+[   71.728533] r8188eu 2-10.4:1.0: Firmware rtlwifi/rtl8188eufw.bin not available
+[ 1870.221554] usb 5-5: rtl8xxxu: Loading firmware rtlwifi/rtl8192eu_nic.bin
+[ 1870.221565] usb 5-5: firmware: failed to load rtlwifi/rtl8192eu_nic.bin (-2)
+[ 1870.221566] usb 5-5: Direct firmware load for rtlwifi/rtl8192eu_nic.bin failed with error -2
+[ 1870.221568] usb 5-5: request_firmware(rtlwifi/rtl8192eu_nic.bin) failed
+[ 1987.732459] usb 2-4.2: rtl8xxxu: Loading firmware rtlwifi/rtl8192eu_nic.bin
+[ 1987.732484] usb 2-4.2: firmware: failed to load rtlwifi/rtl8192eu_nic.bin (-2)
+[ 1987.732487] usb 2-4.2: Direct firmware load for rtlwifi/rtl8192eu_nic.bin failed with error -2
+[ 1987.732492] usb 2-4.2: request_firmware(rtlwifi/rtl8192eu_nic.bin) failed
+
+
