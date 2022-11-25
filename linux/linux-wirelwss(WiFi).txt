@@ -41,7 +41,7 @@ $ sudo dmesg | grep wifi
 [ 1987.732487] usb 2-4.2: Direct firmware load for rtlwifi/rtl8192eu_nic.bin failed with error -2
 [ 1987.732492] usb 2-4.2: request_firmware(rtlwifi/rtl8192eu_nic.bin) failed
 
-# Устанавливаем "firmware-iwlwifi" 
+# Устанавливаем "firmware-iwlwifi" -  драйвера для устройств intel
 # Для Debian 11 (bullseye) добавляем non-free репозитарий (если еще не добавлен)
 # Используйте любой из серверов-зеркал, добавив его в свой файл /etc/apt/sources.list, например так:
 # deb http://ftp.de.debian.org/debian bullseye main non-free
@@ -50,5 +50,10 @@ $ sudo apt update
 $ sudo apt upgrade
 ...
 $ sudo apt install firmware-iwlwifi
+
+# Понимаем, что у нас WiFi адаптер не Rntel, а вроде как Realteck (но это не точно)
+# Предполагаем из за присутствия текста "rtl" в строчке "firmware: failed to load rtlwifi/rtl8188eufw.bin (-2)"
+# Устанавливаем драйвера Realtek
+$ sudo apt-get install firmware-realtek
 
 
