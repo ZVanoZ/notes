@@ -1,5 +1,22 @@
 # Настройка DNS 
 
+```bash
+# Смотрим статус
+$ systemd-resolve --status 
+ systemd-resolve --status 
+Global
+       Protocols: +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
+resolv.conf mode: uplink
+     DNS Servers: 10.2.0.1 10.10.10.183
+      DNS Domain: my-company.local
+      
+Link 3 (wlx64eeb7164314)
+Current Scopes: DNS LLMNR/IPv4 LLMNR/IPv6
+     Protocols: +DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+   DNS Servers: 192.168.43.184      << Этот DNS автоматически выдал Lifecell.        
+
+````
+
 /etc/systemd/resolved.conf 
 ```conf
 [Resolve]
