@@ -44,3 +44,9 @@ Domains=my-company.local
 #ResolveUnicastSingleLabel=no
 
 ```
+
+````bash
+# Перезапускаем демона.
+# При этом обновляется содержимое "/etc/resolv.conf"
+sudo service systemd-resolved restart
+````
