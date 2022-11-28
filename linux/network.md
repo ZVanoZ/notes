@@ -3,6 +3,8 @@
 ```bash
 # Смотрим статус
 $ systemd-resolve --status 
+````
+```text
  systemd-resolve --status 
 Global
        Protocols: +LLMNR +mDNS -DNSOverTLS DNSSEC=no/unsupported
@@ -18,7 +20,7 @@ Current Scopes: DNS LLMNR/IPv4 LLMNR/IPv6
 ````
 
 /etc/systemd/resolved.conf 
-```conf
+```ini
 [Resolve]
 # Через пробел
 # DNS=10.2.0.1 10.10.10.183 
