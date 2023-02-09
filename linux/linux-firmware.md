@@ -1,5 +1,5 @@
 
-h2. Имеем проблему с драйверами для видеокарты NVidia
+## Имеем проблему с драйверами для видеокарты NVidia
 
 Время от времени графическая система вешается, но можно подключиться по SSH.
 
@@ -26,7 +26,14 @@ nouveau 0000:01:00.0: firmware: failed to load nouveau/nvc1_fuc084d (-2)
 +pci:0000:01:00.0
 ```
 
-Нагуглил [решение](https://itnots.ru/linux/problema-s-komponentami-nouveau-firmware-failed-to-load-nouveau-nvc1_fuc084/), попробовал установить. 
+Оборудование:
+```bash
+ivan@ivan-debian:~$ lspci |grep -i NVIDIA
+01:00.0 VGA compatible controller: NVIDIA Corporation GF108 [GeForce GT 430] (rev a1)
+01:00.1 Audio device: NVIDIA Corporation GF108 High Definition Audio Controller (rev a1)
+```
+
+Нагуглил [решение](https://itnots.ru/linux/problema-s-komponentami-nouveau-firmware-failed-to-load-nouveau-nvc1_fuc084/), попробовал установить.  
 **Результат пока неизвестен**
 
 ```bash
