@@ -166,5 +166,5 @@ find -type f -print0 | xargs -0 md5sum > folder.md5
 ## Вывести информацию о всех проверенных файлах
 md5sum -c folder.md5 
 ## Вывести информацию о файлах, для которых md5 не совпал 
-md5sum --quiet -c nais-test-folder.md5
+md5sum --quiet -c folder.md5
 ```
