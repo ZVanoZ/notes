@@ -76,7 +76,7 @@ sudo mkdir /media/dio-zim-120g-sys
 ```BASH
 sudo mcedit /etc/fstab
 ```
-	
+
 ```TEXT
 # Вносим строчки
 # mount /mnt/dio-zim-1tb по "uuid"
@@ -88,8 +88,8 @@ sudo mcedit /etc/fstab
 # SSD 120
 /dev/disk/by-label/dio-zim-120g-sys /media/dio-zim-120g-sys auto nosuid,nodev,nofail,x-gvfs-show 0 0
 ```
-	
-4. Монтируем, чтобы не перегзаружать систему (в дальнейшем монтирование будет происходить автоматически)
+
+## 4. Монтируем, чтобы не перегзаружать систему (в дальнейшем монтирование будет происходить автоматически)
 ```BASH
 sudo mount -a
 ```
@@ -167,4 +167,14 @@ find -type f -print0 | xargs -0 md5sum > folder.md5
 md5sum -c folder.md5 
 ## Вывести информацию о файлах, для которых md5 не совпал 
 md5sum --quiet -c folder.md5
+```
+
+<hr/>
+
+# Поиск и замена текста
+
+```bash
+# Заменить все строки вида "* @version ..." на "* @version DELETED"
+find ./ -name *.ph* -print0 | xargs -0 sed -i "s/^\s*\*\s*@version.*$/ * @version DELETED/g"
+
 ```
