@@ -155,3 +155,16 @@ i   jdk-17                      - Java Platform Standard Edition Development Kit
 # Т.к. в старом SVN служебная папка ".svn" была в каждой папке проекта, что мешает сравнению. 
 rm -rf `find . -type d -name .svn`
 ```
+
+# Посчитать MD5 для всех файлов текущей папки.
+
+```bash
+# Посчитать MD5 для всех файлов текущей папки.
+find -type f -print0 | xargs -0 md5sum > folder.md5
+
+# Проверка контрольных сумм для файлов из списка.
+## Вывести информацию о всех проверенных файлах
+md5sum -c folder.md5 
+## Вывести информацию о файлах, для которых md5 не совпал 
+md5sum --quiet -c nais-test-folder.md5
+```
