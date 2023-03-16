@@ -145,3 +145,13 @@ i A docker-scan-plugin          - Docker scan cli plugin.
 i   eusw                        - IIT End User CA-1. Sign (web)                                                                                                            
 i   jdk-17                      - Java Platform Standard Edition Development Kit                         
 ```
+
+<hr/>
+
+# Рекуррсивный поиск и удаление каталогов ".svn"
+
+```bash
+# Применяется, когда нужно сравнить копию проекта из системы со старым SVN (< 1.6.7)
+# Т.к. в старом SVN служебная папка ".svn" была в каждой папке проекта, что мешает сравнению. 
+rm -rf `find . -type d -name .svn`
+```
