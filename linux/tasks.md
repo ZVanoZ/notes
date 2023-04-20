@@ -181,10 +181,18 @@ egrep -rn --include="*.php" -oh "Type::[A-Z_]+" | sed 's/^[0-9]*://' | sort | un
 #      2 Type::CLOB
 ```
 
+# Обработать "php.log" таким образом, чтобы получить статиспику по уникальным строкам
+
+```bash
+egrep "\[[0-9]{2}-[a-zA-Z]{3}-[0-9]{4}" php.log | cut -c 32- | sort | uniq -c | sort -r -nk 1 > php-log-stat.txt
+# Результат
+#      3 Notice:  Undefined offset: 220067 in index.php 489
+#      1 Notice:  Undefined index: SOME_KEY in index.php on line 537
+```
+
 # Поиск и замена текста
 
 ```bash
 # Заменить все строки вида "* @version ..." на "* @version DELETED"
 find ./ -name *.ph* -print0 | xargs -0 sed -i "s/^\s*\*\s*@version.*$/ * @version DELETED/g"
-
 ```
