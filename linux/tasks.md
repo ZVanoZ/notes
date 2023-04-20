@@ -171,6 +171,16 @@ md5sum --quiet -c folder.md5
 
 <hr/>
 
+# Рекурсивный аоиск фрагмента текста по шаблону и вывод уникальных вхождений с указанием количества овпадений
+
+```bash
+egrep -rn --include="*.php" -oh "Type::[A-Z_]+" | sed 's/^[0-9]*://' | sort | uniq -c
+# Результат
+#      1 Type::BLOB
+#     10 Type::BOOLEAN
+#      2 Type::CLOB
+```
+
 # Поиск и замена текста
 
 ```bash
