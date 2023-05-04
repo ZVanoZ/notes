@@ -20,3 +20,11 @@ ifconfig |grep 221 -A 8 -B 9
 #         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 # 
 # br-bcf16656a872: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+
+
+
+# Найти все файлы с заданным текстом
+# https://ru.stackoverflow.com/questions/639486/%D0%9A%D0%B0%D0%BA-%D0%BD%D0%B0%D0%B9%D1%82%D0%B8-%D0%B2%D1%81%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D1%8B-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%89%D0%B8%D0%B5-%D0%B8%D1%81%D0%BA%D0%BE%D0%BC%D1%8B%D0%B9-%D1%82%D0%B5%D0%BA%D1%81%D1%82-%D0%BD%D0%B0-linux
+grep -rnw '/путь/к/папке/с/файлами' -e "шаблон"
+grep -rnw ./ -e "0012"
+grep -rnw ./ -e "\d{4,}"
