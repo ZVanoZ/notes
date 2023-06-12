@@ -271,6 +271,14 @@ $ docker rmi $(docker images -f "dangling=true" -q)
 -- Текущая папка должна содержать "composer.json"
 docker run --rm -v $(pwd):/app  tomsowerby/php-5.3-composer -vvv update
 
+
+--------------------------------------------------
+-- Задача: просле запуска контейнер падает и нужно разобраться почему
+-- Решение: запускаем со сменой entrypoint на bash и смотрим что внутри.
+-----
+
+docker run -it --rm -p 8080:80 --entrypoint bash  local.devrepo-test
+
 --------------------------------------------------
 -- Собрать проект "my.project1.local" с указанием режима сборки
 -- 
