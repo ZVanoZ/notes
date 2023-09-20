@@ -33,13 +33,13 @@ Bash-скрипты, часть 9: регулярные выражения
 Bash-скрипты, часть 10: практические примеры
 Bash-скрипты, часть 11: expect и автоматизация интерактивных утилит
 -------------------------------------------------------------------------------
-Advanced Bash-Scripting Guide
+Advanced Bash-Scripting Guide (сайт блокируется в Украине)
 Искусство программирования на языке сценариев командной оболочки
 7.1. Конструкции проверки условий     http://rus-linux.net/MyLDP/BOOKS/abs-guide/flat/abs-book.html#TESTS
 7.2. Операции проверки файлов         http://rus-linux.net/MyLDP/BOOKS/abs-guide/flat/abs-book.html#FTO
 7.3. Операции сравнения               http://rus-linux.net/MyLDP/BOOKS/abs-guide/flat/abs-book.html#COMPARISON-OPS
 -------------------------------------------------------------------------------
-Advanced Bash-Scripting Guide  (сайт блокируется в Украине)
+Advanced Bash-Scripting Guide 
 Искусство программирования на языке сценариев командной оболочки 
 Автор: Mendel Cooper
 https://docstore.mik.ua/manuals/ru/bash_scripting_guide/index.html
