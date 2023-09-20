@@ -39,7 +39,7 @@ Advanced Bash-Scripting Guide
 7.2. Операции проверки файлов         http://rus-linux.net/MyLDP/BOOKS/abs-guide/flat/abs-book.html#FTO
 7.3. Операции сравнения               http://rus-linux.net/MyLDP/BOOKS/abs-guide/flat/abs-book.html#COMPARISON-OPS
 -------------------------------------------------------------------------------
-Advanced Bash-Scripting Guide 
+Advanced Bash-Scripting Guide  (сайт блокируется в Украине)
 Искусство программирования на языке сценариев командной оболочки 
 Автор: Mendel Cooper
 https://docstore.mik.ua/manuals/ru/bash_scripting_guide/index.html
