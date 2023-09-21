@@ -45,6 +45,40 @@ git push -u origin master
 # Mercurial, or TFS project.
 # @{link https://github.com/ZVanoZ/notes/import}
 
+#-------------------------------------------------------------------------------
+# Работа с логом
+#---
+
+# Выводит лог в стандартном виде (hash, branch, tag,  author, date, comment)
+$ git log 
+
+# Выводит лог в одну строку. 
+# При этом видно ветки и теги, на которые ссылаются некоторые коммиты.
+$ git log  --oneline
+
+#-------------------------------------------------------------------------------
+# Работа с тегами
+#---
+
+$ git tag add v1.0.0 1913
+$ git show v1.0.0
+$ git show --quiet v1.0.0
+$ git log --oneline
+$ git log --oneline v1.0.0
+# Создать ветку "v1.x" от тега "v1.0.0"
+$ git branche v1.x v1.0.0
+# Список тегов
+$ git tag
+$ git tag --contains 1913
+# Вывести теги и однк строку комментария
+$ git tag -n1
+$ git tag -n1 -l 'v1.1*'
+# Удаление тегов
+$ git tag -d v1.0.0 v1.1.0
+#----
+# Теги с аннотацией
+$ git tag -a v1.0.0 1913
+
 
 
 #-------------------------------------------------------------------------------
@@ -107,6 +141,7 @@ $ git remote add origin https://github.com/ZVanoZ/zim-material-ui-sample.git
 $ git push origin --all
 # 5. Выгружаем все теги
 $ git push origin --tags
+
 
 #-------------------------------------------------------------------------------
 # Задача:
