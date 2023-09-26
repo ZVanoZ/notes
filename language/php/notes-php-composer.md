@@ -6,6 +6,8 @@
 * https://getcomposer.org/
 * https://getcomposer.org/doc/
 * https://getcomposer.org/doc/05-repositories.md
+* https://getcomposer.org/doc/articles/authentication-for-private-packages.md  
+Авторизация на приватных репозитариях. Есть 4 способа.
 
 <hr/>
 
