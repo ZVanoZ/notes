@@ -5,6 +5,18 @@
 # Настройка
 #---
 
+# Получить список текущих настроек
+## Впремешку
+git config --list
+## Локальные настройки проекта (<project>/.git/config )
+git config --local --list
+## Гдлобальнык настройки GIT 
+git config --global --list
+
+# Смена настроек проекта 
+git config --local user.name "i.zaglyada"
+git config --local user.email my-mail@gmail.com
+
 #   Глобально назначить текстовый редактор "atom" для редактирования 
 # комментариев к коммитам, либо при указании правил обхединения коммитов для
 # команды rebase.
