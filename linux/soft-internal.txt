@@ -514,6 +514,19 @@ OpenSSL 1.0.2n  7 Dec 2017
 Использование
 $ sslscan https://google.com
 
+-------
+
+[systemctl]
+Внутренняя.
+
+Systemctl — это системный менеджер служб, который используется в операционных системах на основе Linux, таких как Fedora, CentOS, Red Hat и Ubuntu. Он используется для управления различными аспектами системных служб, включая их запуск, остановку, перезапуск и мониторинг.
+
+Использование
+$ systemctl status openvpn
+$ systemctl stop openvpn
+$ systemctl restart openvpn
+
+
 --------------------------------------------------------------------------------
 -- [T] ABCDEFGHIJKLMNOPQRST UVWXYZ
 ------
