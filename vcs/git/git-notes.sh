@@ -14,7 +14,7 @@ git config --local --list
 git config --global --list
 
 # Смена настроек проекта 
-git config --local user.name "i.zaglyada"
+git config --local user.name "Ivan Zahliada"
 git config --local user.email my-mail@gmail.com
 
 #   Глобально назначить текстовый редактор "atom" для редактирования 
