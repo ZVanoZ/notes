@@ -265,6 +265,13 @@ $ docker images --filter "dangling=true"
 -- 2. Удалить список образов без тега
 $ docker rmi $(docker images -f "dangling=true" -q)
 
+-- Очистить кеш сборщика
+-- https://docs.docker.com/reference/cli/docker/builder/prune/
+docker builder prune
+
+-- Очистить от неиспользуемых данных
+-- https://docs.docker.com/reference/cli/docker/system/prune/
+docker system prune -a
 
 --------------------------------------------------
 -- Задача: Обновить библиотеки PHP при поиощи composer в среде PHP 5.3
