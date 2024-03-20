@@ -1,3 +1,9 @@
+# Node
+
+@TODO: добавить базовое описание
+
+<hr>
+
 ## Установка
 
 **Debian**
@@ -26,7 +32,14 @@ $ type node
 node является /home/ivan/.nvm/versions/node/v16.14.1/bin/node
 ```
 
+<hr>
 
 ## Настройка
 
 *@TODO: Описать как можно использовать NodeJs*
+
+<hr>
+
+## Менеджеры версий
+
+* [nvm.md](nvm.md)

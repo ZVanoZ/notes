@@ -154,3 +154,19 @@ else
 fi
 
 #-----------------------------------------------------------------------
+set +e
+echo -e "\n$(printf '\x2D%.0s' {1..80})"
+echo '-- test run invalid command and check result'
+
+#cmd='ls -l'
+cmd='my-invalid-command'
+echo -e "\ncmd: <${cmd}> "
+eval "${cmd}"
+if [ "$?" == "0" ]; then
+  echo 'SUCCESS: code='"$?"
+else
+    echo 'FAIL: code='"$?"
+fi;
+
+echo -e "\n$(printf '\x2D%.0s' {1..80})"
+#-----------------------------------------------------------------------
