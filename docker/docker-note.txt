@@ -259,7 +259,7 @@ docker rm $(docker ps -a | grep "Exited ([^0]"|awk '{print $1}')
 -- Задача: удалить все временные образы.
 -- Эти образы не имеют тега
 
--- 1. Вывести список образов без тега (в docker есть специфльный вильтр)
+-- 1. Вывести список образов без тега (в docker есть специфльный фильтр)
 -- https://docs.docker.com/engine/reference/commandline/images/#filtering
 $ docker images --filter "dangling=true"
 -- 2. Удалить список образов без тега
@@ -289,7 +289,7 @@ docker run -it --rm -p 8080:80 --entrypoint bash  local.devrepo-test
 docker run -it --rm -p 8080:80 --user apache  --entrypoint bash  local.devrepo-test
 
 --------------------------------------------------
--- Собрать проект "my.project1.local" с указанием режима сборки
+-- Задача: Собрать проект "my.project1.local" с указанием режима сборки
 -- 
 
 # Выносим название проекта в отдельную переменную (потом будем использовать для указания имени образа и контейнера).
