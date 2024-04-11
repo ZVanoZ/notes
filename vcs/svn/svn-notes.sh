@@ -241,3 +241,24 @@ patch -R -p0 -i /tmp/1.diff
 svn commit -m "Откат r22868 в HEAD"
 
 #-------------------------------
+# Задача: получить список авторов для миграции при помощи git svn clone
+#-----
+
+
+svn log --quiet http://svn.my.server.net/my-project-1/trunk | awk '{print $3}' | sort | uniq
+# Получим что-то типа:
+# --
+# author1
+# some-author2
+# --
+
+# Копируем полученный список в файл "authors.txt
+# Модифицируем:
+# --
+# author1=author1 <author1@my-company.com>
+# some-author2=some-author2 <some-author2@my-company.com>
+# (no author) = no-author <no-author@my-company.com>
+# --
+
+git svn clone --authors-file=authors.txt ...
+#-------------------------------
