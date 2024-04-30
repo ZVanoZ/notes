@@ -1,17 +1,27 @@
 <hr/>
+# О файле
 
-## Ссылки на документацию к php-composer
-
-
-* https://getcomposer.org/
-* https://getcomposer.org/doc/
-* https://getcomposer.org/doc/05-repositories.md
-* https://getcomposer.org/doc/articles/authentication-for-private-packages.md  
-Авторизация на приватных репозитариях. Есть 4 способа.
+Тут заметки по использованию утилиты composer для PHP 
 
 <hr/>
 
-## Автоматическая авторизация по паролю в SVN репозитарии
+## Ссылки на документацию к php-composer
+
+* Официальные ресурсы 
+  * https://getcomposer.org/
+  * https://getcomposer.org/doc/
+  * https://getcomposer.org/doc/05-repositories.md
+  * https://getcomposer.org/doc/articles/authentication-for-private-packages.md
+* [Composer на русском](https://mb4.ru/programms/programs-for-automation/composer.html)
+  * [Настройка Composer в composer.json. Раздел config в composer.json](https://mb4.ru/programms/programs-for-automation/composer/1923-config.html)
+  * [Аутентификация для приватного размещенных пакетов и репозиториев в Composer](https://mb4.ru/programms/programs-for-automation/composer/1960-authentication-for-private-packages.html)
+  * [Версии и ограничения. Объяснение работы с версиями в Composer.](https://mb4.ru/programms/programs-for-automation/composer/2039-versions.html)
+
+<hr/>
+
+## Авторизация на приватных репозитариях. Есть 4 способа.
+
+* Автоматическая авторизация по паролю в SVN репозитарии
 
 ```js
 // Вносим авторизацию в конфиг "~/.composer/auth.json"
@@ -28,7 +38,6 @@
 ```
 
 <hr/>
-
 
 ## Использование SVN репозитария
 
@@ -217,8 +226,50 @@ docker run --rm -v $(pwd):/app  tomsowerby/php-5.3-composer require "my-company/
 
 ## Использование GIT репозитария для затягивания форка пакета и его подключение вместо стандартного
 
+* Вариант когда структура репозитария верна
+
+````text
+Правильная структура должна содержать теги с правильными именами.
+@TODO: разобраться в теме
+@TODO: https://mb4.ru/programms/programs-for-automation/composer/1911-schema.html#version
+@TODO: тут сказано что могут быть другие имена 
+
+Ветки:
+* master
+
+Теги:
+* "release-2.14.0" - релизная ветка. Позволяет использовать библиотеку в проектах с опцией "minimum-stability": "stable"
+
+````
+
+````js
+// Пример конфига для использования либы
+{
+	"minimum-stability": "stable", // тег "release-2.14.0" позволит пройти проверку  
+	"require": {
+	    "php": "^8.1",
+		"laminas/laminas-db": "^2.14"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://x-access-token:<TOKEN>@github.com/ZVanoZ/laminas-db.git"
+        },
+        {
+            "packagist.org": false  // Если хотим отключить публичный репозитарий
+        }
+    ]
+}
+````
+
+* Вариант, когда структура репозитария неверна
+
 ```js
 // Рабочий пример подключения форка "laminas-db"
+//
+// Тут надо было не создавать ветку "2.14.dio", а пихать свой код в существующие ветки и время от времени подливать 
+//   изменения из основного репозитария.
+
 // composer.json
 {
   "repositories": [
@@ -245,5 +296,8 @@ docker run --rm -v $(pwd):/app  tomsowerby/php-5.3-composer require "my-company/
 
 }
 ```
+
+
+ 
 
 <hr/>

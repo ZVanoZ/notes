@@ -9,12 +9,17 @@
 ## Впремешку
 git config --list
 ## Локальные настройки проекта (<project>/.git/config )
-git config --local --list
-## Гдлобальнык настройки GIT 
-git config --global --list
+git config --list --local
+## Глобальне настройки GIT
+git config --list --global
 
-# Смена настроек проекта 
+# Смена настроек проекта
+# Пробую убрать глобальные настройки пользователя, чтобы при коммитах случайно не
+## Имя пользователя
+git config --global user.name ""
 git config --local user.name "Ivan Zahliada"
+## e-mail пользователя
+git config --global user.email ""
 git config --local user.email my-mail@gmail.com
 
 #   Глобально назначить текстовый редактор "atom" для редактирования 
@@ -32,6 +37,12 @@ git config --global https.proxy http://my-proxy.local:3128
 # search: "$HOME/.config/git/ignore is used instead"
 touch ~/.config/git/ignore
 echo ".idea" >> ~/.config/git/ignore
+
+# Игнорировать смену прав на файлах
+## Для проекта
+git config core.fileMode false,
+## Глобально
+git config --global code.fileMode false
 
 #-------------------------------------------------------------------------------
 # Первые шаги. Создаем локальное хранилище и связываем с удаленным  на githib
@@ -56,6 +67,9 @@ git push -u origin master
 # You can initialize this repository with code from a Subversion, 
 # Mercurial, or TFS project.
 # @{link https://github.com/ZVanoZ/notes/import}
+
+# Откатываем локальные изменения
+git reset --hard HEAD
 
 #-------------------------------------------------------------------------------
 # Работа с логом

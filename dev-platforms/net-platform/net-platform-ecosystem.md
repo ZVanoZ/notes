@@ -1,4 +1,9 @@
 <hr>
+# .NET
+
+```bat
+dotnet --info
+```
 
 # IDE
 
