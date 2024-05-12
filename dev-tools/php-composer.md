@@ -297,7 +297,94 @@ docker run --rm -v $(pwd):/app  tomsowerby/php-5.3-composer require "my-company/
 }
 ```
 
+<hr/>
 
+## FAQ
+
+* Можно ли использовать в качестве репозитария VCS клон с локального диска?
+
+Можно, но вероятно это не даст нужный результат.
+````JS
+// composer.json
+{
+  "require": {
+    "zvanoz/laminas-db": "~1.6.0"
+  },
+  "repositories": [
+      {
+          "type": "vcs",
+          "url": "./library/laminas-db/"
+      }
+  ]
+}
+````
+В результате, папка "./library/laminas-db" будет скопирована в "./vendor/zvanoz/laminas-db".  
+Она **НЕ БУДЕТ** линком на исходную.  
+Поэтому изменения в "./library/laminas-db" не попадут в "./vendor/...".  
+А также, папка в "./vendor/..." не будет иметь в origin ссылку на локальную копию (в origin будет URL первичного репозитария).  
+Можно открыть в IDE папку  "./vendor/zvanoz/laminas-db" и вносить изменения в нее, но тогда зачем было указывать в URL локальный путь?    
+В таком случае можно было бы сразу указать правильный URL в "composer.json".  
+
+Следует отметить, что если попытаться использовать "type": "path" в роли "vcs", то тоже не добьемся нужного результата.  
+php-composer будет считать, что текущее состояние репозитария однозначно соответствует запрошенной версии библиотеки.  
+Он не будет переключаться между тегами и ветками.  
+Зато в "composer.lock" запишет ту версию, что требуется в "composer.json".  
+PS: этот вариант можно использовать, если вручную переключаться на нужную ветку.
+````JS
+// composer.json
+{
+  "require": {
+    "zvanoz/laminas-db": "~1.6.0"
+  },
+  "repositories": [
+      {
+          "type": "path",
+          "url": "./library/laminas-db/"
+      }
+  ]
+}
+````
+````BASH
+#------------------------------------------------------------------------------
+# Выполняем обновление.
+#-----
  
+# По логу видим:
+# 1. Создан линк на папку с исходниками 
+# 2. Установлена версия "1.6.0"
+# Типа, то что надо. Но на самом деле это не так. 
+composer update -vvv
+# Reading ./composer.lock (/var/www/composer.lock)
+# Package operations: 0 installs, 1 update, 0 removals
+# Updates: dio/dio-zf1future:1.6.0
+#   - Removing dio/dio-zf1future (1.6.0)
+# Executing async command (CWD): rm -rf '/var/www/vendor/zvanoz/laminas-db'
+#   - Installing dio/dio-zf1future (1.6.0): Symlinking from ./library/laminas-db
+# Generating autoload files
+
+#------------------------------------------------------------------------------
+# Проверяем
+#----
+
+# Смотрим создался ли линк.
+#  OK. Линк создан и ссылается на нужную папку.
+ls -l vendor/zvanoz/laminas-db
+# lrwxrwxrwx 1 root root 28 May 10 08:54 vendor/zvanoz/laminas-db -> ../../library/laminas-db/
+
+# Смотрим что на самом деле с переключением на нужную версию
+cd vendor/dio/dio-zf1future/
+# Смотрим какая ветка активна
+# FAIL! Текущая ветка "master", а ожидаем "1.6.0"  
+git branch 
+# * master
+
+# Смотрим, а доступна ли версия "1.6.0" в принципе
+# Видим, что в "origin" есть ветка "1.6.0", но php-composer не переключился на нее.  
+git branch --all
+# * master
+#   remotes/origin/1.6.0
+#   remotes/origin/HEAD -> origin/master
+#   remotes/origin/master
+````
 
 <hr/>
