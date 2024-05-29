@@ -6,6 +6,8 @@ https://git-scm.com/book/ru/v2
 
 ## Настройка GIT
 
+https://git-scm.com/docs/gitattributes
+
 ````bash
 #-------------------------------------------------------------------------------
 # Настройка
@@ -17,6 +19,16 @@ git config --list
 git config --list --local
 ## Глобальне настройки GIT
 git config --list --global
+
+# Удалить локальную опцию
+git config --unset <опция> 
+# Удалить глобальную опцию 
+git config --unset --global <опция>
+
+# Удалить секцию настроек
+git config --remove-section <название>
+## Например
+git config --remove-section submodule.library/dio-zf1future
 
 # Смена настроек проекта
 # Пробую убрать глобальные настройки пользователя, чтобы при коммитах случайно не
@@ -43,11 +55,62 @@ git config --global https.proxy http://my-proxy.local:3128
 touch ~/.config/git/ignore
 echo ".idea" >> ~/.config/git/ignore
 
+
+#------------------------------------------------------------------------------
+# core.autocrlf - замена перевода строк
+# https://g.co/gemini/share/0f1ba0cc6eee
+#----
+
+## Коммит как есть - перевод строк не меняется
+git config core.autocrlf input
+## CRLF заменяется на LF
+git config core.autocrlf true
+## LF заменяется на CRLF 
+git config core.autocrlf false
+
+#------------------------------------------------------------------------------
+# core.bare
+# https://git-scm.com/docs/git-config
+# Если это правда, предполагается, что этот репозиторий пуст и не имеет 
+# связанного с ним рабочего каталога. 
+# В этом случае ряд команд, требующих рабочий каталог, будут отключены, 
+# например git-add[1] или git-merge[1].
+#----
+
+# 1.
+git init 
+# опция в состоянии "true"
+
+# 2.
+git remote add origin <url>
+# опция в состоянии "false" 
+ 
+
+#------------------------------------------------------------------------------
+# core.logAllRefUpdates
+# Управляет $GIT_DIR/logs/<ref>
+# @TODO: разобраться
+# В этой папке для каждой из веток локального и удаленных репозитариев хранится список хешей.
+# Что-зачем и почему - ХЗ. Возможно, это кеширование чтобы не дергать удаленные репы.
+#----
+
+#------------------------------------------------------------------------------
+# core.logallrefupdates
+#-----
+
+# code.filemode - опция Git используется для контроля прав доступа к файлам в репозитории.
+# https://git-scm.com/docs/git-config
+# https://g.co/gemini/share/3c5d93d7a9b2
+# Она позволяет указать режим прав доступа по умолчанию для новых файлов, создаваемых в репозитории.
+## Удалить локальную опцию. Применяется, чтобы начала действовать глобальная. 
+git config --unset core.filemode
+## Удалить глобальную опцию
+git config --unset --global core.filemode
 # Игнорировать смену прав на файлах
 ## Для проекта
-git config core.fileMode false
+git config core.filemode false
 ## Глобально
-git config --global code.fileMode false
+git config --global code.filemode false
 ````
 ### Настройка GIT/Вывод отладочной информации
 
@@ -96,8 +159,8 @@ git config --global credential.helper
 ## По умолчанию он хранит авторизационные данные в файле "~/.git-credentials"
 git config --global credential.helper store
 ## Можно указать другой путь. 
-## Например такой "/SECRETS/.git-credentials"
-git config --global credential.helper "store --file /SECRETS/.git-credentials"
+## Например такой
+git config --global credential.helper "store --file ~/SECRET/git/credentials.txt"
 
 git clone https://my.repo.local/libs/my-lib.git
 # Username for 'https://my.repo.local': myLogin
@@ -282,7 +345,7 @@ $ git remote -v
 то загружаем эту библиотеку в "library/XYZ" как отдельный проект.  
 При этом в основном проекте подключаем ее как репозиторий с типом "path".
 ````bash
-# Клонируем сыпую библиотеку
+# Клонируем сырую библиотеку
 git clone https://myrepo.local/lib/dio-zf1future.git library/dio-zf1future
 cd library/dio-zf1future
 git checkout dev
@@ -331,6 +394,12 @@ git config --global --add safe.directory /var/www
 #[core]
 #	worktree = ../../../../library/dio-zf1future 
 #
+
+# Удалить субмодуль из проекта
+## Удалится только секция  [submodule "library/dio-zf1future"] из <проект>/.git/config
+## При этом файлы субмодуля останутся.
+git config --remove-section submodule.library/dio-zf1future
+
 git submodule update
 # Submodule path 'library/dio-zf1future': checked out '2ab0e6eaa3226c2fb2c4bc1e50839132b1d39f92'
 
