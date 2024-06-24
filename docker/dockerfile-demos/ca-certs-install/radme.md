@@ -1,0 +1,24 @@
+<h1>ca-certs-install</h1> 
+
+Установка, обновление и удаление CA-сертификатов
+
+<h2>По системам</h2>
+
+https://stackoverflow.com/questions/73620124/update-ca-certificates-command-not-found-despite-ca-certificates-being-installed
+````
+System        |  Copy new certs here                          |  Command to trust new certs                                                                      |   Install cert management tool
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Alpine        |  /usr/local/share/ca-certificates/            |  update-ca-certificates                                                                          |   apk add ca-certificates
+Amazon Linux  |  /etc/pki/ca-trust/source/anchors/            |  update-ca-trust extract                                                                         |   yum install ca-certificates
+Arch          |  /etc/ca-certificates/trust-source/anchors/   |  trust extract-compat                                                                            |   pacman -Sy ca-certificates-utils
+CentOS        |  /etc/pki/ca-trust/source/anchors/            |  update-ca-trust extract                                                                         |   yum install ca-certificates
+CoreOS        |  /etc/pki/ca-trust/source/anchors/            |  update-ca-certificates                                                                          |   Built into the system
+Debian        |  /usr/local/share/ca-certificates/            |  update-ca-certificates                                                                          |   apt-get install -y ca-certificates
+Fedora        |  /etc/pki/ca-trust/source/anchors/            |  update-ca-trust extract                                                                         |   dnf install ca-certificates
+MacOS         |  /Library/Keychains/System.keychain           |  security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <path_to_cert>  |   Built into the system
+RedHat        |  /etc/pki/ca-trust/source/anchors/            |  update-ca-trust extract                                                                         |   yum install ca-certificates
+SUSE          |  /etc/pki/trust/anchors/                      |  update-ca-certificates                                                                          |   zypper install ca-certificates
+Ubuntu        |  /usr/local/share/ca-certificates/            |  update-ca-certificates                                                                          |   apt-get install -y ca-certificates
+Windows       |  C:\Windows\System32\certsrv\CertEnroll\      |  certutil -addstore -f "Root" <path_to_cert>                                                     |   Built into the system
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+````
