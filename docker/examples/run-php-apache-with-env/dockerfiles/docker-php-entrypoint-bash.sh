@@ -1,10 +1,10 @@
 #!/bin/bash
+# @WARNING: список команд не cmdList не будет работать, если указать в 1й строке #!/bin/sh
 
 # link to:  /usr/local/bin/docker-php-entrypoint
 
 set -e
 
-# @WARNING: список команд не cmdList не будет работать, если указать в 1й строке #!/bin/sh
 cmdList=()
 cmdList+=("usermod -u \"${UID}\" www-data")
 cmdList+=("groupmod -g \"${GID}\" www-data")

@@ -612,6 +612,14 @@ $ systemctl stop openvpn
 $ systemctl restart openvpn
 
 
+-------
+
+[su]
+Сменить текущего пользователя
+
+$su ivan
+$su -
+
 --------------------------------------------------------------------------------
 -- [T] ABCDEFGHIJKLMNOPQRST UVWXYZ
 ------

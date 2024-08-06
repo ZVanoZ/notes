@@ -25,19 +25,44 @@ echo "Вывод переменных. 3: "${varHello}
 #------------------------------------------------------------------------------
 # Получаем информацию о том, где находимся и какой скрипт выполняем
 #-----
-echo '------------------------------------'
-echo "Текущий каталог                    : `pwd`"
-echo "Относительный туть к скрипту       : '$0'"
-echo "Полный путь к скрипту (1)          : "$(readlink -e $0)
-echo 'Полный путь к скрипту (2)          : '$(realpath "${BASH_SOURCE[0]}")
-echo "Полный путь к каталогу скрипта (1) : "`dirname $(readlink -e $0)`
-echo "Полный путь к каталогу скрипта (2) : "`dirname $(realpath "${BASH_SOURCE[0]}")`
-echo "Смена текущего каталога...         : "
-cd $(dirname $(readlink -e $0))                      # переход в директорию текущего скрипта
-echo "Текущий каталог (1)                : `pwd`"    # выполняем команду pwd при помощи скобок "`"
-echo "Текущий каталог (2)                : $(pwd)"   # выполняем команду pwd при помощи "$(команда)"
-echo "Текущий каталог (3)                : ${PWD}"   # берем из переменной окружения PWD
-echo '------------------------------------'
+function displayPath() {
+  echo '---------------------------------------------------- '
+  echo '+ : `pwd`                                          : ' `pwd`
+  echo '+ : ${PWD}                                         : '  ${PWD}
+  echo '+ : $(pwd)                                         : '  $(pwd)
+  echo '+ : $0                                             : ' $0
+  echo '+ : ${BASH_SOURCE[0]}                              : ' ${BASH_SOURCE[0]}
+  echo '- : $(realpath "${BASH_SOURCE[0]}")                : ' $(realpath "${BASH_SOURCE[0]}")
+  echo '- : $(readlink -e ${BASH_SOURCE[0]}                : ' $(readlink -e ${BASH_SOURCE[0]})
+  echo 'E : $(readlink -e $0)                              : ' $(readlink -e $0)
+  echo '- : `dirname $(readlink -e $0)`                    : ' `dirname $(readlink -e $0)`
+  echo '+ : `dirname $(realpath "${BASH_SOURCE[0]}")`      : ' `dirname $(realpath "${BASH_SOURCE[0]}")`
+  echo '+ : $(dirname $(realpath "${BASH_SOURCE[0]}"))     : ' $(dirname $(realpath "${BASH_SOURCE[0]}"))
+  echo '+ : "<$(dirname $(realpath "${BASH_SOURCE[0]}"))>" : '"<$(dirname $(realpath "${BASH_SOURCE[0]}"))>"
+  echo '+ : `dirname "${BASH_SOURCE[0]}"`                  : ' `dirname "${BASH_SOURCE[0]}"`
+  echo '---------------------------------------------------- '
+  echo "+ : Путь к родительскому каталогу скрипта          : " $(realpath "$(dirname $(realpath "${BASH_SOURCE[0]}"))/..")
+  echo '---------------------------------------------------- '
+  echo '--: Содержимое BASH_SOURCE: '
+  for itemIndex in "${!BASH_SOURCE[@]}"
+  do
+    echo "BASH_SOURCE[${itemIndex}]: " ${BASH_SOURCE[${itemIndex}]}
+  done
+  echo '-----------------------------------------------'
+}
+
+echo ''
+echo '-- Вычисление путей находясь в директории запуска'
+displayPath
+
+echo ''
+echo '-- Вычисление путей находясь в директории, не соответствующей директории запуска'
+echo '-- Внимание! Часть путей вычисляется неверно.'
+cd tmp
+displayPath
+cd ..
+echo ''
+
 #------------------------------------------------------------------------------
 # Параметры командной строки
 #-----

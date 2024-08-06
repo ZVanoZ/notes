@@ -15,9 +15,9 @@ npm install -g node-gyp
 npm install node-gyp
 # Удалить пакет "node-gyp" из локальной области
 npm remove node-gyp
-
 ````
 
 <hr>
 
 
+## modules

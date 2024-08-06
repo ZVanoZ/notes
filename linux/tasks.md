@@ -220,3 +220,13 @@ for file in ${files[*]}; do \
   echo '<?php ' > ${file}
 done
 ````
+
+
+---
+
+# Нужно отформатировать большой JSON
+
+```bash
+# При помощи python  
+python3 -m json.tool my-data.json > my-data-formatted.json
+```
