@@ -1,0 +1,6 @@
+* EN
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+* RU
+абвгдеёжзийклмнопрстуфхцчшщъыьэюя
+АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ
