@@ -1,65 +1,112 @@
-#------------------------------------------------------------------------------
-# Полезные ссылки
-#---
 
-# "Краткая шпаргалка по основным командам Subversion":https://eax.me/svn-commands/
+## Полезные ссылки
 
-#------------------------------------------------------------------------------
-# Работа с репозитарием на внешнем сервере
-#----
 
-# Создаем папку "some-project" в корне репозитария.
-# Таким способом базовую структуру можно создать за 4 коммита
-svn mkdir http:/svnserver/svn/some-project/ -m "mktir for new project"
-# Создаем базовую структуру для проекта "some-project" за один коммит
+* "Краткая шпаргалка по основным командам [Subversion](https://eax.me/svn-commands)
+
+---
+
+## Работа с репозитарием на внешнем сервере
+
+* Создаем базовую структуру для проекта "some-project"
+
+  * Удаленно за 4 коммита
+
+Создаем папку "some-project" в корне репозитария. Затем создаем в ней 3 папки.  
+````shell
+svn mkdir http:/svnserver/svn/some-project/         -m "mktir for new project"
+svn mkdir http:/svnserver/svn/some-project/branches -m "mktir for new project - branches"
+svn mkdir http:/svnserver/svn/some-project/tags     -m "mktir for new project - tags"
+svn mkdir http:/svnserver/svn/some-project/trunk    -m "mktir for new project - trunk"
+````
+
+  * Удаленно за один коммит
+
+````shell
 svn mkdir --parents http:/svnserver/svn/some-project/trunk http:/svnserver/svn/some-project/branches http:/svnserver/svn/some-project/tags -m "#0000 create empty structure for some-project"
+````
 
-# Сделать ветку на удаленном сервере.
-$ svn copy svn://svnserver/var/bump/trunk svn://svnserver/var/bump/branches/my-branch -m="Creating a private branch of /bump/trunk"
+* Сделать ветку на удаленном сервере.
 
-# Перенести на удаленном сервере папку из одного места в другое
-# В данном случае переименование someProgect1 в someProgect2
-$ svn move svn://svnserver/someProgect1 svn://svnserver/someProgect2
+````shell
+svn copy svn://svnserver/var/bump/trunk svn://svnserver/var/bump/branches/my-branch -m="Creating a private branch of /bump/trunk"
+````
 
-# Отобразить список файлов и каталогов в удаленном репозитарии
+* Перенести на удаленном сервере папку из одного места в другое.
+
+В данном случае переименование someProgect1 в someProgect2
+````shell
+svn move svn://svnserver/someProgect1 svn://svnserver/someProgect2
+````
+
+* Отобразить список файлов и каталогов в удаленном репозитарии
+
+````shell
 svn list svn://svnserver/var/bump/branches
+````
 
-#------------------------------------------------------------------------------
-# Работа с локальной копией
-#----
+---
 
-# Извлекает проект "someProgect" с сервера в текущую папку
-# В текущей папке появится подкаталог "someProgect", который будет связан с удаленнын репозитарием
-$ svn checkout svn://svnserver/someProgect
+##  Работа с локальной копией
 
 
-# Добавить паку "src" в список "для коммита". При этом содержимое папки тоже попадет в список.
-$ svn add src 
+* Извлекает проект "someProgect" с сервера в текущую папку
 
-# Добавить паку "build" в список "для коммита". При этом не добавлять  содержимое папки.
-$ svn add -N build
+В текущей папке появится подкаталог "someProgect", который будет связан с удаленнын репозитарием
+````shell
+svn checkout svn://svnserver/someProgect
+````
 
-# Загружает в локальную копию изменения с SVN-сервера
-$ svn update
 
-# Коммит указанной директории (закоммитится только папка "docker", а остальное останется в текущем состоянии)
-$ svn commit ./docker/ -m "Commit notes for our dockerfiles"
+* Добавить паку "src" в список "для коммита". 
 
-# Локально. Перенести папку "myCompany-myLibrary" в папку "./my-company/my-library"
+При этом содержимое папки тоже попадет в список.
+````shell
+svn add src
+```` 
+
+* Добавить паку "build" в список "для коммита".
+
+При этом не добавлять  содержимое папки.
+````shell
+svn add -N build
+````
+
+* Загружает в локальную копию изменения с SVN-сервера
+````shell
+svn update
+````
+
+* Коммит указанной директории 
+
+Закоммитится только папка "docker", а остальное останется в текущем состоянии.
+````shell
+svn commit ./docker/ -m "Commit notes for our dockerfiles"
+````
+
+* Перенести папку "myCompany-myLibrary" в папку "./my-company/my-library" (Локально).
+
+````shell
 svn mv myCompany-myLibrary ./my-company/my-library
+````
 
+* Переключить локальную копию на ветку.
 
-# Переключить локальную копию на ветку.
-# Эту же команду использовать, если проект переехал в другое место.
-# Например, если выполнили "$ svn move ..."
+Эту же команду использовать, если проект переехал в другое место.
+
+Например, если выполнили "$ svn move ..."
+
+````shell
 svn switch svn://svnserver/var/bump/branches/my-branch
+````
 
+````shell
 # Предварительно ("--dry-run") посмотреть что будет, если попытаемся слить trunk с my-branch1
 # \> На момент вызова текущая директория  trunk
 ## Сравнить две ветки на удаленом сервере
-$ svn merge svn://svnserver/my-project1/trunk svn://svnserver/my-project1/branches/my-branch1 --dry-run
+svn merge svn://svnserver/my-project1/trunk svn://svnserver/my-project1/branches/my-branch1 --dry-run
 ## Сравнить ветку сервера и локальное состояние
-$ svn merge svn://svnserver/my-project1/trunk ./ --dry-run
+svn merge svn://svnserver/my-project1/trunk ./ --dry-run
 
 ## Если конфликтов с локальной копией овердофига, то задолбаемся улаживать в консоли.
 ## Поэтому применяем "--accept postone"
@@ -71,21 +118,25 @@ svn merge --accept postpone svn://svnserver/my-project1/trunk ./
 ## Принять текущее состояние папки "./docker/web" как рабочее
 svn resolve --accept working -R ./docker/web
 
-
 # Отмена локальных изменений в текущей папке и ниже.
 svn revert -R ./
+````
 
+---
 
-#------------------------------------------------------------------------------
-# Просмотр истории
-#
-# @see [svn Subcommands: svn log](https://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.log.html)
-# @see [Revision Keywords](https://svnbook.red-bean.com/en/1.7/svn.tour.revs.specifiers.html#svn.tour.revs.keywords)
-#----
+## Просмотр истории
 
-# Получить последние 10 изменений в репозитарии
+[svn Subcommands: svn log](https://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.log.html)
+[Revision Keywords](https://svnbook.red-bean.com/en/1.7/svn.tour.revs.specifiers.html#svn.tour.revs.keywords)
+
+* Получить последние 10 изменений в репозитарии
+
+````shell
 svn log -l 10 http://svnserver/many-projects-root/
+````
 
+
+````shell
 # Получить список измененных файлов зная ревизию.
 # Полезно когда в одной директории сервера много проектов и не знаем в каком проекте сделать изменения.
 # По номеру ревизии получаем путь к проекту.
@@ -112,11 +163,13 @@ $ svn log -vq -r 4112:4112 http://svnserver/many-projects-root/
 
 # Получить список коммитов по номеру задачи
 svn log |grep "#39603" -B 2
+````
 
-#------------------------------------------------------------------------------
-# Просмотр изменений в локальной копии
-#----
+---
 
+## Просмотр изменений в локальной копии
+
+````shell
 # Показывает информацию о локальной копии
 $ svn info
 
@@ -139,9 +192,12 @@ $ svn diff
 # Показывает изменения файла "my-file.txt" в локальной копии
 $ svn diff my-dir/my-file.txt
 
-#------------------------------------------------------------------------------
-# Работа со свойствами
-#----
+````
+---
+
+## Работа со свойствами
+
+````shell
 # Справка по синтаксису команды
 $ svn help propset
 
@@ -202,8 +258,13 @@ $ svn update
 $ svn commit -m "Добавили ссылку на внешний репо"
 #------
 
-#-------------------------------
-# Сценарий: создать структуру папок под новый проект
+````
+
+---
+
+## Сценарий: создать структуру папок под новый проект
+
+````shell
 # Допустим, проект с названием "my-project-1"
 #----
 $ cd ~/projects
@@ -216,48 +277,55 @@ branches/
 tags/
 trunk/
 $ svn checkout http://svn.my.server.net/my-project-1/trunk ~/projects/my-project-1.trunk
+````
+
+---
+
+## Тема: Глобальные настройки игнорирорования
+
+Вносим изменения в конфиг subversion:
+   Windows Vista/7/8/8.1/10: C:\Users\<username>\AppData\Roaming\Subversion\config
+   Windows XP: c:\Documents and Settings\<username>\.subversion\config
+   Unix (Linux, etc), macOS: $HOME/.subversion/config
+
+* Задача: требуется глобально установить игнорирование папки ".idea".
+
+Т.е. какой бы проект не открыли, папка будет игнориться.
+
+Редактируем опцию "miscellany.global-ignores" конфига subversion
+
+````ini
+[miscellany]
+global-ignores = .idea
+````
 
 
-#-------------------------------
-# Тема: Глобальные настройки игнорирорования
-#
-# Вносим изменения в конфиг subversion:
-#    Windows Vista/7/8/8.1/10: C:\Users\<username>\AppData\Roaming\Subversion\config
-#    Windows XP: c:\Documents and Settings\<username>\.subversion\config
-#    Unix (Linux, etc), macOS: $HOME/.subversion/config
-#----
+## Задача: откатить последний коммит
 
-#----
-# Задача: требуется глобально установить игнорирование папки ".idea".
-# Т.е. какой бы проект не открыли, папка будет игнориться.
-# Редактируем опцию "miscellany.global-ignores" конфига subversion
-#--
-#[miscellany]
-#global-ignores = .idea
-#--
+Допустим, коммит с ошибкой имеет номер 5271
 
-#-------------------------------
-# Задача: откатить последний коммит
-#
-# Допустим, коммит с ошибкой имеет номер 5271
-#----
 
-# Приводим локальную копию к предыдущему состоянию
-$ svn merge -c -5271 .
+1. Приводим локальную копию к предыдущему состоянию
+````shell
+svn merge -c -5271 .
+````
+2. Проверяем изменения
+````shell
+svn status
+````
+3. Откат. Т.е. коммитим изменения.
+````shell
+svn commit -m "Откат r5271 из задачи #XXX"
+````
 
-# Проверяем изменения
-$ svn status
 
-# Откат. Т.е. коммитим изменения.
-$ svn commit -m "Откат r5271 из задачи #XXX"
+## Задача: вернуть HEAD в состояние на какую-то ревизию
 
-#-------------------------------
-# Задача: вернуть HEAD в состояние на какую-то ревизию
-#
-# Допустим, мы сделали несколько ошибочных коммитоы, и хотим вернуть все назад
-# При этом мы готовы потерять все изменения, сделанные между этими ревизиями
-#----
+Допустим, мы сделали несколько ошибочных коммитоы, и хотим вернуть все назад
 
+При этом мы готовы потерять все изменения, сделанные между этими ревизиями
+
+````shell
 # Шаг 1: приводим состояние локальной копии к .r7228
 # .r7236 - последняя ревизия с ошибками 
 # .r7228 - самая свежая ревизия без ошибок
@@ -265,9 +333,13 @@ $svn merge -r 7236:7228 http://svn.my.server.net/my-project-1/trunk
 
 # Шаг 2: коммитим текущее состояние
 $ svn commit -m "Откат r7236 до состояния r7228"
+````
 
-#-------------------------------
-# Задача: откатить коммит, который не является HEAD
+
+## Задача: откатить коммит, который не является HEAD
+
+````shell
+
 #
 # Допустим, коммит с ошибкой имеет номер 22868
 # Решается через path
@@ -289,12 +361,12 @@ patch -R -p0 -i /tmp/1.diff
 
 # Шаг 4. Коммитим изменения.
 svn commit -m "Откат r22868 в HEAD"
-
-#-------------------------------
-# Задача: получить список авторов для миграции при помощи git svn clone
-#-----
+````
 
 
+## Задача: получить список авторов для миграции при помощи git svn clone
+
+````shell
 svn log --quiet http://svn.my.server.net/my-project-1/trunk | awk '{print $3}' | sort | uniq
 # Получим что-то типа:
 # --
@@ -311,4 +383,4 @@ svn log --quiet http://svn.my.server.net/my-project-1/trunk | awk '{print $3}' |
 # --
 
 git svn clone --authors-file=authors.txt ...
-#-------------------------------
+````
