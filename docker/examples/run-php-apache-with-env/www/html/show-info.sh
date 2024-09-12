@@ -4,7 +4,7 @@ printf '=%.0s' {1..80} && echo ""
 echo '-- BEG: script     : '$(realpath "${BASH_SOURCE[0]}")
 echo '--    : script-dir : '$(dirname $(realpath "${BASH_SOURCE[0]}"))
 echo '--    : pwd        : '$(realpath "${PWD}")
-echo "-- date +'%Y-%m-%dT%H:%I:%SZ': <$(date +'%Y-%m-%dT%H:%I:%SZ')>"
+echo "-- date +'%Y-%m-%dT%H:%M:%SZ': <$(date +'%Y-%m-%dT%H:%M:%SZ')>"
 echo ''
 #------------------------------------------------------------------------------
 set +e

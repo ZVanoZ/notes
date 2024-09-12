@@ -2,8 +2,8 @@
 
 cd $(dirname "${BASH_SOURCE[0]}")
 
-#runAt=`date +%Y-%m-%dT%H:%I:%SZ`
-runAt=$(date +"%Y-%m-%dT%H:%I:%SZ")
+#runAt=`date +%Y-%m-%dT%H:%M:%SZ`
+runAt=$(date +"%Y-%m-%dT%H:%M:%SZ")
 workdir="tmp/${runAt}"
 mkdir -vp "${workdir}"
 cd "${workdir}" || exit
