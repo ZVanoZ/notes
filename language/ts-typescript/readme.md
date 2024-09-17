@@ -1,3 +1,13 @@
+# About
+
+@TODO: Добавить описание
+
+## Связанные ресурсы в текущем репозитарии
+
+* [dev-platforms/ts-typescript](../../dev-platforms/ts-typescript)
+
+## RUN
+
 ````shell
 
 # Создание "tsconfig.json" с базовыми настройками
