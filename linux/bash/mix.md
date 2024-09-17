@@ -28,3 +28,20 @@ cat ./invalid-file-path || {
   ls -la
 }
 ````
+
+* Перебор путей из переменной PATH в Bash-скрипте
+
+https://g.co/gemini/share/a6ab5cd0daff
+```shell
+#!/bin/bash
+
+# Получаем список директорий из переменной PATH
+for directory in $(echo $PATH | tr ':' '\n'); do
+    # Делаем что-нибудь с каждой директорией
+    echo "Проверяем директорию: $directory"
+    # Например, ищем исполняемый файл:
+    if [ -x "$directory/some_command" ]; then
+        echo "Найден исполняемый файл: $directory/some_command"
+    fi
+done
+```

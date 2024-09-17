@@ -86,6 +86,8 @@ $ tar cpf usr.lib.tar usr/lib 2>/dev/null
 # [8]+  Stopped                 tar cpf usr.lib.tar usr/lib 2> /dev/null
 ````
 
+---
+
 * [C] ABC DEFGHIJKLMNOPQRSTUVWXYZ
 ````text
 --------------------------------------------------------------------------------
@@ -99,6 +101,27 @@ $ tar cpf usr.lib.tar usr/lib 2>/dev/null
 Примеры:
 $ cat /proc/loadavg
 ````
+
+---
+
+* chsh
+
+НАЗВАНИЕ
+chsh - изменяет регистрационную оболочку пользователя
+
+СИНТАКСИС
+chsh [параметры] [УЧЁТНАЯ_ЗАПИСЬ]
+
+
+````shell
+chsh --help
+man chsh
+````
+````shell
+chsh -s /bin/bash www-data
+````
+
+---
 
 * [D] ABCD EFGHIJKLMNOPQRSTUVWXYZ
 ````text
