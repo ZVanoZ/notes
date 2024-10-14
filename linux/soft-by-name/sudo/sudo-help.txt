@@ -1,0 +1,96 @@
+sudo — выполнение команд от имени другого
+                                пользователя
+
+usage: sudo -h | -K | -k | -V
+usage: sudo -v [-ABkNnS] [-g group] [-h host] [-p prompt] [-u user]
+usage: sudo -l [-ABkNnS] [-g group] [-h host] [-p prompt] [-U user] [-u user]
+            [command [arg ...]]
+usage: sudo [-ABbEHkNnPS] [-r role] [-t type] [-C num] [-D directory] [-g
+            group] [-h host] [-p prompt] [-R directory] [-T timeout] [-u user]
+            [VAR=value] [-i | -s] [command [arg ...]]
+usage: sudo -e [-ABkNnS] [-r role] [-t type] [-C num] [-D directory] [-g group]
+            [-h host] [-p prompt] [-R directory] [-T timeout] [-u user] file ...
+
+Параметры:
+  -A, --askpass                 использовать
+                                вспомогательную
+                                программу для ввода
+                                пароля
+  -b, --background              выполнить команду в
+                                фоновом режиме
+  -B, --bell                    ring bell when prompting
+  -C, --close-from=num          закрыть все дескрипторы
+                                файлов >= num
+  -D, --chdir=directory         change the working directory before running
+                                command
+  -E, --preserve-env            сохранить
+                                пользовательское
+                                окружение при выполнении
+                                команды
+      --preserve-env=list       preserve specific environment variables
+  -e, --edit                    редактировать файлы
+                                вместо выполнения команды
+  -g, --group=group             выполнить команду от
+                                имени или ID указанной
+                                группы
+  -H, --set-home                установить для
+                                переменной HOME домашний
+                                каталог указанного
+                                пользователя
+  -h, --help                    показать справку и выйти
+  -h, --host=host               выполнить команду на узле
+                                (если поддерживается
+                                модулем)
+  -i, --login                   запустить оболочку входа
+                                в систему от имени
+                                указанного пользователя;
+                                также можно задать
+                                команду
+  -K, --remove-timestamp        полностью удалить файл
+                                timestamp
+  -k, --reset-timestamp         объявить
+                                недействительным файл
+                                timestamp
+  -l, --list                    показать список прав
+                                пользователя или
+                                проверить заданную
+                                команду; в длинном
+                                формате используется
+                                дважды
+  -n, --non-interactive         автономный режим без не
+                                вывода запросов
+                                пользователю
+  -P, --preserve-groups         сохранить вектор группы
+                                вместо установки целевой
+                                группы
+  -p, --prompt=prompt           использовать указанный
+                                запрос пароля
+  -R, --chroot=directory        change the root directory before running command
+  -r, --role=role               создать контекст
+                                безопасности SELinux с
+                                указанной ролью
+  -S, --stdin                   читать пароль из
+                                стандартного ввода
+  -s, --shell                   запустить оболочку от
+                                имени указанного
+                                пользователя; также можно
+                                задать команду
+  -t, --type=type               создать контекст
+                                безопасности SELinux
+                                указанного типа
+  -T, --command-timeout=timeout terminate command after the specified time limit
+  -U, --other-user=user         в режиме списка
+                                показывать права
+                                пользователя
+  -u, --user=user               выполнить команду (или
+                                редактировать файл) от
+                                имени или ID указанного
+                                пользователя
+  -V, --version                 показать сведения о
+                                версии и выйти
+  -v, --validate                обновить временную метку
+                                пользователя без
+                                выполнения команды
+  --                            прекратить обработку
+                                аргументов командной
+                                строки
