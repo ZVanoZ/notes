@@ -1,0 +1,8 @@
+playonlinux:
+  Установлен: 4.3.4
+  Кандидат:   4.3.4
+  Таблица версий:
+ *** 4.3.4 500
+        500 http://deb.playonlinux.com squeeze/main amd64 Packages
+        500 http://deb.playonlinux.com squeeze/main i386 Packages
+        100 /var/lib/dpkg/status

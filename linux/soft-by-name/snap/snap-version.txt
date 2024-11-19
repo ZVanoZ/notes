@@ -1,0 +1,5 @@
+snap    2.63
+snapd   2.63
+series  16
+debian  12
+kernel  6.1.0-26-amd64

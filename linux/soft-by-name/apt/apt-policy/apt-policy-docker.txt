@@ -1,0 +1,9 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+docker:
+  Установлен: (отсутствует)
+  Кандидат:   1.5-2
+  Таблица версий:
+     1.5-2 500
+        500 http://deb.debian.org/debian bookworm/main amd64 Packages

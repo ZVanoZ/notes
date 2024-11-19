@@ -1,0 +1,7 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+playonlinux:
+  Установлен: (отсутствует)
+  Кандидат:   (отсутствует)
+  Таблица версий:

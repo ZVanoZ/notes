@@ -1,0 +1,11 @@
+# В этом примере перед запуском docker-php-entrypoint отключаем
+#  модуль "alias" т.к. он перехватывает обращения к "/icons/*"
+
+services:
+  php-apache:
+    image: php:8.1-apache
+    ports:
+      - "7080:80"
+    volumes:
+      - ./html:/var/www/html
+    command: ["sh", "-c", "a2dismod alias -f && docker-php-entrypoint apache2-foreground"]

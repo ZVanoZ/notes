@@ -1,0 +1,7 @@
+wine:
+  Установлен: (отсутствует)
+  Кандидат:   4.0-2
+  Таблица версий:
+     4.0-2 500
+        500 http://deb.debian.org/debian buster/main amd64 Packages
+        500 http://deb.debian.org/debian buster/main i386 Packages

@@ -1,0 +1,17 @@
+# Проверяет доступность сервиса каждые 10 секунд.
+# Если ответ на http запрос не получен в течении одной секунды 3 раза, то сервис считается мертвым.
+
+services:
+  php-apache:
+    image: php:8.1-apache
+#    ports:
+#      - "7080:80"
+#    volumes:
+#      - ./public:/var/www/html
+    healthcheck:
+      test: curl -fSs http://127.0.0.1:80 || exit 1
+      start_period: 2s
+      timeout: 1s
+      interval: 10s
+      retries: 3
+#    restart: unless-stopped
