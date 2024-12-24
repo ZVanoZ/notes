@@ -28,13 +28,19 @@ async function f() {
 			return result
 		}
 	);
+
 	printMessage('await promise/before');
 	let result = await promise; // будет ждать, пока промис не выполнится
-	printMessage('await promise/after');
+	printMessage('await promise/after <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
 
 	printMessage('result: ' + result); // result: Done!
+	return result;
 }
 
 printMessage('f()/before');
-f();
-printMessage('f()/after');
+f().then(
+	()=>{
+		printMessage('f()/then');
+	}
+);
+printMessage('f()/after ?????????????????????');

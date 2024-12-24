@@ -100,27 +100,9 @@ svn mv myCompany-myLibrary ./my-company/my-library
 svn switch svn://svnserver/var/bump/branches/my-branch
 ````
 
-````shell
-# Предварительно ("--dry-run") посмотреть что будет, если попытаемся слить trunk с my-branch1
-# \> На момент вызова текущая директория  trunk
-## Сравнить две ветки на удаленом сервере
-svn merge svn://svnserver/my-project1/trunk svn://svnserver/my-project1/branches/my-branch1 --dry-run
-## Сравнить ветку сервера и локальное состояние
-svn merge svn://svnserver/my-project1/trunk ./ --dry-run
+* Миграция изменений между веток, слияние веток.
 
-## Если конфликтов с локальной копией овердофига, то задолбаемся улаживать в консоли.
-## Поэтому применяем "--accept postone"
-## Например, на локальном диске в "./" лежит копия бренча и в нее нужно влить изменения с trunk
-## После выполнения команды открываем графическую утилиту и страдаем от улаживания трехсторонних конфликтов :(
-svn merge --accept postpone svn://svnserver/my-project1/trunk ./
-
-# Улаживание конфликта деревьев.
-## Принять текущее состояние папки "./docker/web" как рабочее
-svn resolve --accept working -R ./docker/web
-
-# Отмена локальных изменений в текущей папке и ниже.
-svn revert -R ./
-````
+См. ниже [Сценарий: влить в trunk изменения из ветки "branches/my-branch1"](#merge_branche_to_trunk)
 
 ---
 
@@ -132,7 +114,11 @@ svn revert -R ./
 * Получить последние 10 изменений в репозитарии
 
 ````shell
+# Вывод в терминал
 svn log -l 10 http://svnserver/many-projects-root/
+
+# Вывод результата в виде XML, который будет сохранен в файл "svn-log-res.xml"
+svn log -l 10 --xml --verbose --quiet > svn-log-res.xml
 ````
 
 
@@ -186,6 +172,8 @@ $ svn status
 # Показывает изменения в локальной копии, при этом не учитывает (M - modified, A - added, D - deleted) файлы
 $ svn status | grep "^[^MAD]"
 
+# Расширенная информация о локальной копии
+svn status -u
 
 # Показывает все изменения в локальной копии
 $ svn diff
@@ -262,6 +250,43 @@ $ svn commit -m "Добавили ссылку на внешний репо"
 
 ---
 
+## Как сделать tag от trunk?
+
+Нужно выполнить копирование папки trunk в tags/X.Y.Z 
+
+```shell
+svn copy http://my-repo.local/my-components/trunk http://my-repo.local/my-components/tags/1.26.0 -m "#42571 | my-components | create-tag 1.26.0"
+```
+
+## <a id="merge_branche_to_trunk"/> Сценарий: влить в trunk изменения из ветки "branches/my-branch1"
+
+Например, в ветке "branches/my-branch1" выполнили задачу "XXXX", а затем хотим влить ее в основную ветку проекта.
+
+````shell
+# Предварительно ("--dry-run") посмотреть что будет, если попытаемся слить trunk с my-branch1
+# \> На момент вызова текущая директория  trunk
+## Сравнить две ветки на удаленом сервере
+svn merge svn://svnserver/my-project1/trunk svn://svnserver/my-project1/branches/my-branch1 --dry-run
+## Сравнить ветку сервера и локальное состояние
+svn merge svn://svnserver/my-project1/trunk ./ --dry-run
+
+## Если конфликтов с локальной копией овердофига, то задолбаемся улаживать в консоли.
+## Поэтому применяем "--accept postone"
+## Например, на локальном диске в "./" лежит копия бренча и в нее нужно влить изменения с trunk
+## После выполнения команды открываем графическую утилиту и страдаем от улаживания трехсторонних конфликтов :(
+svn merge --accept postpone svn://svnserver/my-project1/trunk ./
+
+# Улаживание конфликта деревьев.
+## Принять текущее состояние папки "./docker/web" как рабочее
+svn resolve --accept working -R ./docker/web
+
+# Отмена локальных изменений в текущей папке и ниже.
+svn revert -R ./
+````
+
+
+---
+
 ## Сценарий: создать структуру папок под новый проект
 
 ````shell
@@ -281,7 +306,7 @@ $ svn checkout http://svn.my.server.net/my-project-1/trunk ~/projects/my-project
 
 ---
 
-## Тема: Глобальные настройки игнорирорования
+## Тема: Глобальные настройки игнорирования
 
 Вносим изменения в конфиг subversion:
    Windows Vista/7/8/8.1/10: C:\Users\<username>\AppData\Roaming\Subversion\config
