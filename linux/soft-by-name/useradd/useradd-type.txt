@@ -1,0 +1,1 @@
+useradd является /usr/sbin/useradd

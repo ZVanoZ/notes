@@ -4,20 +4,43 @@ https://ravesli.com/difference-between-apt-and-apt-get-in-linux/
 
 ## CMD 
 
-* help
+
 ````shell
 apt --help &>apt-help.txt
 ````
 
-* man
+
+````shell
+apt --version &>apt-version.txt
+````
+
 ````shell
 man apt &>apt-man.txt
 ````
 
+## Обновление и установка ПО 
+
+
+* Обновление установленных пакетов
+```shell
+sudo apt upgrade
+```
+
+* Обновление до новой версии дистрибутива (dist-upgrade)
+```shell
+sudo apt dist-upgrade
+```
+
+
 ## apt cache
 
 ```bash
-# @TODO: добавить примеры использования
+ls -la /var/cache/apt/archives/ 
+sudo apt clean
+```
+
+```shell
+apt-cache depends mc
 ```
 
 ## apt policy

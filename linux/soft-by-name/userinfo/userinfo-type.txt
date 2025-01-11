@@ -1,0 +1,1 @@
+userinfo является /usr/bin/userinfo

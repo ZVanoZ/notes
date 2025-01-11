@@ -132,8 +132,64 @@ git config --remove-section credential
 ### Настройка GIT/credential
 
 Настройки кеширования логинов/паролей/токенов.  
-* [7.14 Инструменты Git - Хранилище учётных данных](https://git-scm.com/book/ru/v2/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B-Git-%D0%A5%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B5-%D1%83%D1%87%D1%91%D1%82%D0%BD%D1%8B%D1%85-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85)
+* [7.14 Инструменты Git - Хранилище учётных данных](https://git-scm.com/book/ru/v2/Инструменты-Git-Хранилище-учётных-данных)
 * [gitfaq#http-credentials-environment](https://git-scm.com/docs/gitfaq#http-credentials-environment)
+
+
+*Подстановка данных авторизации из переменных окружения*
+1. К примеру, мы имеем свой git репозитарий с URL "https://gitlab.repo.local".
+   Хотим склонировать "https://gitlab.repo.local/lib/my-slim-fork.git".
+   Репозитарий всюду требует авторизации и нам нужно сделать это автоматически в CI/CD.   
+2. Для решения этой задачи выносим авторизационные данные в переменные окружения и настраиваем подмену URL командой вида.  
+[@see: stackoverflow; how-can-i-save-username-and-password-in-git](https://stackoverflow.com/questions/35942754/how-can-i-save-username-and-password-in-git) 
+```shell
+# old-fragment - URL без авторизации
+# new-fragment - URL с авторизацией 
+git config --global url."new-fragment".insteadOf "old-fragment" 
+```
+При этом данные из переменных окружения попадут в виде статичного текста в файл "~/.gitconfig". Нужно следить чтобы этот файл не увели.
+```shell
+cat ~/.gitconfig
+```
+3. Подставляем логин/пароль из переменных окружения GIT_LOGIN и GIT_PASS (@NOTE: проверено, работает) 
+```shell
+git config --global url."https://$GIT_LOGIN:$GIT_PASS@gitlab.repo.local/".insteadOf "https://gitlab.repo.local/"
+git clone https://gitlab.repo.local/lib/my-slim-fork.git
+```
+```text
+$cat ~/.gitconfig
+[url "https://my-login:my-pass@gitlab.repo.local/"]
+ 	insteadOf = https://gitlab.repo.local/
+```
+3. Подставляем token из переменной окружения GIT_TOKEN (@NOTE: проверено, работает)
+```shell
+git config --global url."https://api:$GIT_TOKEN@gitlab.repo.local/".insteadOf "https://gitlab.repo.local/"
+git clone https://gitlab.repo.local/lib/my-slim-fork.git
+```
+```text
+$cat ~/.gitconfig
+[url "https://api:glpat-...@gitlab.repo.local/"]
+	insteadOf = https://gitlab.repo.local/
+```
+4. Подставляем token ключ из переменной окружения GIT_TOKEN для запросов по git-протоколу (@NOTE: проверено, работает)
+```shell
+git config --global url."https://git:$GIT_TOKEN@gitlab.repo.local/".insteadOf "git@gitlab.repo.local:"
+git clone git@gitlab.repo.local/lib/my-slim-fork.git
+```
+```text
+$cat ~/.gitconfig
+[url "https://git:glpat-...@gitlab.repo.local/"]
+	insteadOf = git@gitlab.repo.local:
+```
+5. Подставляем ssh ключ из переменной окружения GIT_SSH_KEY (@TODO: проверить) 
+```shell
+git config --global url."https://ssh:$GIT_SSH_KEY@gitlab.repo.local/".insteadOf "ssh://git@gitlab.repo.local/"
+git clone ssh://git@gitlab.repo.local//lib/my-slim-fork.git
+```
+
+
+
+---
 
 ````bash
 # Посмотреть что выставлено для в локальных настройках
@@ -420,7 +476,7 @@ git restore --staged library/dio-zf1future to unstage
 # error: pathspec 'unstage' did not match any file(s) known to git
 ````
 
-@TODO: роазобраться и описать  
+@TODO: роазобраться и описать
 [git-book/7.11 Инструменты Git - Подмодули](https://git-scm.com/book/ru/v2/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B-Git-%D0%9F%D0%BE%D0%B4%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D0%B8)
 ````bash
 

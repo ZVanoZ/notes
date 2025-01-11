@@ -1,0 +1,9 @@
+{"example": {
+  "id": "env",
+  "value": "Envs",
+  "envs": [
+    {"env": "Shell", "value": "$SHELL" },
+    {"env": "Lang", "value": "$LANG" },
+    {"env": "Display", "value": "$DISPLAY" }
+  ]
+}}

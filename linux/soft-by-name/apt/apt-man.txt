@@ -1,11 +1,11 @@
-APT(8)                                                                                                        APT                                                                                                       APT(8)
+APT(8)                                                                                                       APT                                                                                                      APT(8)
 
 NAME
        apt - command-line interface
 
 SYNOPSIS
-       apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]...  | remove pkg...  | upgrade | full-upgrade
-           | edit-sources | {-v | --version} | {-h | --help}}
+       apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]...  | remove pkg...  | upgrade |
+           full-upgrade | edit-sources | {-v | --version} | {-h | --help}}
 
 DESCRIPTION
        apt provides a high-level commandline interface for the package management system. It is intended as an end user interface and enables some options better suited for interactive usage by default compared to more
@@ -15,8 +15,8 @@ DESCRIPTION
        overwhelming readers with a cornucopia of options and details.
 
        update (apt-get(8))
-           update is used to download package information from all configured sources. Other commands operate on this data to e.g. perform package upgrades or search in and display details about all packages available for
-           installation.
+           update is used to download package information from all configured sources. Other commands operate on this data to e.g. perform package upgrades or search in and display details about all packages available
+           for installation.
 
        upgrade (apt-get(8))
            upgrade is used to install available upgrades of all packages currently installed on the system from the sources configured via sources.list(5). New packages will be installed if required to satisfy
@@ -38,11 +38,11 @@ DESCRIPTION
            or configuration stored in your home directory.
 
        autoremove (apt-get(8))
-           autoremove is used to remove packages that were automatically installed to satisfy dependencies for other packages and are now no longer needed as dependencies changed or the package(s) needing them were removed
-           in the meantime.
+           autoremove is used to remove packages that were automatically installed to satisfy dependencies for other packages and are now no longer needed as dependencies changed or the package(s) needing them were
+           removed in the meantime.
 
-           You should check that the list does not include applications you have grown to like even though they were once installed just as a dependency of another package. You can mark such a package as manually installed
-           by using apt-mark(8). Packages which you have installed explicitly via install are also never proposed for automatic removal.
+           You should check that the list does not include applications you have grown to like even though they were once installed just as a dependency of another package. You can mark such a package as manually
+           installed by using apt-mark(8). Packages which you have installed explicitly via install are also never proposed for automatic removal.
 
        satisfy (apt-get(8))
            satisfy satisfies dependency strings, as used in Build-Depends. It also handles conflicts, by prefixing an argument with "Conflicts: ".
@@ -87,4 +87,4 @@ NOTES
         1. APT bug page
            http://bugs.debian.org/src:apt
 
-APT 2.6.1                                                                                                05 April 2020                                                                                                  APT(8)
+APT 2.6.1                                                                                               05 April 2020                                                                                                 APT(8)

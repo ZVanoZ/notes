@@ -197,6 +197,9 @@ $ svn propget svn:ignore .
 # Получить список игноров для папки ".gradle"
 $ svn propget svn:ignore .gradle/
 
+svn propedit svn:externals .
+
+
 # Для текущей папки "." установить игнорирование подпапки ".idea"
 ## @INFO: см. "Глобальные настройки игнорирорования" для расширения темы
 # - т.е. папка ".idea" не будет добавлена под управление SVN.
@@ -204,6 +207,9 @@ $ svn propset svn:ignore .idea .
 # Для папки ".gradle" установить свойство "svn:ignore *"  
 # - т.е. папка ".gradle" будет добавлена в SVN, а ее содержимое нет (содержимое не коммитится).
 svn propset svn:ignore "*" .gradle
+
+svn propset svn:externals "common/lib http://svn.example.com/common/lib" myproject/modules/module1
+svn propset svn:externals "boost http://svn.boost.org/svn/boost/trunk" myproject
 
 
 
@@ -409,3 +415,21 @@ svn log --quiet http://svn.my.server.net/my-project-1/trunk | awk '{print $3}' |
 
 git svn clone --authors-file=authors.txt ...
 ````
+
+## Ошибка svn: warning: W155004 на директории, которая подключена через svn:externals
+
+svn: warning: W155004: Working copy 'examples/vendor/mebjas/html5-qrcode' locked.
+
+Не знаю как правильно разруливать такие конфликты.  
+```shell
+# "svn unlock" тут не работает
+svn unlock examples/vendor/mebjas/html5-qrcode
+svn: E155008: The node 'examples/vendor/mebjas/html5-qrcode' is not a file
+````
+Поэтому просто удаляю прилинкованную директорию и стягиваю заново
+```shell
+rm -rfv examples/vendor/mebjas/html5-qrcode
+svn update
+svn status
+```
+

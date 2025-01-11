@@ -1,0 +1,1 @@
+chfn является /usr/bin/chfn

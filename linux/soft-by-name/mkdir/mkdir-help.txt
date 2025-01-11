@@ -1,0 +1,22 @@
+Использование: mkdir [ПАРАМЕТР]… КАТАЛОГ…
+Создаёт КАТАЛОГ(и), если он ещё не существует.
+
+Аргументы, обязательные для длинных параметров, обязательны и для коротких.
+  -m, --mode=РЕЖИМ   назначить права доступа к файлу (как в chmod),
+                     а не a=rwx - umask
+  -p, --parents      не выдавать ошибку, если существует; создавать
+                     родительские каталоги при необходимости
+                     с правами без учёта параметра -m
+  -v, --verbose      печатать сообщение о каждом созданном каталоге
+  -Z                 установить контекст безопасности SELinux
+                     каждого создаваемого каталога равным типу по умолчанию
+      --context[=CTX]  подобно -Z, или если указан CTX, то установить
+                     контекст безопасности SELinux
+                     или SMACK равным CTX
+      --help        display this help and exit
+      --version     output version information and exit
+
+Страница справки по GNU coreutils: <https://www.gnu.org/software/coreutils/>
+Об ошибках в переводе сообщений сообщайте по адресу <https://translationproject.org/team/ru.html>
+Полная документация: <https://www.gnu.org/software/coreutils/mkdir>
+или доступная локально: info '(coreutils) mkdir invocation'

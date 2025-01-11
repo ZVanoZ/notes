@@ -1,0 +1,1 @@
+-rwsr-xr-x 1 root root 62672 мар 23  2023 /usr/bin/chfn

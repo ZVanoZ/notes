@@ -1,0 +1,22 @@
+Использование: id [ПАРАМЕТР]… [ПОЛЬЗОВАТЕЛЬ]…
+Print user and group information for each specified USER,
+or (when USER omitted) for the current process.
+
+  -a              игнорируется, для совместимости с другими версиями
+  -Z, --context   вывести только контекст безопасности процесса
+  -g, --group     вывести только действующий ID группы
+  -G, --groups    вывести все ID групп
+  -n, --name      вывести имя вместо номера, для параметров -ugG
+  -r, --real      вывести действительные, а не действующие ID, для -ugG
+  -u, --user      вывести только действующий ID пользователя
+  -z, --zero      разделять записи символами NUL, а не пробельными;
+                  не допускается для формата по умолчанию
+      --help        display this help and exit
+      --version     output version information and exit
+
+Если ПАРАМЕТРЫ не заданы, печатает некоторый стандартный набор полезных сведений.
+
+Страница справки по GNU coreutils: <https://www.gnu.org/software/coreutils/>
+Об ошибках в переводе сообщений сообщайте по адресу <https://translationproject.org/team/ru.html>
+Полная документация: <https://www.gnu.org/software/coreutils/id>
+или доступная локально: info '(coreutils) id invocation'

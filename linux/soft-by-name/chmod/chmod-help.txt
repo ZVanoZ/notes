@@ -1,0 +1,25 @@
+Использование: chmod [ПАРАМЕТР]... РЕЖИМ[,РЕЖИМ]… ФАЙЛ
+       или:    chmod [ПАРАМЕТР]… ВОСЬМЕРИЧНЫЙ-РЕЖИМ ФАЙЛ…
+       или:    chmod [ПАРАМЕТР]… --reference=ОФАЙЛ ФАЙЛ…
+Смена РЕЖИМА доступа к указанным ФАЙЛАМ.
+При задании --reference, установить режим
+указанных ФАЙЛОВ как у ЭФАЙЛА.
+
+  -c, --changes          как verbose, но выводить только при выполнении
+                         изменений
+  -f, --silent, --quiet  не выводить большинство сообщений об ошибках
+  -v, --verbose          выводить диагностические сообщения по каждому файлу
+      --no-preserve-root не обрабатывать «/» особым образом (по умолчанию)
+      --preserve-root    отказываться рекурсивно обрабатывать «/»
+      --reference=ЭФАЙЛ  использовать режим доступа ЭФАЙЛА
+                         вместо значений РЕЖИМ
+  -R, --recursive        рекурсивно изменять файлы и каталоги
+      --help        display this help and exit
+      --version     output version information and exit
+
+Каждый РЕЖИМ задаётся в форме «[ugoa]*([-+=]([rwxXst]*|[ugo]))+|[-+=][0-7]+».
+
+Страница справки по GNU coreutils: <https://www.gnu.org/software/coreutils/>
+Об ошибках в переводе сообщений сообщайте по адресу <https://translationproject.org/team/ru.html>
+Полная документация: <https://www.gnu.org/software/coreutils/chmod>
+или доступная локально: info '(coreutils) chmod invocation'

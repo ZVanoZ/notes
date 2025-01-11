@@ -4,31 +4,20 @@
 
 Ответ на вопросы типа: Как просмотреть права? Как изменить права?  
 
-## Шпаргалка
+@see [chmod.md](soft-by-name/chmod/chmod.md) 
 
-```text
-          Владелец
-           Группа
-            Остальные
-chmod -vR 700
+## Информация о пользователе
 
-________________________________________________
-:   0   1   2   3      4     5     6     7     :
-________________________________________________
-:   -   x   w          r                       :
-: --- --x  -w-  -wx    r--   r-x   rw-   rwx   :
-:               2+1          3+1   4+2   4+2+1 :
-________________________________________________
+@see:
+* [getent.md](soft-by-name/getent/getent.md)
+* [id.md](soft-by-name/id/id.md)
 
-chmod -v 700        rwx------  
-chmod -v 701        rwx-----x   
-chmod -v 702        rwx----w-   
-chmod -v 703        rwx----wx   
-chmod -v 704        rwx---r--   
-chmod -v 705        rwx---r-x   
-chmod -v 706        rwx---rw-   
-chmod -v 707        rwx---rwx   
-```
+## Добавление/изменение/удаление
+
+@see:
+* [chfn.md](soft-by-name/chfn/chfn.md)
+* [userinfo.md](soft-by-name/userinfo/userinfo.md)
+* [usermod.md](soft-by-name/usermod/usermod.md)
 
 ## RAW
 
@@ -75,7 +64,7 @@ id ivan
 # uid=1000(ivan) gid=1000(ivan) groups=1000(ivan),4(adm),24(cdrom),27(sudo),30(dip),33(www-data),46(plugdev),112(lpadmin),127(sambashare),130(docker),131(kvm),128(vboxusers)
 # -- Видим, что добавилось "33(www-data)"
 
-# -- Перероверяем.
+# -- Перепроверяем.
 groups
 groups ivan
 # ivan : ivan adm cdrom sudo dip www-data plugdev lpadmin sambashare docker kvm vboxusers

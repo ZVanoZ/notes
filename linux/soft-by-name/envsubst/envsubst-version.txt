@@ -1,0 +1,6 @@
+envsubst (GNU gettext-runtime) 0.21
+Copyright (C) 2003-2020 Free Software Foundation, Inc.
+Лицензия GPLv3+: GNU GPL версии 3 или новее <https://gnu.org/licenses/gpl.html>
+Это свободное ПО: вы можете продавать и распространять его.
+Нет НИКАКИХ ГАРАНТИЙ до степени, разрешённой законом.
+Автор программы — Бруно Хайбл (Bruno Haible).
