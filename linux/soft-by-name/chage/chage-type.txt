@@ -1,0 +1,1 @@
+chage является /usr/bin/chage

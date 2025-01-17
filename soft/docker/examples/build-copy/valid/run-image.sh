@@ -1,0 +1,1 @@
+docker run --rm -it local.demo.build-copy.valid:20250216

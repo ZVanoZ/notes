@@ -2,7 +2,7 @@
 
 # --arg aaa='aaaval' \
   #
-docker run -it \
+docker run --rm -it \
   --env IS_DOCKER='T' \
   --volume "$PWD/volume":/volume \
   --workdir "/volume" \

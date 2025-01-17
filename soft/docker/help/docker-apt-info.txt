@@ -1,0 +1,20 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Package: docker
+Version: 1.5-2
+Priority: optional
+Section: x11
+Maintainer: Paul Tagliamonte <paultag@debian.org>
+Installed-Size: 9.216 B
+Depends: wmdocker
+Tag: implemented-in::c++, interface::graphical, interface::x11,
+ role::program, scope::utility, suite::gnome, suite::gnustep,
+ suite::kde, uitoolkit::gtk, uitoolkit::qt, uitoolkit::xlib,
+ x11::applet, x11::application
+Download-Size: 2.556 B
+APT-Sources: http://deb.debian.org/debian bookworm/main amd64 Packages
+Description: transitional package
+ This is a transitional package for system tray docking application.
+ It can safely be removed.
+

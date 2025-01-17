@@ -1,0 +1,1 @@
+docker run --rm -it local.demo.dockerignore-demo:20250216

@@ -1,0 +1,54 @@
+Usage: tr [OPTION]... STRING1 [STRING2]
+Translate, squeeze, and/or delete characters from standard input,
+writing to standard output.  STRING1 and STRING2 specify arrays of
+characters ARRAY1 and ARRAY2 that control the action.
+
+  -c, -C, --complement    use the complement of ARRAY1
+  -d, --delete            delete characters in ARRAY1, do not translate
+  -s, --squeeze-repeats   replace each sequence of a repeated character
+                            that is listed in the last specified ARRAY,
+                            with a single occurrence of that character
+  -t, --truncate-set1     first truncate ARRAY1 to length of ARRAY2
+      --help        display this help and exit
+      --version     output version information and exit
+
+ARRAYs are specified as strings of characters.  Most represent themselves.
+Interpreted sequences are:
+
+  \NNN            character with octal value NNN (1 to 3 octal digits)
+  \\              backslash
+  \a              audible BEL
+  \b              backspace
+  \f              form feed
+  \n              new line
+  \r              return
+  \t              horizontal tab
+  \v              vertical tab
+  CHAR1-CHAR2     all characters from CHAR1 to CHAR2 in ascending order
+  [CHAR*]         in ARRAY2, copies of CHAR until length of ARRAY1
+  [CHAR*REPEAT]   REPEAT copies of CHAR, REPEAT octal if starting with 0
+  [:alnum:]       all letters and digits
+  [:alpha:]       all letters
+  [:blank:]       all horizontal whitespace
+  [:cntrl:]       all control characters
+  [:digit:]       all digits
+  [:graph:]        все печатные символы, исключая пробел
+  [:lower:]        все строчные буквы
+  [:print:]        все печатные символы, включая пробел
+  [:punct:]        все знаки пунктуации
+  [:space:]        все горизонтальные или вертикальные пробельные символы
+  [:upper:]        все заглавные буквы
+  [:xdigit:]       все шестнадцатеричные цифры
+  [=СИМ=]          все символы, эквивалентные СИМВОЛУ
+
+Translation occurs if -d is not given and both STRING1 and STRING2 appear.
+-t may be used only when translating.  ARRAY2 is extended to length of
+ARRAY1 by repeating its last character as necessary.  Excess characters
+of ARRAY2 are ignored.  Character classes expand in unspecified order;
+while translating, [:lower:] and [:upper:] may be used in pairs to
+specify case conversion.  Squeezing occurs after translation or deletion.
+
+Страница справки по GNU coreutils: <https://www.gnu.org/software/coreutils/>
+Об ошибках в переводе сообщений сообщайте по адресу <https://translationproject.org/team/ru.html>
+Полная документация: <https://www.gnu.org/software/coreutils/tr>
+или доступная локально: info '(coreutils) tr invocation'
