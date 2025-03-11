@@ -1,5 +1,7 @@
 #!/bin/bash
 #------------------------------------------------------------------------------
+clear
+
 echo ''
 printf '=%.0s' {1..80} && echo ""
 echo '-- BEG: script     : '$(realpath "${BASH_SOURCE[0]}")
@@ -26,6 +28,8 @@ function checkPath(){
 
 cd $(dirname $(realpath "${BASH_SOURCE[0]}"))
 pwd
+mkdir -vp  "${PWD}/tmp"
+rm -rfv "${PWD}/tmp/*"
 
 pathLinkSrc="${PWD}/tmp/link-src"
 pathLinkDir="${PWD}/tmp/link-dir.lnk"

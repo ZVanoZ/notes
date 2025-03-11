@@ -1,0 +1,28 @@
+mkdir: Create a new directory under version control.
+usage: 1. mkdir PATH...
+       2. mkdir URL...
+
+  Create version controlled directories.
+
+  1. Each directory specified by a working copy PATH is created locally
+    and scheduled for addition upon the next commit.
+
+  2. Each directory specified by a URL is created in the repository via
+    an immediate commit.
+
+  In both cases, all the intermediate directories must already exist,
+  unless the --parents option is given.
+
+Valid options:
+  -q [--quiet]             : print nothing, or only summary information
+  --parents                : make intermediate directories
+  -m [--message] ARG       : specify log message ARG
+  -F [--file] ARG          : read log message from file ARG
+  --force-log              : force validity of log message source
+  --editor-cmd ARG         : use ARG as external editor
+  --encoding ARG           : treat value as being in charset encoding ARG
+  --with-revprop ARG       : set revision property ARG in new revision
+                             using the name[=value] format
+
+(Use '-v' to show global and experimental options.)
+

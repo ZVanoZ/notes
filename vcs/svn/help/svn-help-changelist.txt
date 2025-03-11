@@ -1,0 +1,16 @@
+changelist (cl): Associate (or dissociate) changelist CLNAME with the named
+files.
+usage: 1. changelist CLNAME PATH...
+       2. changelist --remove PATH...
+
+Valid options:
+  -q [--quiet]             : print nothing, or only summary information
+  -R [--recursive]         : descend recursively, same as --depth=infinity
+  --depth ARG              : limit operation by depth ARG ('empty', 'files',
+                             'immediates', or 'infinity')
+  --remove                 : remove changelist association
+  --targets ARG            : pass contents of file ARG as additional args
+  --changelist [--cl] ARG  : operate only on members of changelist ARG
+
+(Use '-v' to show global and experimental options.)
+

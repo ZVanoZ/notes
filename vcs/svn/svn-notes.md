@@ -1,18 +1,23 @@
-
 ## Полезные ссылки
 
-
 * "Краткая шпаргалка по основным командам [Subversion](https://eax.me/svn-commands)
+* RU: [Управление версиями в Subversion](https://svnbook.red-bean.com/)
+  * [Содержание](https://svnbook.red-bean.com/nightly/ru/index.html)
+  * [4. Ветвление и слияние](https://svnbook.red-bean.com/nightly/ru/svn.branchmerge.html)
+  * [6. Настройка сервера](https://svnbook.red-bean.com/nightly/ru/svn.serverconfig.netmodel.html#svn.serverconfig.netmodel.credcache)
+    Сетевая модель. Авторизация, кеширование.
+  * ...
 
 ---
 
 ## Работа с репозитарием на внешнем сервере
 
 * Создаем базовую структуру для проекта "some-project"
-
+  
   * Удаленно за 4 коммита
 
-Создаем папку "some-project" в корне репозитария. Затем создаем в ней 3 папки.  
+Создаем папку "some-project" в корне репозитария. Затем создаем в ней 3 папки.
+
 ````shell
 svn mkdir http:/svnserver/svn/some-project/         -m "mktir for new project"
 svn mkdir http:/svnserver/svn/some-project/branches -m "mktir for new project - branches"
@@ -20,7 +25,7 @@ svn mkdir http:/svnserver/svn/some-project/tags     -m "mktir for new project - 
 svn mkdir http:/svnserver/svn/some-project/trunk    -m "mktir for new project - trunk"
 ````
 
-  * Удаленно за один коммит
+* Удаленно за один коммит
 
 ````shell
 svn mkdir --parents http:/svnserver/svn/some-project/trunk http:/svnserver/svn/some-project/branches http:/svnserver/svn/some-project/tags -m "#0000 create empty structure for some-project"
@@ -35,6 +40,7 @@ svn copy svn://svnserver/var/bump/trunk svn://svnserver/var/bump/branches/my-bra
 * Перенести на удаленном сервере папку из одного места в другое.
 
 В данном случае переименование someProgect1 в someProgect2
+
 ````shell
 svn move svn://svnserver/someProgect1 svn://svnserver/someProgect2
 ````
@@ -47,39 +53,42 @@ svn list svn://svnserver/var/bump/branches
 
 ---
 
-##  Работа с локальной копией
-
+## Работа с локальной копией
 
 * Извлекает проект "someProgect" с сервера в текущую папку
 
 В текущей папке появится подкаталог "someProgect", который будет связан с удаленнын репозитарием
+
 ````shell
 svn checkout svn://svnserver/someProgect
 ````
 
-
-* Добавить паку "src" в список "для коммита". 
+* Добавить паку "src" в список "для коммита".
 
 При этом содержимое папки тоже попадет в список.
+
 ````shell
 svn add src
-```` 
+````
 
 * Добавить паку "build" в список "для коммита".
 
 При этом не добавлять  содержимое папки.
+
 ````shell
 svn add -N build
 ````
 
 * Загружает в локальную копию изменения с SVN-сервера
+
 ````shell
 svn update
 ````
 
-* Коммит указанной директории 
+* Коммит указанной директории
 
 Закоммитится только папка "docker", а остальное останется в текущем состоянии.
+
 ````shell
 svn commit ./docker/ -m "Commit notes for our dockerfiles"
 ````
@@ -120,7 +129,6 @@ svn log -l 10 http://svnserver/many-projects-root/
 # Вывод результата в виде XML, который будет сохранен в файл "svn-log-res.xml"
 svn log -l 10 --xml --verbose --quiet > svn-log-res.xml
 ````
-
 
 ````shell
 # Получить список измененных файлов зная ревизию.
@@ -179,8 +187,8 @@ svn status -u
 $ svn diff
 # Показывает изменения файла "my-file.txt" в локальной копии
 $ svn diff my-dir/my-file.txt
-
 ````
+
 ---
 
 ## Работа со свойствами
@@ -251,14 +259,13 @@ $ svn update
 # 4. Коммитимся.
 $ svn commit -m "Добавили ссылку на внешний репо"
 #------
-
 ````
 
 ---
 
 ## Как сделать tag от trunk?
 
-Нужно выполнить копирование папки trunk в tags/X.Y.Z 
+Нужно выполнить копирование папки trunk в tags/X.Y.Z
 
 ```shell
 svn copy http://my-repo.local/my-components/trunk http://my-repo.local/my-components/tags/1.26.0 -m "#42571 | my-components | create-tag 1.26.0"
@@ -290,7 +297,6 @@ svn resolve --accept working -R ./docker/web
 svn revert -R ./
 ````
 
-
 ---
 
 ## Сценарий: создать структуру папок под новый проект
@@ -315,9 +321,9 @@ $ svn checkout http://svn.my.server.net/my-project-1/trunk ~/projects/my-project
 ## Тема: Глобальные настройки игнорирования
 
 Вносим изменения в конфиг subversion:
-   Windows Vista/7/8/8.1/10: C:\Users\<username>\AppData\Roaming\Subversion\config
-   Windows XP: c:\Documents and Settings\<username>\.subversion\config
-   Unix (Linux, etc), macOS: $HOME/.subversion/config
+Windows Vista/7/8/8.1/10: C:\Users\<username>\AppData\Roaming\Subversion\config
+Windows XP: c:\Documents and Settings\<username>\.subversion\config
+Unix (Linux, etc), macOS: $HOME/.subversion/config
 
 * Задача: требуется глобально установить игнорирование папки ".idea".
 
@@ -330,25 +336,31 @@ $ svn checkout http://svn.my.server.net/my-project-1/trunk ~/projects/my-project
 global-ignores = .idea
 ````
 
+---
 
 ## Задача: откатить последний коммит
 
 Допустим, коммит с ошибкой имеет номер 5271
 
-
 1. Приводим локальную копию к предыдущему состоянию
+
 ````shell
 svn merge -c -5271 .
 ````
+
 2. Проверяем изменения
+
 ````shell
 svn status
 ````
+
 3. Откат. Т.е. коммитим изменения.
+
 ````shell
 svn commit -m "Откат r5271 из задачи #XXX"
 ````
 
+---
 
 ## Задача: вернуть HEAD в состояние на какую-то ревизию
 
@@ -366,11 +378,11 @@ $svn merge -r 7236:7228 http://svn.my.server.net/my-project-1/trunk
 $ svn commit -m "Откат r7236 до состояния r7228"
 ````
 
+---
 
 ## Задача: откатить коммит, который не является HEAD
 
 ````shell
-
 #
 # Допустим, коммит с ошибкой имеет номер 22868
 # Решается через path
@@ -394,6 +406,7 @@ patch -R -p0 -i /tmp/1.diff
 svn commit -m "Откат r22868 в HEAD"
 ````
 
+---
 
 ## Задача: получить список авторов для миграции при помощи git svn clone
 
@@ -416,20 +429,139 @@ svn log --quiet http://svn.my.server.net/my-project-1/trunk | awk '{print $3}' |
 git svn clone --authors-file=authors.txt ...
 ````
 
+---
+
 ## Ошибка svn: warning: W155004 на директории, которая подключена через svn:externals
 
 svn: warning: W155004: Working copy 'examples/vendor/mebjas/html5-qrcode' locked.
 
-Не знаю как правильно разруливать такие конфликты.  
+Не знаю как правильно разруливать такие конфликты.
+
 ```shell
 # "svn unlock" тут не работает
 svn unlock examples/vendor/mebjas/html5-qrcode
 svn: E155008: The node 'examples/vendor/mebjas/html5-qrcode' is not a file
 ````
+
 Поэтому просто удаляю прилинкованную директорию и стягиваю заново
+
 ```shell
 rm -rfv examples/vendor/mebjas/html5-qrcode
 svn update
 svn status
+```
+
+---
+
+## Задача: настроить автоматическую авторизацию в процессах CI/CD
+
+Есть сервер svn.server.local с проектом svn.server.local/my-lib
+
+```text
+http://svn.server.local/svn/my-lib/trunk
+svn://svn.server.local/my-lib/trunk
+```
+
+Доступ по логину и паролю
+
+```text
+Логин : user1name 
+Пароль: user1pass
+```
+
+**Во время выполнения docker контейнера в НЕ ИНТЕРАКТИВНОМ режиме требуется выполнить svn checkout**
+Логин и пароль доступны через переменные окружения SVN_SERVER_1_USER_NAME, SVN_SERVER_1_USER_PASS
+
+Решения:
+
+1. Работает. Через "--username" и "--password".
+   Передаем логин и пароль через опции "--username", "--password".
+   Недостатки: логин и пароль видны в логах CI/CD на gitlab.
+
+```shell
+svn checkout svn://svn.server.local/my-lib/trunk /var/www/libs/my-lib \ 
+      --username="${SVN_SERVER_1_USER_NAME}" \
+      --password="${SVN_SERVER_1_USER_PASS}"
+```
+
+2. Не работает. Используя экспорт переменных перед выполнением команды.
+   Gemini предложил этот вариант.
+   Но SVN клиент не хочет читать эти переменные.
+   Вероятно, нужно пошаманить с конфигами ~/.subversion/{config|servers}
+
+```shell
+export SVN_USERNAME="${SVN_SERVER_1_USER_NAME}"
+export SVN_PASSWORD="${SVN_SERVER_1_USER_PASS}"
+svn checkout svn://svn.server.local/my-lib/trunk /var/www/libs/my-lib
+```
+
+3. Выполнив предварительно команду "svn ls" выставив опции сохранения логина и пароля.  
+
+* Готовый скрипт.  
+Создаст в папке "~/.subversion/auth/svn.simple" файлы realm с сохраненными логинами и паролями.  
+Файлы будут иметь странные имена, похожие на хеш.  
+```shell
+  echo '-- clean svn auth: ' && rm -rfv ~/.subversion/*
+  local urls=()
+  urls+=('http://svn.server.local/svn/my-lib/trunk')
+  urls+=('svn://svn.server.local/my-lib/trunk')
+  for url in "${urls[@]}"; do
+    echo '-- auth for:' ${url}
+    options="--username=\"${SVN_SERVER_1_USER_NAME}\" --password=\"${SVN_SERVER_1_USER_PASS}\""
+    options="${options} --config-option servers:global:store-plaintext-passwords=yes"
+    options="${options} ${url}"
+    cmd="svn ls ${options}"
+    if [[ ${VERBOSE_MODE} =~ ^v{4,}$ ]]; then
+      echo "${cmd}"
+    fi
+    eval "${cmd}" &>/dev/null
+    echo '-> res='$?
+  done
+```
+
+* /.subversion/config  
+```ini
+# Можно указать вручную, но не нужно.  
+[auth]
+password-stores = svn.simple
+```
+
+* /.subversion/servers  
+```ini
+# Можно указать вручную, но не нужно.
+[global]
+#store-passwords = yes
+store-plaintext-passwords = yes
+#store-auth-creds = yes
+```
+
+* ~/.subversion/auth/svn.simple/my-ayth-file
+```realm
+K 8
+passtype
+V 6
+simple
+K 8
+password
+V 9
+user1pass
+K 15
+svn:realmstring
+V 51
+<http://svn.server.local:80> Server description ...
+K 8
+username
+V 9
+user1name
+END
+```
+* RAW
+
+```shell
+# Такой скрипт найден для примера
+# https://github.com/inkling/content-scripts/blob/master/set-credentials.sh
+SVN_AUTH_OPTIONS="--username ${SVN_USERNAME} --password ${SVN_PASSWORD} --config-option servers:global:store-plaintext-passwords=yes --config-option servers:global:store-passwords=yes --config-option config:auth:password-stores=yes --non-interactive --trust-server-cert"
+PROJECT="https://svn.inkling.com/svn/productdesign/trunk svnTestFolder"
+svn checkout $SVN_AUTH_OPTIONS $PROJECT --depth empty
 ```
 

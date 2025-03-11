@@ -1,6 +1,6 @@
 # Заметки по использованию git
 
-## Ссылки на документацию. 
+## Ссылки на документацию.
 
 https://git-scm.com/book/ru/v2
 
@@ -112,6 +112,7 @@ git config core.filemode false
 ## Глобально
 git config --global code.filemode false
 ````
+
 ### Настройка GIT/Вывод отладочной информации
 
 ````bash
@@ -131,63 +132,78 @@ git config --remove-section credential
 
 ### Настройка GIT/credential
 
-Настройки кеширования логинов/паролей/токенов.  
+Настройки кеширования логинов/паролей/токенов.
+
 * [7.14 Инструменты Git - Хранилище учётных данных](https://git-scm.com/book/ru/v2/Инструменты-Git-Хранилище-учётных-данных)
 * [gitfaq#http-credentials-environment](https://git-scm.com/docs/gitfaq#http-credentials-environment)
 
-
 *Подстановка данных авторизации из переменных окружения*
+
 1. К примеру, мы имеем свой git репозитарий с URL "https://gitlab.repo.local".
    Хотим склонировать "https://gitlab.repo.local/lib/my-slim-fork.git".
-   Репозитарий всюду требует авторизации и нам нужно сделать это автоматически в CI/CD.   
-2. Для решения этой задачи выносим авторизационные данные в переменные окружения и настраиваем подмену URL командой вида.  
-[@see: stackoverflow; how-can-i-save-username-and-password-in-git](https://stackoverflow.com/questions/35942754/how-can-i-save-username-and-password-in-git) 
+   Репозитарий всюду требует авторизации и нам нужно сделать это автоматически в CI/CD.
+2. Для решения этой задачи выносим авторизационные данные в переменные окружения и настраиваем подмену URL командой
+   вида.  
+   [@see: stackoverflow; how-can-i-save-username-and-password-in-git](https://stackoverflow.com/questions/35942754/how-can-i-save-username-and-password-in-git)
+
 ```shell
 # old-fragment - URL без авторизации
 # new-fragment - URL с авторизацией 
 git config --global url."new-fragment".insteadOf "old-fragment" 
 ```
-При этом данные из переменных окружения попадут в виде статичного текста в файл "~/.gitconfig". Нужно следить чтобы этот файл не увели.
+
+При этом данные из переменных окружения попадут в виде статичного текста в файл "~/.gitconfig". Нужно следить чтобы этот
+файл не увели.
+
 ```shell
 cat ~/.gitconfig
 ```
-3. Подставляем логин/пароль из переменных окружения GIT_LOGIN и GIT_PASS (@NOTE: проверено, работает) 
+
+3. Подставляем логин/пароль из переменных окружения GIT_LOGIN и GIT_PASS (@NOTE: проверено, работает)
+
 ```shell
 git config --global url."https://$GIT_LOGIN:$GIT_PASS@gitlab.repo.local/".insteadOf "https://gitlab.repo.local/"
 git clone https://gitlab.repo.local/lib/my-slim-fork.git
 ```
+
 ```text
 $cat ~/.gitconfig
 [url "https://my-login:my-pass@gitlab.repo.local/"]
  	insteadOf = https://gitlab.repo.local/
 ```
+
 3. Подставляем token из переменной окружения GIT_TOKEN (@NOTE: проверено, работает)
+
 ```shell
 git config --global url."https://api:$GIT_TOKEN@gitlab.repo.local/".insteadOf "https://gitlab.repo.local/"
 git clone https://gitlab.repo.local/lib/my-slim-fork.git
 ```
+
 ```text
 $cat ~/.gitconfig
 [url "https://api:glpat-...@gitlab.repo.local/"]
 	insteadOf = https://gitlab.repo.local/
 ```
+
 4. Подставляем token ключ из переменной окружения GIT_TOKEN для запросов по git-протоколу (@NOTE: проверено, работает)
+
 ```shell
 git config --global url."https://git:$GIT_TOKEN@gitlab.repo.local/".insteadOf "git@gitlab.repo.local:"
 git clone git@gitlab.repo.local/lib/my-slim-fork.git
 ```
+
 ```text
 $cat ~/.gitconfig
 [url "https://git:glpat-...@gitlab.repo.local/"]
 	insteadOf = git@gitlab.repo.local:
 ```
-5. Подставляем ssh ключ из переменной окружения GIT_SSH_KEY (@TODO: проверить) 
+
+5. Подставляем ssh ключ из переменной окружения GIT_SSH_KEY (@TODO: проверить)
+
 ```shell
 git config --global url."https://ssh:$GIT_SSH_KEY@gitlab.repo.local/".insteadOf "ssh://git@gitlab.repo.local/"
 git clone ssh://git@gitlab.repo.local//lib/my-slim-fork.git
 ```
-
-
 
 ---
 
@@ -205,7 +221,9 @@ git config --global credential.helper
 
 
 ````
+
 Стандартные помощники авторизации
+
 ````bash
 #------------------------------------------------------------------------------
 # Хранение в открытом виде в файле  ~/.git-credentials
@@ -236,14 +254,16 @@ git config --global credential.my.repo.local.helper "store --file ~/git-my.repo.
 # Как дальше работает - ХЗ (надо разбираться).
 git config --global credential.helper cache
 ````
+
 Свой помощник авторизации
+
 ````bash
 # Свой помощник авторизации
 # Этот скрипт будет вызываться всякий раз, когда GIT потребуются авторизационные данные
 git config --global credential.helper /var/www/git-credential-helper.sh
 ````
 
-## Первые шаги. Создаем локальное хранилище и связываем с удаленным на githib 
+## Первые шаги. Создаем локальное хранилище и связываем с удаленным на githib
 
 ````bash
 echo "# notes" >> README.md
@@ -278,7 +298,7 @@ git reset --hard HEAD
 $ git clean -fd
 ````
 
-## Работа с логом 
+## Работа с логом
 
 ````bash
 # Выводит лог в стандартном виде (hash, branch, tag,  author, date, comment)
@@ -395,11 +415,12 @@ $ git remote -v
 
 Интеграции в PhpStorm нет, а стирать пальцы о клавиатуру вообще не хочется.  
 В контексте работы PHP программиста лучше использовать PHP-composer.  
-В идеале, подключаемая библиотека должна быть стабильной и с правильным версионированием.  
+В идеале, подключаемая библиотека должна быть стабильной и с правильным версионированием.
 
-Если же библиотека еще "сырая" и только выполняется ее выпиливание из монолитного проекта в отдельную репу, 
+Если же библиотека еще "сырая" и только выполняется ее выпиливание из монолитного проекта в отдельную репу,
 то загружаем эту библиотеку в "library/XYZ" как отдельный проект.  
 При этом в основном проекте подключаем ее как репозиторий с типом "path".
+
 ````bash
 # Клонируем сырую библиотеку
 git clone https://myrepo.local/lib/dio-zf1future.git library/dio-zf1future
@@ -409,15 +430,18 @@ git checkout dev
 # Говорим GIT, что нечего ему заглядывать в папку с либой 
 echo '**/library/dio-zf1future/*' >> .gitignore
 ````
+
 ````JS
 // composer.json
 {
-    "repositories": [
-        {
-          "type": "path",
-          "url": "./library/dio-zf1future/"
-        }
-    ]
+	"repositories"
+:
+	[
+		{
+			"type": "path",
+			"url": "./library/dio-zf1future/"
+		}
+	]
 }
 ````
 
@@ -478,6 +502,7 @@ git restore --staged library/dio-zf1future to unstage
 
 @TODO: роазобраться и описать
 [git-book/7.11 Инструменты Git - Подмодули](https://git-scm.com/book/ru/v2/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B-Git-%D0%9F%D0%BE%D0%B4%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D0%B8)
+
 ````bash
 
 git submodule init
@@ -528,6 +553,7 @@ git config alias.supdate 'submodule update --remote --merge'
 
 Если хотим вносить изменения в субмодуль  
 См. [git-book/7.11 Инструменты Git - Подмодули/Работа с подмодулем](https://git-scm.com/book/ru/v2/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B-Git-%D0%9F%D0%BE%D0%B4%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D0%B8)
+
 ````BASH
 # Внимание!!!
 # Изначально субмодуль будет в состоянии "detached HEAD"
@@ -626,6 +652,7 @@ git push --recurse-submodules=on-demand
 ````
 
 Ошибки
+
 ````bash
 git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F /tmp/git-commit-msg-.txt --
 # warning: adding embedded git repository: library/dio-zf1future
@@ -766,7 +793,7 @@ $ git branch -a
 #  remotes/origin/gh-pages
 ````
 
-### Заливка нескольких локальных изменений на удаленный репозитарий в виде одного коммита  
+### Заливка нескольких локальных изменений на удаленный репозитарий в виде одного коммита
 
 ````bash
 #-------------------------------------------------------------------------------
@@ -807,3 +834,29 @@ $ git cherry -v 2.14.x |wc -l
 # Затем ссылка текущей ветки("origin-issue#214") переставляется на новый коммит.
 $ git rebase -i HEAD~7
 ````
+
+### Получение списка авторов для текущего репозитария
+
+Вывод в консоль
+
+```bash
+git log --format="%aN <%aE>" | sort -f | uniq
+```
+
+Вывод в файл "AUTHORS.txt"
+
+```bash
+git log --format="%aN <%aE>" | sort -f | uniq > AUTHORS.txt
+```
+
+Обновление файла "AUTHORS.txt" скриптом из "package.json" (для проектов под Node).  
+См. [jsdom/jsdom](https://github.com/jsdom/jsdom)
+```json
+{
+  "name": "jsdom",
+  "version": "26.0.0",
+  "scripts": {
+    "update-authors": "git log --format=\"%aN <%aE>\" | sort -f | uniq > AUTHORS.txt"
+  }
+}
+```

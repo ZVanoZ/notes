@@ -1,0 +1,38 @@
+add: Put new files and directories under version control.
+usage: add PATH...
+
+  Schedule unversioned PATHs for addition, so they will become versioned and
+  be added to the repository in the next commit. Recurse into directories by
+  default (see the --depth option).
+
+  The 'svn add' command is only necessary for files and directories that are
+  not yet under version control. Unversioned files and directories can be
+  identified with 'svn status' (see 'svn help status').
+
+  The effects of 'svn add' can be undone with 'svn revert' before the addition
+  has been committed. Once committed, a path can be removed from version
+  control with 'svn delete', and in some circumstances by running a reverse-
+  merge (see 'svn help merge' for details).
+
+  With --force, add all the unversioned paths found in PATHs and ignore the
+  rest; otherwise, error out if any specified paths are already versioned.
+
+  The selection of items to add may be influenced by the 'ignores' feature.
+  Properties may be attached to the items as configured by the 'auto-props'
+  feature.
+
+Valid options:
+  --targets ARG            : pass contents of file ARG as additional args
+  -N [--non-recursive]     : obsolete; same as --depth=empty
+  --depth ARG              : limit operation by depth ARG ('empty', 'files',
+                             'immediates', or 'infinity')
+  -q [--quiet]             : print nothing, or only summary information
+  --force                  : ignore already versioned paths
+  --no-ignore              : disregard default and svn:ignore and
+                             svn:global-ignores property ignores
+  --auto-props             : enable automatic properties
+  --no-auto-props          : disable automatic properties
+  --parents                : add intermediate parents
+
+(Use '-v' to show global and experimental options.)
+

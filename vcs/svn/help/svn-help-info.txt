@@ -1,0 +1,62 @@
+info: Display information about a local or remote item.
+usage: info [TARGET[@REV]...]
+
+  Print information about each TARGET (default: '.').
+  TARGET may be either a working-copy path or a URL.  If specified, REV
+  determines in which revision the target is first looked up; the default
+  is HEAD for a URL or BASE for a WC path.
+
+  With --show-item, print only the value of one item of information
+  about TARGET.
+
+  EXPERIMENTAL:
+  With --x-viewspec, print the working copy layout.
+
+Valid options:
+  -r [--revision] ARG      : ARG (some commands also take ARG1:ARG2 range)
+                             A revision argument can be one of:
+                                NUMBER       revision number
+                                '{' DATE '}' revision at start of the date
+                                'HEAD'       latest in repository
+                                'BASE'       base rev of item's working copy
+                                'COMMITTED'  last commit at or before BASE
+                                'PREV'       revision just before COMMITTED
+  -R [--recursive]         : descend recursively, same as --depth=infinity
+  -H [--human-readable]    : show file sizes with base-2 unit suffixes
+                             (Byte, Kilobyte, Megabyte, Gigabyte, Terabyte
+                             and Petabyte), limiting the number of digits
+                             to three or less
+  --depth ARG              : limit operation by depth ARG ('empty', 'files',
+                             'immediates', or 'infinity')
+  --targets ARG            : pass contents of file ARG as additional args
+  --incremental            : give output suitable for concatenation
+  --xml                    : output in XML
+  --changelist [--cl] ARG  : operate only on members of changelist ARG
+  --include-externals      : also operate on externals defined by
+                             svn:externals properties
+  --show-item ARG          : print only the item identified by ARG:
+                                'kind'       node kind of TARGET
+                                'url'        URL of TARGET in the repository
+                                'relative-url'
+                                             repository-relative URL of TARGET
+                                'repos-root-url'
+                                             root URL of repository
+                                'repos-uuid' UUID of repository
+                                'repos-size' for files, the size of TARGET
+                                             in the repository
+                                'revision'   specified or implied revision
+                                'last-changed-revision'
+                                             last change of TARGET at or before
+                                             'revision'
+                                'last-changed-date'
+                                             date of 'last-changed-revision'
+                                'last-changed-author'
+                                             author of 'last-changed-revision'
+                                'wc-root'    root of TARGET's working copy
+                                'schedule'   'normal','add','delete','replace'
+                                'depth'      checkout depth of TARGET in WC
+                                'changelist' changelist of TARGET in WC
+  --no-newline             : do not output the trailing newline
+
+(Use '-v' to show global and experimental options.)
+

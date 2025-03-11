@@ -1,0 +1,35 @@
+proplist (plist, pl): List all properties on files, dirs, or revisions.
+usage: 1. proplist [TARGET[@REV]...]
+       2. proplist --revprop -r REV [TARGET]
+
+  1. Lists versioned props. If specified, REV determines in which
+     revision the target is first looked up.
+  2. Lists unversioned remote props on repos revision.
+     TARGET only determines which repository to access.
+
+  With --verbose, the property values are printed as well, like 'svn propget
+  --verbose'.  With --quiet, the paths are not printed.
+
+  See 'svn help propset' for descriptions of the svn:* special properties.
+
+Valid options:
+  -v [--verbose]           : print path, name and value on separate lines
+  -R [--recursive]         : descend recursively, same as --depth=infinity
+  --depth ARG              : limit operation by depth ARG ('empty', 'files',
+                             'immediates', or 'infinity')
+  -r [--revision] ARG      : ARG (some commands also take ARG1:ARG2 range)
+                             A revision argument can be one of:
+                                NUMBER       revision number
+                                '{' DATE '}' revision at start of the date
+                                'HEAD'       latest in repository
+                                'BASE'       base rev of item's working copy
+                                'COMMITTED'  last commit at or before BASE
+                                'PREV'       revision just before COMMITTED
+  -q [--quiet]             : don't print the path
+  --revprop                : operate on a revision property (use with -r)
+  --xml                    : output in XML
+  --changelist [--cl] ARG  : operate only on members of changelist ARG
+  --show-inherited-props   : retrieve properties set on parents of the target
+
+(Use '-v' to show global and experimental options.)
+

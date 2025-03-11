@@ -1,0 +1,50 @@
+list (ls): List directory entries in the repository.
+usage: list [TARGET[@REV]...]
+
+  List each TARGET file and the contents of each TARGET directory as
+  they exist in the repository.  If TARGET is a working copy path, the
+  corresponding repository URL will be used. If specified, REV determines
+  in which revision the target is first looked up.
+
+  The default TARGET is '.', meaning the repository URL of the current
+  working directory.
+
+  Multiple --search patterns may be specified and the output will be
+  reduced to those paths whose last segment - i.e. the file or directory
+  name - matches at least one of these patterns.
+
+  With --verbose, the following fields will be shown for each item:
+
+    Revision number of the last commit
+    Author of the last commit
+    If locked, the letter 'O'.  (Use 'svn info URL' to see details)
+    Size (in bytes)
+    Date and time of the last commit
+
+Valid options:
+  -r [--revision] ARG      : ARG (some commands also take ARG1:ARG2 range)
+                             A revision argument can be one of:
+                                NUMBER       revision number
+                                '{' DATE '}' revision at start of the date
+                                'HEAD'       latest in repository
+                                'BASE'       base rev of item's working copy
+                                'COMMITTED'  last commit at or before BASE
+                                'PREV'       revision just before COMMITTED
+  -v [--verbose]           : print extra information
+  -R [--recursive]         : descend recursively, same as --depth=infinity
+  -H [--human-readable]    : with --verbose, show file sizes with base-2
+                             unit suffixes (Byte, Kilobyte, Megabyte,
+                             Gigabyte, Terabyte and Petabyte), limiting
+                             the number of digits to three or less
+  --depth ARG              : limit operation by depth ARG ('empty', 'files',
+                             'immediates', or 'infinity')
+  --incremental            : give output suitable for concatenation
+  --xml                    : output in XML
+  --include-externals      : also operate on externals defined by
+                             svn:externals properties
+  --search ARG             : use ARG as search pattern (glob syntax, case-
+                             and accent-insensitive, may require quotation marks
+                             to prevent shell expansion)
+
+(Use '-v' to show global and experimental options.)
+

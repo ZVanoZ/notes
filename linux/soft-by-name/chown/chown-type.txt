@@ -1,0 +1,1 @@
+chown является /usr/bin/chown

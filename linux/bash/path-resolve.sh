@@ -9,12 +9,26 @@ clear
 # Не работает, если директория относительного пути не существует/
 #-----
 
-somePath1=$(realpath "../some-file1.txt")
-echo "pwd  : '$(pwd)'"
-echo "file1: '${somePath1}'"
-echo "file2: '$(realpath "../some-file2.txt")'"
+echo 'pwd         :' $(pwd)
+echo '$0          :' $0
+echo 'dirname  $0 :' $(dirname $0)
+echo 'basename $0 :' $(basename $0)
 
-# Нет такого файла или каталога
-echo "file3: '$(realpath "../dir1/dir2/some-file3.txt")'"
+
+echo '--'
+# Файл существует
+someFilePath="$(basename $0)"
+echo "file                  : ${someFilePath}"
+echo "file ls -la           : $( ls -la ${someFilePath})"
+echo "file dirname          : '$(dirname ${someFilePath})'"
+echo "file dirname realpath : '$(dirname $(realpath ${someFilePath}))'" #
+
+echo '--'
+# Файл НЕ существует
+someFilePath="./invalid-file-name.txt"
+echo "file                  : ${someFilePath}"
+echo "file ls -la           : $( ls -la ${someFilePath})"               #  невозможно получить доступ к './invalid-file-name.txt': Нет такого файла или каталога
+echo "file dirname          : '$(dirname ${someFilePath})'"             # '.'
+echo "file dirname realpath : '$(dirname $(realpath ${someFilePath}))'" # '.../notes/linux/bash' - вывел текущий каталог
 
 #------------------------------------------------------------------------------

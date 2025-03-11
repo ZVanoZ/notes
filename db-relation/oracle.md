@@ -1,5 +1,16 @@
 <hr/>
 
+[Визуализатор схем-выполненя запросов в Oracle](https://ru.stackoverflow.com/questions/773497/Визуализатор-схем-выполненя-запросов-в-oracle)
+```sql
+-- В результате вернется clob поле содержащее HTML файл, который можно открыть в браузере 
+select dbms_sqltune.report_sql_monitor( sql_id => '9ya87b6a04kc3',
+                                        type => 'HTML',
+                                        report_level => 'ALL + PLAN') as report
+from dual;    
+```
+
+<hr/>
+
 ## Подключиться через SQLPlus к БД на внешнем хосте
 ```bash
 # Логин "ldbtUser", пароль "Password123"
@@ -72,4 +83,12 @@ FROM
 */
 
     
+```
+
+
+## TODO
+
+```sql
+-- Разобраться зачем админ выполняет этот запрос при проблемах с производительностью.
+ALTER SYSTEM FLUSH SHARED_POOL;
 ```

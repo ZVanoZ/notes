@@ -1,0 +1,10 @@
+upgrade: Upgrade the metadata storage format for a working copy.
+usage: upgrade [WCPATH...]
+
+  Local modifications are preserved.
+
+Valid options:
+  -q [--quiet]             : print nothing, or only summary information
+
+(Use '-v' to show global and experimental options.)
+

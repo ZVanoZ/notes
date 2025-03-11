@@ -1,0 +1,19 @@
+cat: Output the content of specified files or URLs.
+usage: cat TARGET[@REV]...
+
+  If specified, REV determines in which revision the target is first
+  looked up.
+
+Valid options:
+  -r [--revision] ARG      : ARG (some commands also take ARG1:ARG2 range)
+                             A revision argument can be one of:
+                                NUMBER       revision number
+                                '{' DATE '}' revision at start of the date
+                                'HEAD'       latest in repository
+                                'BASE'       base rev of item's working copy
+                                'COMMITTED'  last commit at or before BASE
+                                'PREV'       revision just before COMMITTED
+  --ignore-keywords        : don't expand keywords
+
+(Use '-v' to show global and experimental options.)
+

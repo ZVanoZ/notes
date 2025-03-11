@@ -1,0 +1,8 @@
+du (GNU coreutils) 9.1
+Copyright (C) 2022 Free Software Foundation, Inc.
+Лицензия GPLv3+: GNU GPL версии 3 или новее <https://gnu.org/licenses/gpl.html>.
+Это свободное ПО: вы можете изменять и распространять его.
+Нет НИКАКИХ ГАРАНТИЙ в пределах действующего законодательства.
+
+Авторы программы — Torbjorn Granlund, David MacKenzie, Paul Eggert
+и Jim Meyering.

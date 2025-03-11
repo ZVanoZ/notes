@@ -1,0 +1,12 @@
+unlock: Unlock working copy paths or URLs.
+usage: unlock TARGET...
+
+  Use --force to break a lock held by another user or working copy.
+
+Valid options:
+  --targets ARG            : pass contents of file ARG as additional args
+  --force                  : break locks
+  -q [--quiet]             : print nothing, or only summary information
+
+(Use '-v' to show global and experimental options.)
+

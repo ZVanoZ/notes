@@ -1,16 +1,20 @@
 
+## Системная информация
 
-```shell
-man chmod &>chmod-man.txt 
-```
+* Информация о команде
+````shell
+type chmod        &> chmod-type.txt
+chmod --help      &> chmod-help.txt
+chmod --version   &> chmod-version.txt
+man chmod         &> chmod-man.txt
+````
 
-```shell
-chmod --help &>chmod-help.txt 
-```
-
-```shell
-chmod --version &>chmod-version.txt 
-```
+* Информация об установке
+````shell
+#sudo dpkg -i chmod     &> chmod-dpkg-i.txt
+#dpkg --status chmod    &> chmod-dpkg-status.txt
+#apt info chmod         &> chmod-apt-info.txt
+````
 
 ## Шпаргалка
 

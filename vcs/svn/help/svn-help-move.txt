@@ -1,0 +1,36 @@
+move (mv, rename, ren): Move (rename) an item in a working copy or repository.
+usage: move SRC... DST
+
+  SRC and DST can both be working copy (WC) paths or URLs:
+    WC  -> WC:  move an item in a working copy, as a local change to
+                be committed later (with or without further changes)
+    URL -> URL: move an item in the repository directly, immediately
+                creating a new revision in the repository
+  All the SRCs must be of the same type. If DST is an existing directory,
+  the sources will be added as children of DST. When moving multiple
+  sources, DST must be an existing directory.
+
+  SRC and DST of WC -> WC moves must be committed in the same revision.
+  Furthermore, WC -> WC moves will refuse to move a mixed-revision subtree.
+  To avoid unnecessary conflicts, it is recommended to run 'svn update'
+  to update the subtree to a single revision before moving it.
+  The --allow-mixed-revisions option is provided for backward compatibility.
+
+Valid options:
+  -q [--quiet]             : print nothing, or only summary information
+  --force                  : force operation to run
+  --parents                : make intermediate directories
+  --allow-mixed-revisions  : Allow operation on mixed-revision working copy.
+                             Use of this option is not recommended!
+                             Please run 'svn update' instead.
+  -m [--message] ARG       : specify log message ARG
+  -F [--file] ARG          : read log message from file ARG
+  --force-log              : force validity of log message source
+  --editor-cmd ARG         : use ARG as external editor
+  --encoding ARG           : treat value as being in charset encoding ARG
+  --with-revprop ARG       : set revision property ARG in new revision
+                             using the name[=value] format
+  -r [--revision] ARG      : deprecated and ignored
+
+(Use '-v' to show global and experimental options.)
+

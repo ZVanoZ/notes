@@ -1,0 +1,66 @@
+switch (sw): Update the working copy to a different URL within the same
+repository.
+usage: 1. switch URL[@PEGREV] [PATH]
+       2. switch --relocate FROM-PREFIX TO-PREFIX [PATH...]
+
+  1. Update the working copy to mirror a new URL within the repository.
+     This behavior is similar to 'svn update', and is the way to
+     move a working copy to a branch or tag within the same repository.
+     If specified, PEGREV determines in which revision the target is first
+     looked up.
+
+     If --force is used, unversioned obstructing paths in the working
+     copy do not automatically cause a failure if the switch attempts to
+     add the same path.  If the obstructing path is the same type (file
+     or directory) as the corresponding path in the repository it becomes
+     versioned but its contents are left 'as-is' in the working copy.
+     This means that an obstructing directory's unversioned children may
+     also obstruct and become versioned.  For files, any content differences
+     between the obstruction and the repository are treated like a local
+     modification to the working copy.  All properties from the repository
+     are applied to the obstructing path.
+
+     Use the --set-depth option to set a new working copy depth on the
+     targets of this operation.
+
+     By default, Subversion will refuse to switch a working copy path to
+     a new URL with which it shares no common version control ancestry.
+     Use the '--ignore-ancestry' option to override this sanity check.
+
+  2. The '--relocate' option is deprecated. This syntax is equivalent to
+     'svn relocate FROM-PREFIX TO-PREFIX [PATH]'.
+
+  See also 'svn help update' for a list of possible characters
+  reporting the action taken.
+
+  Examples:
+    svn switch ^/branches/1.x-release
+
+Valid options:
+  -r [--revision] ARG      : ARG (some commands also take ARG1:ARG2 range)
+                             A revision argument can be one of:
+                                NUMBER       revision number
+                                '{' DATE '}' revision at start of the date
+                                'HEAD'       latest in repository
+                                'BASE'       base rev of item's working copy
+                                'COMMITTED'  last commit at or before BASE
+                                'PREV'       revision just before COMMITTED
+  -N [--non-recursive]     : obsolete; same as --depth=files
+  --depth ARG              : limit operation by depth ARG ('empty', 'files',
+                             'immediates', or 'infinity')
+  --set-depth ARG          : set new working copy depth to ARG ('exclude',
+                             'empty', 'files', 'immediates', or 'infinity')
+  -q [--quiet]             : print nothing, or only summary information
+  --diff3-cmd ARG          : use ARG as merge command
+  --ignore-externals       : ignore externals definitions
+  --ignore-ancestry        : allow switching to a node with no common ancestor
+  --force                  : handle unversioned obstructions as changes
+  --accept ARG             : specify automatic conflict resolution action
+                             ('postpone', 'working', 'base', 'mine-conflict',
+                             'theirs-conflict', 'mine-full', 'theirs-full',
+                             'edit', 'launch', 'recommended') (shorthand:
+                             'p', 'mc', 'tc', 'mf', 'tf', 'e', 'l', 'r')
+  --relocate               : deprecated; use 'svn relocate'
+
+(Use '-v' to show global and experimental options.)
+

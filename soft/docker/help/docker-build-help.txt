@@ -31,7 +31,7 @@ Options:
       --no-cache-filter stringArray   Do not cache specified stages
   -o, --output stringArray            Output destination (format: "type=local,dest=path")
       --platform stringArray          Set target platform for build
-      --progress string               Set type of progress output ("auto", "plain", "tty", "rawjson"). Use plain to show container output (default "auto")
+      --progress string               Set type of progress output ("auto", "quiet", "plain", "tty", "rawjson"). Use plain to show container output (default "auto")
       --provenance string             Shorthand for "--attest=type=provenance"
       --pull                          Always attempt to pull all referenced images
       --push                          Shorthand for "--output=type=registry"

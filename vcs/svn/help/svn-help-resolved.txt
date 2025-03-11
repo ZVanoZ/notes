@@ -1,0 +1,17 @@
+resolved: Remove 'conflicted' state on working copy files or directories.
+usage: resolved PATH...
+
+  Note:  this subcommand does not semantically resolve conflicts or
+  remove conflict markers; it merely removes the conflict-related
+  artifact files and allows PATH to be committed again.  It has been
+  deprecated in favor of running 'svn resolve --accept working'.
+
+Valid options:
+  --targets ARG            : pass contents of file ARG as additional args
+  -R [--recursive]         : descend recursively, same as --depth=infinity
+  --depth ARG              : limit operation by depth ARG ('empty', 'files',
+                             'immediates', or 'infinity')
+  -q [--quiet]             : print nothing, or only summary information
+
+(Use '-v' to show global and experimental options.)
+

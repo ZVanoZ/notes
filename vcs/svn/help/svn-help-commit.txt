@@ -1,0 +1,34 @@
+commit (ci): Send changes from your working copy to the repository.
+usage: commit [PATH...]
+
+  A log message must be provided, but it can be empty.  If it is not
+  given by a --message or --file option, an editor will be started.
+
+  If any targets are (or contain) locked items, those will be
+  unlocked after a successful commit, unless --no-unlock is given.
+
+  If --include-externals is given, also commit file and directory
+  externals reached by recursion. Do not commit externals with a
+  fixed revision.
+
+Valid options:
+  -q [--quiet]             : print nothing, or only summary information
+  -N [--non-recursive]     : obsolete; same as --depth=empty
+  --depth ARG              : limit operation by depth ARG ('empty', 'files',
+                             'immediates', or 'infinity')
+  --targets ARG            : pass contents of file ARG as additional args
+  --no-unlock              : don't unlock the targets
+  -m [--message] ARG       : specify log message ARG
+  -F [--file] ARG          : read log message from file ARG
+  --force-log              : force validity of log message source
+  --editor-cmd ARG         : use ARG as external editor
+  --encoding ARG           : treat value as being in charset encoding ARG
+  --with-revprop ARG       : set revision property ARG in new revision
+                             using the name[=value] format
+  --changelist [--cl] ARG  : operate only on members of changelist ARG
+  --keep-changelists       : don't delete changelists after commit
+  --include-externals      : also operate on externals defined by
+                             svn:externals properties
+
+(Use '-v' to show global and experimental options.)
+

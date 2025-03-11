@@ -138,7 +138,7 @@ docker inspect -f '{{.HostConfig.LogConfig.Type}}' local.webgate-app-t1
 -- Запустить команду "uname -a" в среде образа "ubuntu:latest"
 --> Каждый запуск будет создавать новый контейнер, что приводит к замусориванию диска
 --> Чтобы избежать замусоривания, нужно добавить --rm
-$ docker run ubuntu:latest uname -a
+$ docker run --rm ubuntu:latest uname -a
 Unable to find image 'ubuntu:latest' locally
 latest: Pulling from library/ubuntu
 7ddbc47eeb70: Pull complete 

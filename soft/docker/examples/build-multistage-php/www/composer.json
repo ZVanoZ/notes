@@ -1,0 +1,20 @@
+{
+  "name": "z-vano-z/demo-app",
+  "description": "Description",
+  "minimum-stability": "stable",
+  "config": {
+    "secure-http": false
+  },
+  "require": {
+    "php": ">=8.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "scripts-descriptions": {
+    "test": "Run unit tests."
+  }
+}

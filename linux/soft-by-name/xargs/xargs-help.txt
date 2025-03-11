@@ -1,0 +1,52 @@
+Использование: xargs [ПАРАМЕТР]… КОМАНДА [НАЧАЛЬНЫЕ-АРГУМЕНТЫ]…
+Выполняет КОМАНДУ с аргументами НАЧАЛЬНЫЕ-АРГУМЕНТЫ и дополнительными
+аргументами, прочитанными из стандартного ввода.
+Обязательность или необязательность аргументов для длинного параметра
+аналогична и для соответствующего короткого параметра.
+  -0, --null                   Элементы разделяются null, а не пробельным
+                               символом. Отключается обработка кавычек,
+                               обратной косой черты и логического EOF
+  -a, --arg-file=ФАЙЛ          Читать аргументы из ФАЙЛа, а не
+                               стандартного ввода
+  -d, --delimiter=СИМВОЛ       Входные элементы разделяются СИМВОЛом, а не
+                               пробельным символом. Отключается обработка
+                               кавычек, обратной косой черты и логического EOF
+  -E END                       Задаёт логический EOF строки. Если в входных
+                               данных встречается END в виде строки, то
+                               оставшиеся входные данные игнорируются
+                               (игнорируются, если указан -0 или -d)
+  -e [END], --eof[=END]        Эквивалентно -E END, если указан END.
+                               Иначе, строка конец-файла отсутствует
+  -I R                         тоже, что и --replace=R
+  -i, --replace[=R]            replace R in INITIAL-ARGS with names read
+                                 from standard input, split at newlines;
+                                 if R is unspecified, assume {}
+  -L,-l, --max-lines=MAX-LINES Использовать не более MAX-LINES непробельных
+                               входных строк на командную строку
+  -l[MAX-LINES]                Подобен -L, но по умолчанию используется
+                               не более одной непробельной входной строки
+                               на командную строку, если не указан MAX-LINES
+  -n, --max-args=MAX-ARGS      Использовать не более MAX-ARGS аргументов на
+                               на командую строку
+  -o, --open-tty               Reopen stdin as /dev/tty in the child process
+                                 before executing the command; useful to run an
+                                 interactive application.
+  -P, --max-procs=MAX-PROCS    Выполнять до MAX-PROCS процессов одновременно
+  -p, --interactive            Спрашивать перед выполнением команд
+      --process-slot-var=VAR   Добавлять переменную окружения VAR в
+                               процессы-потомки
+  -r, --no-run-if-empty        Если аргументы не указаны, то КОМАНДУ не
+                               выполнять. Если не указан этот параметр, то
+                               КОМАНДА будет выполнена не менее одного раза.
+  -s, --max-chars=MAX-CHARS    Ограничить длину командной строки до MAX-CHARS
+      --show-limits            Показать ограничения на длину командной строки
+  -t, --verbose                Выводить команды перед их выполнением
+  -x, --exit                   Выйти, если превышен размер (см. -s)
+      --help                   Показать эту справку и выйти
+      --version                output version information and exit
+
+Please see also the documentation at https://www.gnu.org/software/findutils/.
+You can report (and track progress on fixing) bugs in the "xargs"
+program via the GNU findutils bug-reporting page at
+https://savannah.gnu.org/bugs/?group=findutils or, if
+you have no web access, by sending email to <bug-findutils@gnu.org>.

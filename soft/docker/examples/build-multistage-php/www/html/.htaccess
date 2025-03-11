@@ -1,0 +1,22 @@
+AddDefaultCharset UTF-8
+
+Options +Indexes
+Options +FollowSymlinks
+
+FileETag none
+
+AddType text/x-component .htc
+AddType application/x-java-jnlp-file .jnlp
+AddType application/octet-stream .jar
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    RewriteCond %{REQUEST_FILENAME} -s [OR]
+    RewriteCond %{REQUEST_FILENAME} -l [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^.*$ - [NC,L]
+
+    RewriteRule ^.*$ app.php [NC,L]
+</IfModule>

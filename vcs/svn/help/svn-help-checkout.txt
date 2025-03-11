@@ -1,0 +1,43 @@
+checkout (co): Check out a working copy from a repository.
+usage: checkout URL[@REV]... [PATH]
+
+  If specified, REV determines in which revision the URL is first
+  looked up.
+
+  If PATH is omitted, the basename of the URL will be used as
+  the destination. If multiple URLs are given each will be checked
+  out into a sub-directory of PATH, with the name of the sub-directory
+  being the basename of the URL.
+
+  If --force is used, unversioned obstructing paths in the working
+  copy destination do not automatically cause the check out to fail.
+  If the obstructing path is the same type (file or directory) as the
+  corresponding path in the repository it becomes versioned but its
+  contents are left 'as-is' in the working copy.  This means that an
+  obstructing directory's unversioned children may also obstruct and
+  become versioned.  For files, any content differences between the
+  obstruction and the repository are treated like a local modification
+  to the working copy.  All properties from the repository are applied
+  to the obstructing path.
+
+  See also 'svn help update' for a list of possible characters
+  reporting the action taken.
+
+Valid options:
+  -r [--revision] ARG      : ARG (some commands also take ARG1:ARG2 range)
+                             A revision argument can be one of:
+                                NUMBER       revision number
+                                '{' DATE '}' revision at start of the date
+                                'HEAD'       latest in repository
+                                'BASE'       base rev of item's working copy
+                                'COMMITTED'  last commit at or before BASE
+                                'PREV'       revision just before COMMITTED
+  -q [--quiet]             : print nothing, or only summary information
+  -N [--non-recursive]     : obsolete; same as --depth=files
+  --depth ARG              : limit operation by depth ARG ('empty', 'files',
+                             'immediates', or 'infinity')
+  --force                  : force operation to run
+  --ignore-externals       : ignore externals definitions
+
+(Use '-v' to show global and experimental options.)
+

@@ -1,0 +1,38 @@
+cleanup: Either recover from an interrupted operation that left the working
+copy locked, or remove unwanted files.
+usage: 1. cleanup [WCPATH...]
+       2. cleanup --remove-unversioned [WCPATH...]
+          cleanup --remove-ignored [WCPATH...]
+       3. cleanup --vacuum-pristines [WCPATH...]
+
+  1. When none of the options --remove-unversioned, --remove-ignored, and
+    --vacuum-pristines is specified, remove all write locks (shown as 'L' by
+    the 'svn status' command) from the working copy.  Usually, this is only
+    necessary if a Subversion client has crashed while using the working copy,
+    leaving it in an unusable state.
+
+    WARNING: There is no mechanism that will protect write locks still
+             being used by other Subversion clients. Running this command
+             without any options while another client is using the working
+             copy can corrupt the working copy beyond repair!
+
+  2. If the --remove-unversioned option or the --remove-ignored option
+    is given, remove any unversioned or ignored items within WCPATH.
+    Note that the 'svn status' command shows unversioned items as '?',
+    and ignored items as 'I' if the --no-ignore option is given to it.
+
+  3. If the --vacuum-pristines option is given, remove pristine copies of
+    files which are stored inside the .svn directory and which are no longer
+    referenced by any file in the working copy.
+
+Valid options:
+  --remove-unversioned     : remove unversioned items
+  --remove-ignored         : remove ignored items
+  --vacuum-pristines       : remove unreferenced pristines from .svn directory
+  --include-externals      : also operate on externals defined by
+                             svn:externals properties
+  -q [--quiet]             : print nothing, or only summary information
+  --diff3-cmd ARG          : deprecated and ignored
+
+(Use '-v' to show global and experimental options.)
+

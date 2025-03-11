@@ -1,0 +1,1 @@
+cut является /usr/bin/cut

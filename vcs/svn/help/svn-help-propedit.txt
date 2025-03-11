@@ -1,0 +1,31 @@
+propedit (pedit, pe): Edit a property with an external editor.
+usage: 1. propedit PROPNAME TARGET...
+       2. propedit PROPNAME --revprop -r REV [TARGET]
+
+  1. Edits versioned prop in working copy or repository.
+  2. Edits unversioned remote prop on repos revision.
+     TARGET only determines which repository to access.
+
+  See 'svn help propset' for descriptions of the svn:* special properties.
+
+Valid options:
+  -r [--revision] ARG      : ARG (some commands also take ARG1:ARG2 range)
+                             A revision argument can be one of:
+                                NUMBER       revision number
+                                '{' DATE '}' revision at start of the date
+                                'HEAD'       latest in repository
+                                'BASE'       base rev of item's working copy
+                                'COMMITTED'  last commit at or before BASE
+                                'PREV'       revision just before COMMITTED
+  --revprop                : operate on a revision property (use with -r)
+  -m [--message] ARG       : specify log message ARG
+  -F [--file] ARG          : read log message from file ARG
+  --force-log              : force validity of log message source
+  --editor-cmd ARG         : use ARG as external editor
+  --encoding ARG           : treat value as being in charset encoding ARG
+  --with-revprop ARG       : set revision property ARG in new revision
+                             using the name[=value] format
+  --force                  : force operation to run
+
+(Use '-v' to show global and experimental options.)
+
