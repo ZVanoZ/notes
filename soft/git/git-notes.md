@@ -107,6 +107,7 @@ git config --unset core.filemode
 ## Удалить глобальную опцию
 git config --unset --global core.filemode
 # Игнорировать смену прав на файлах
+# @tags: права, прав, chmod
 ## Для проекта
 git config core.filemode false
 ## Глобально
@@ -300,6 +301,12 @@ $ git clean -fd
 
 ## Работа с логом
 
+tags:
+* работа с историей
+* история
+* лог
+* history
+
 ````bash
 # Выводит лог в стандартном виде (hash, branch, tag,  author, date, comment)
 $ git log 
@@ -434,9 +441,7 @@ echo '**/library/dio-zf1future/*' >> .gitignore
 ````JS
 // composer.json
 {
-	"repositories"
-:
-	[
+	"repositories": [
 		{
 			"type": "path",
 			"url": "./library/dio-zf1future/"
@@ -518,6 +523,9 @@ git fetch
 
 git push --recurse-submodules=check
 git push --recurse-submodules=on-demand
+
+# Текущую ветку залить на сервер origin в ветку dev
+git push --set-upstream origin dev
 
 git submodule foreach 'git stash'
 git submodule foreach 'git checkout -b featureA'
@@ -834,6 +842,17 @@ $ git cherry -v 2.14.x |wc -l
 # Затем ссылка текущей ветки("origin-issue#214") переставляется на новый коммит.
 $ git rebase -i HEAD~7
 ````
+
+### В локальном репозитории нужно влить изменения из ветки "ci-test", но без истории
+
+```shell
+# Делаем активной ветку "#40719", в которую нужно влить изменения 
+git checkout #40719
+# Вливаем в текущую ветку изменения из ветки "ci-test" 
+git merge --squash ci-test
+# Коммитим состояние текущей ветки.
+git commit -m "Merge ci-test into #40719"
+```
 
 ### Получение списка авторов для текущего репозитария
 

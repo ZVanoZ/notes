@@ -1,0 +1,85 @@
+    
+IP Calculator 0.5
+
+Enter your netmask(s) in CIDR notation (/25) or dotted decimals
+(255.255.255.0). Inverse netmask are recognized. If you mmit the
+netmask, ipcalc uses the default netmask for the class of your
+network.
+
+Look at the space between the bits of the addresses: The bits before
+it are the network part of the address, the bits after it are the host
+part. You can see two simple facts: In a network address all host bits
+are zero, in a broadcast address they are all set.
+
+The class of your network is determined by its first bits.
+
+If your network is a private internet according to RFC 1918 this is
+remarked. When displaying subnets the new bits in the network part of
+the netmask are marked in a different color.
+
+The wildcard is the inverse netmask as used for access control lists
+in Cisco routers. You can also enter netmasks in wildcard notation.
+
+Do you want to split your network into subnets? Enter the address and
+netmask of your original network and play with the second netmask
+until the result matches your needs.
+
+Questions? Comments? Drop me a mail: krischan at jodies.de
+http://jodies.de/ipcalc
+
+Thanks for your nice ideas and help to make this tool more useful: 
+
+Bartosz Fenski
+Denis A. Hainsworth
+Foxfair Hu
+Frank Quotschalla
+Hermann J. Beckers
+Igor Zozulya
+Kevin Ivory
+Lars Mueller
+Lutz Pressler
+Oliver Seufer
+Scott Davis
+Steve Kent
+Sven Anderson
+Torgen Foertsch
+Edward
+Nick Clifford
+Victor Engmark
+
+Usage: ipcalc [options] <ADDRESS>[[/]<NETMASK>] [NETMASK]
+
+ipcalc takes an IP address and netmask and calculates the resulting
+broadcast, network, Cisco wildcard mask, and host range. By giving a
+second netmask, you can design sub- and supernetworks. It is also
+intended to be a teaching tool and presents the results as
+easy-to-understand binary values.
+
+ -n --nocolor  Don't display ANSI color codes.
+ -c --color    Display ANSI color codes (default).
+ -b --nobinary Suppress the bitwise output.
+ -c --class    Just print bit-count-mask of given address.
+ -h --html     Display results as HTML (not finished in this version).
+ -v --version  Print Version.
+ -s --split n1 n2 n3
+               Split into networks of size n1, n2, n3.
+ -r --range    Deaggregate address range.
+    --help     Longer help text.
+
+Examples:
+
+ipcalc 192.168.0.1/24
+ipcalc 192.168.0.1/255.255.128.0
+ipcalc 192.168.0.1 255.255.128.0 255.255.192.0
+ipcalc 192.168.0.1 0.0.63.255
+
+
+ipcalc <ADDRESS1> - <ADDRESS2>  deaggregate address range
+
+ipcalc <ADDRESS>/<NETMASK> --s a b c
+                                split network to subnets
+				where a b c fits in.
+
+! New HTML support not yet finished.
+
+ipcalc 0.5

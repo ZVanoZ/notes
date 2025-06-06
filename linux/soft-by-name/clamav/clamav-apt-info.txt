@@ -1,0 +1,47 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Package: clamav
+Version: 1.0.7+dfsg-1~deb12u1
+Priority: optional
+Section: utils
+Maintainer: ClamAV Team <pkg-clamav-devel@lists.alioth.debian.org>
+Installed-Size: 30,1 MB
+Depends: clamav-freshclam (>= 1.0.7+dfsg) | clamav-data, libc6 (>= 2.34), libclamav11 (>= 1.0.7), libcurl4 (>= 7.16.2), libgcc-s1 (>= 4.2), libjson-c5 (>= 0.15), libssl3 (>= 3.0.0), zlib1g (>= 1:1.2.3.3)
+Recommends: clamav-base
+Suggests: libclamunrar, clamav-docs
+Homepage: https://www.clamav.net/
+Tag: implemented-in::c, interface::commandline, role::program,
+ scope::utility, security::antivirus, use::scanning, works-with::file,
+ works-with::mail
+Download-Size: 5.775 kB
+APT-Sources: http://deb.debian.org/debian bookworm/main amd64 Packages
+Description: антивирусная утилита для Unix (интерфейс командной строки)
+ Clam AntiVirus — это антивирусный комплекс для Unix-подобных операционных
+ систем. Основным предназначением этой программы является интеграция с
+ почтовыми серверами (проверка вложений). Пакет clamav-daemon содержит
+ гибкую и расширяемую фоновую службу, пакет clamav — утилиту командной
+ строки, а пакет clamav-freshclam — инструмент для обновления информации о
+ вирусах через Интернет. Эти программы основаны на библиотеке libclamav,
+ которая может использоваться и другими приложениями.
+ .
+ Этот пакет содержит интерфейс командной строки. Возможности:
+  - встроенная поддержка множества форматов архивов, включая Zip, Tar,
+    Gzip, Bzip2, OLE2, Cabinet, CHM, BinHex, SIS и другие;
+  - встроенная поддержка большинства почтовых форматов представления
+    файлов;
+  - встроенная поддержка исполняемых файлов ELF и Portable Executable
+    сжатых при помощи UPX, FSG, Petite, NsPack, wwpack32, MEW, Upack или
+    замаскированных посредством SUE, Y0da Cryptor и прочих;
+  - встроенная поддержка распространённых форматов документов, включая
+    файлы Microsoft Office, Mac Office, HTML, RTF и PDF.
+ .
+ Для работы антивируса требуется база данных вирусов. Существует два
+ способа для её получения:
+  - clamav-freshclam — обновление баз данных через Интернет. Рекомендуется
+    при наличии доступа к Интернет;
+  - clamav-data — пакет для пользователей без доступа в Интернет.
+    База данных обновляется при обновлении пакета из репозиториев.
+    Пакет clamav-getfiles позволяет формировать собственные базы вирусов
+    с помощью компьютера, имеющего доступ в Интернет.
+

@@ -1,0 +1,14 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Сортировка…
+Полнотекстовый поиск…
+ipcalc/stable,stable 0.42-2 all
+  parameter calculator for IPv4 addresses
+
+ipcalc-ng/stable 1.0.2-1 amd64
+  parameter calculator for IPv4 and IPv6 addresses
+
+sipcalc/stable 1.1.6-3 amd64
+  Advanced console-based ip subnet calculator
+

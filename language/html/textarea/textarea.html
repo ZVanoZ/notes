@@ -1,0 +1,42 @@
+<html>
+<style>
+[name="textarea2"]{
+    overflow: scroll;
+    /*display: block;*/
+    height: 30px;
+    /*perspective: none;*/
+    /*overflow-y: scroll;*/
+    /*pointer-events: auto*/
+}
+</style>
+<body>
+<textarea rows="2" name="textarea1">
+1
+2
+3
+4
+</textarea>
+<!--
+        rows="2"
+        cols="30"
+-->
+<textarea
+        name="textarea2"
+        rows="2"
+        wrap="off"
+></textarea>
+</body>
+<script>
+	const
+		/**
+		 * @type {HTMLTextAreaElement}
+		 */
+		textarea1 = document.querySelector('[name="textarea1"]'),
+		/**
+		 * @type {HTMLTextAreaElement}
+		 */
+		textarea2 = document.querySelector('[name="textarea2"]')
+	;
+	textarea2.value = textarea1.value;
+</script>
+</html>

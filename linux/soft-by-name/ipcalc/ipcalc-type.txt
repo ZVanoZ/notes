@@ -1,0 +1,1 @@
+ipcalc является /bin/ipcalc

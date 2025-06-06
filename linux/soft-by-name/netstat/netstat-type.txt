@@ -1,0 +1,1 @@
+netstat является /bin/netstat
