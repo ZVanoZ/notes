@@ -37,6 +37,10 @@ sudo snap refresh
 snap remove viber-unofficial
 ```
 
+* Запустить telegram не прикрепляя вывод к терминалу 
+```shell
+snap run telegram-desktop > /dev/null 2>&1 &
+```
 * Запуск "telegram-desktop" с выводом отладочной информации
 ```shell
 SNAPD_DEBUG=1 snap run telegram-desktop
