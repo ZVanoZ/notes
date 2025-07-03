@@ -1,0 +1,40 @@
+#version: "3.9"
+
+services:
+
+  service-local:
+    image: php:8.0.28-apache
+    env_file:
+        - ./local/.env
+        - ./.env
+    # environment: # Эту секцию убираем, так как DOCKER_MAP_PORTS_80 уже будет доступна через .env файл
+    #   DOCKER_MAP_PORTS_80: "8025:80" # Это не сработает для подстановки в ports
+    ports:
+#      - "${DOCKER_MAP_PORTS_80}" # Здесь переменная будет взята из env_file
+      - "${DOCKER_MAP_PORT_80}:80" # Здесь переменная будет взята из env_file
+
+
+#  service-dev:
+#    image: php:8.0.28-apache
+##    env_file:
+##      - ./dev/.env
+#    environment:
+##      DOCKER_MAP_PORTS_80: "${DOCKER_MAP_PORT_80}:80"
+#      DOCKER_MAP_PORTS_80: "8025:80"
+#    user: ${WWW_DATA_UID}:${WWW_DATA_GID}
+#    ports:
+#      - ${DOCKER_MAP_PORTS_80}
+##    entrypoint: ["env"]
+
+#  service-prod:
+#    image: php:8.0.28-apache
+#    env_file:
+#      - ./prod/.env
+#    user: ${WWW_DATA_UID}:${WWW_DATA_GID}
+#    ports:
+#      - mode: ingress
+#        target: 80
+#        protocol: tcp
+#        published: "${DOCKER_MAP_PORT_80}"
+##    entrypoint: ["env"]
+
