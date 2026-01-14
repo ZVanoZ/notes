@@ -50,15 +50,30 @@ br-bcf16656a872: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 
 * Найти интерфейс докера и подсветить найденное
 
-````bash
+```bash
 ip addr |grep --color=always docker0: -A 3
-````
-````text
+```
+```text
 8: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
     link/ether 02:42:7e:32:e5:57 brd ff:ff:ff:ff:ff:ff
     inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
        valid_lft forever preferred_lft forever
-````
+```
+
+Получить IP-4
+```shell
+ip -4 addr show docker0 | grep -oP 'inet \K[\d.]+'
+```
+
+Сохранить полученный IP в переменную окружения "found_ip"
+```shell
+found_ip=$(ip -4 addr show docker0 | grep -oP 'inet \K[\d.]+') && echo 'found_ip='$found_ip
+```
+
+Заменить в файле ".env.base" все вхождения "PLACEHOLDER_LOCAL_DOCKER_HOST" на IP интерфейса "docker0"
+```shell
+sed -i "s/PLACEHOLDER_LOCAL_DOCKER_HOST/$(ip -4 addr show docker0 | grep -oP 'inet \K[\d.]+')/g" .env.base
+```
 
 * Найти все файлы с заданным текстом
 

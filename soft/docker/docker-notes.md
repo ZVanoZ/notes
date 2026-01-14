@@ -342,4 +342,8 @@ then
 fi   
 ````
 
-
+* Понизить версию API для текущей консоли можно через переменную окружения "DOCKER_API_VERSION" 
+```shell
+docker version
+export DOCKER_API_VERSION=1.43
+```

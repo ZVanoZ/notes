@@ -1,7 +1,9 @@
 ```shell
 man git &> git-man.txt 
 ```
-
+```shell
+man git-config &> git-man-config.txt
+```
 ```shell
 type git &> git-type.txt 
 ```

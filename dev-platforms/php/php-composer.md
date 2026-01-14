@@ -33,45 +33,30 @@ composer install -vvv --no-dev
 
 * Автоматическая авторизация по токену в github
 
-```js
+```json
 // "~/.composer/auth.json"
 {
-	"http-basic"
-:
-	{
-	}
-,
-	"github-oauth"
-:
-	{
-		"github.com"
-	:
-		"ТутТокен"
-	}
+  "http-basic": {
+  },
+  "github-oauth": {
+    "github.com": "ТутТокен"
+  }
 }
 ```
 
 * Автоматическая авторизация по паролю в SVN репозитарии
 
-```js
+```json
 // Вносим авторизацию в конфиг "~/.composer/auth.json"
 //> При совпадении "repositories.url" в package.json с "svn.example.org" будут 
 //> использоваться "username" и "password" из "~/.composer/auth.json"
 {
-	"http-basic"
-:
-	{
-		"svn.example.org"
-	:
-		{
-			"username"
-		:
-			"логин",
-				"password"
-		:
-			"пароль"
-		}
-	}
+  "http-basic": {
+    "svn.example.org": {
+      "username": "логин",
+      "password": "пароль"
+    }
+  }
 }
 ```
 
@@ -81,45 +66,28 @@ composer install -vvv --no-dev
 
 **@TODO: поэкспериментировать и описать подробнее**
 
-```js
+```json
 // my-app/composer.json
 {
-	"name"
-:
-	"company/project",
-		"description"
-:
-	"Description",
-		"minimum-stability"
-:
-	"stable",
-		"config"
-:
-	{
-		"secure-http"
-	:
-		false
-	}
-,
-	{
-		"repositories"
-	:
-		[
-			{
-				"type": "vcs",
-				"url": "http://svn.example.org/projectA/", // авторизация из  "~/.composer/auth.json"
-				"trunk-path": "Trunk",
-				"branches-path": "Branches",
-				"tags-path": "Tags"
-			}
-		]
-	}
-,
-	"require"
-:
-	{
-//        ...@TODO: а как использовать то?
-	}
+  "name": "company/project",
+  "description": "Description",
+  "minimum-stability": "stable",
+  "config": {
+    "secure-http": false
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "http://svn.example.org/projectA/",
+      // авторизация из  "~/.composer/auth.json"
+      "trunk-path": "Trunk",
+      "branches-path": "Branches",
+      "tags-path": "Tags"
+    }
+  ],
+  "require": {
+    //        ...@TODO: а как использовать то?
+  }
 }
 ```
 
@@ -130,7 +98,8 @@ composer install -vvv --no-dev
 * https://getcomposer.org/doc/05-repositories.md#package-2
 
 
-  * Вариант 1. Из SVN тянем архив
+* Вариант 1. Из SVN тянем архив
+
 ```json # my-app/composer.json
 {
   "name": "company/project",
@@ -169,7 +138,7 @@ composer install -vvv --no-dev
 }
 ```
 
-  * Вариант 2. Из SVN тянем директорию в роли библиотеки.
+* Вариант 2. Из SVN тянем директорию в роли библиотеки.
 
 Грузим библиотеку "mycompany/tcpdf-fonts": "trunk" из  "
 

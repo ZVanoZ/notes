@@ -46,3 +46,21 @@ Settings/Advanced Settings/Editor Tabs/When navigating to a file, prefer selecti
 ```
 
 ---
+
+
+
+* Вопрос
+  Как в PhpStorm изменить подсветку активной вкладки редактора
+
+* Ответ
+```text
+Для версии PhpStorm-2024.*
+  
+1. Settings/Editor/Color Scheme/Feneral
+2.1. Editor/Tabs/Selected Tab
+Background - [9A9797] - задает цвет фона в активной вкладке.
+2.2. Editor/Tabs/Underline
+Background - [F0F1F3] - задает цвет линии под активной вкладкой. 
+```
+
+---

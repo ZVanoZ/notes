@@ -1,0 +1,2 @@
+Unknown option: version
+usage: ts [-r] [-i | -s] [-m] [format]

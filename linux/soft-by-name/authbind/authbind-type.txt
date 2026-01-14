@@ -1,0 +1,1 @@
+authbind является /usr/bin/authbind

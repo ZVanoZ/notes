@@ -5,7 +5,10 @@
 * https://www.jetbrains.com/help/phpstorm/date-formats-settings.html
 
 Настройка формата даты.
+-> File | Settings | Appearance and Behavior | System Settings | Date Formats for Windows and Linux
 Полезно при копировании информации о коммитах в истории GIT.
+
+
 
 * https://www.jetbrains.com/help/phpstorm/viewing-structure-of-a-source-file.html
   Source file structure

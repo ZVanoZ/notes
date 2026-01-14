@@ -273,7 +273,7 @@ svn copy http://my-repo.local/my-components/trunk http://my-repo.local/my-compon
 
 ## <a id="merge_branche_to_trunk"/> Сценарий: влить в trunk изменения из ветки "branches/my-branch1"
 
-Например, в ветке "branches/my-branch1" выполнили задачу "XXXX", а затем хотим влить ее в основную ветку проекта.
+Например, в ветке "branches/my-branch1" выполнили заачу "XXXX", а затем хотим влить ее в основную ветку проекта.
 
 ````shell
 # Предварительно ("--dry-run") посмотреть что будет, если попытаемся слить trunk с my-branch1

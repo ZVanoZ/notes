@@ -1,0 +1,28 @@
+#
+services:
+
+  demos-php:
+    build:
+      dockerfile: "./docker/Dockerfile"
+    container_name: local.demoapp-log.demos-php
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - ../env/.env.base
+      - ../env/.env.local
+      - ../env/.env.private
+      - ./app/.env
+    ports:
+      - "${PHP_PORT_OUT}:80"
+    volumes:
+      - ./volume:/volume
+      - ./www:/var/www
+#      - ./app/xdebug-3.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - ./app/xdebug-3-by-req.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - ../../:/var/www/libs/demo-app-log
+    networks:
+      - demo-app
+
+networks:
+  demo-app:
+    driver: bridge

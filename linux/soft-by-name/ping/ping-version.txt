@@ -1,0 +1,2 @@
+ping from iputils 20221126
+libcap: yes, IDN: yes, NLS: no, error.h: yes, getrandom(): yes, __fpending(): yes

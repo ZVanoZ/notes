@@ -1,0 +1,1 @@
+journalctl является /usr/bin/journalctl
