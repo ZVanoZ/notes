@@ -11,6 +11,9 @@
 
 1. Через "Cursor Extension Panel" (рекомендуемый способ)
 
+
+Расширение в marketplace: https://marketplace.visualstudio.com/items?itemName=CoderOne.aimemory
+
 ```text
 * Открыть Cursor
 * Перейти в Extensions view (Ctrl+Shift+X / Cmd+Shift+X)
@@ -36,7 +39,7 @@ https://youtu.be/8R8w_yWLDPs?t=349
 
 ## Инициализация в проекте
 
-Если устанавливали расширение: 
+Если устанавливали расширение:
 ```text
 * Открываем в Cursor проект или папку
 * Открываем Command Palette (Ctrl+Shift+P / Cmd+Shift+P)

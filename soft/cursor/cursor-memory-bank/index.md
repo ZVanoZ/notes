@@ -40,30 +40,25 @@
 * Официальные ресурсы
   * Rules provide system-level instructions to Agent. 
     https://cursor.com/docs/context/rules
-* Владилен Минин; "github:vanzan01"; "youtube:Владилен Минин"; "telegram: https://t.me/vladm"
-      <details>
-        <summary>детали</summary>
-        <pre>
-        Репозиторий vanzan01 считается одним из лучших «золотых стандартов» в сообществе, потому что:
-        * Он содержит готовые шаблоны (activeContext.md, systemPatterns.md и др.).
-        * В нем прописаны качественные инструкции для Cursor, чтобы он сам обновлял эти файлы (автоматизация).
-        * Он активно поддерживается и обсуждается на форумах Cursor.
-        </pre>
-      </details>
-  * Сам проект (базовые *.md файлы и описание).  
-    https://github.com/vanzan01/cursor-memory-bank
+* "vanzan01/cursor-memory-bank"
+  * Сам проект (базовые *.md файлы и описание). https://github.com/vanzan01/cursor-memory-bank
   * Блог    https://blog.vanzan01.org/
-* "github:ipenywis"; "youtube:AI RANEZ"
-  * [2025-05-21] Memory Bank - LLM БОЛЬШЕ НЕ ЗАБЫВАЕТ!
-  https://www.youtube.com/watch?v=8R8w_yWLDPs
-  * [2025-06-05] Cursor Memory Bank - ЛУЧШИЙ ИНСТРУМЕНТ ДЛЯ КУРСОРА!
-  https://www.youtube.com/watch?v=RxEc1cIEVp8
+  * Владилен Минин; "github:vanzan01"; "youtube:Владилен Минин"; "telegram: https://t.me/vladm"
+  * [2025-06-05] Cursor Memory Bank - ЛУЧШИЙ ИНСТРУМЕНТ ДЛЯ КУРСОРА!  
+    https://www.youtube.com/watch?v=RxEc1cIEVp8
+    <details>
+    <summary>подробнее</summary>
+    01:33 Cursor AI можно пользоваться бесплатно
+    </details> 
+* 
   * "github:ipenywis"
     * aimemory - @TODO: Разобраться что дает проект.  
       Вроде, этот проект в нагрузку к видео "Memory Bank - LLM БОЛЬШЕ НЕ ЗАБЫВАЕТ!" (см. выше)  
       * https://github.com/ipenywis/aimemory  
       * https://github.com/ipenywis/aimemory/blob/main/src/lib/rules/memory-bank-rules.md  
-
+        "youtube:AI RANEZ"
+  * [2025-05-21] Memory Bank - LLM БОЛЬШЕ НЕ ЗАБЫВАЕТ!
+    https://www.youtube.com/watch?v=8R8w_yWLDPs
 ---
 
 ## Концепция
@@ -114,6 +109,16 @@
 см. [index.md](github-vanzan01/index.md)
 
 Готовый набор шаблонов. Предпочтительно использовать этот вариант.
+
+О проекте
+```text
+  Репозиторий vanzan01 считается одним из лучших «золотых стандартов» в сообществе, потому что:
+  * Он содержит готовые шаблоны (activeContext.md, systemPatterns.md и др.).
+  * В нем прописаны качественные инструкции для Cursor, чтобы он сам обновлял эти файлы (автоматизация).
+  * Он активно поддерживается и обсуждается на форумах Cursor.
+
+```
+
 
 ### https://github.com/ipenywis/aimemory
 

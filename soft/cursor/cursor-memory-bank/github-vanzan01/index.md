@@ -2,6 +2,18 @@
 
 @see: https://github.com/vanzan01/cursor-memory-bank/blob/ea4c04f847c3051d7172572935cabab6dfc321df/README.md
 
+## Ссылки
+
+* Домашняя
+  * Сам проект (базовые *.md файлы и описание).  
+    https://github.com/vanzan01/cursor-memory-bank
+  * Блог    https://blog.vanzan01.org/
+* [2025-06-05] Cursor Memory Bank - ЛУЧШИЙ ИНСТРУМЕНТ ДЛЯ КУРСОРА!  
+  https://www.youtube.com/watch?v=RxEc1cIEVp8
+* ...
+
+## Структура
+
 **Memory Bank System v0.8**
 
 Структура каталогов в виде дерева
