@@ -1,5 +1,16 @@
-<hr>
-<h2>RAW</h2>
+# npm
+
+
+
+## Аналоги
+
+* [npm.md](../N/npm.md)
+* [pnpm.md](../P/pnpm.md)
+* [yarn.md](../Y/yarn.md)
+
+---
+
+## RAW
 
 ````bash
 # Вызываем консольный диалог для создания "package.json" в текущей директории.
@@ -16,8 +27,3 @@ npm install node-gyp
 # Удалить пакет "node-gyp" из локальной области
 npm remove node-gyp
 ````
-
-<hr>
-
-
-## modules

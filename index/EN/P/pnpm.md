@@ -1,3 +1,12 @@
+#
+
+## Аналоги 
+
+* [npm.md](../N/npm.md)
+* [pnpm.md](../P/pnpm.md)
+* [yarn.md](../Y/yarn.md)
+
+
 ```bash
 npm install -g pnpm
  ```
