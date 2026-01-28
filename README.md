@@ -13,11 +13,5 @@
     * [EN](index/EN)
     * [RU](index/RU)
 * [language](language) - Индекс со ссылками по группе "Языки программирования и разметки".
-  * [html](language/html)
-  * [js](language/js)
-  * [js-doc](language/js-doc)
-  * [markdown](language/markdown)
-  * [php](language/php)
-  * [typescript](language/typescript)
 * [linux](linux) - @TODO: переработать (переместить в индекс)
 * [soft](soft) - @DEPRECATED: Индекс со ссылками
