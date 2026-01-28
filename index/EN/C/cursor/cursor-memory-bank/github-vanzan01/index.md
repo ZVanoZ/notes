@@ -1,9 +1,17 @@
-# Из https://github.com/vanzan01/cursor-memory-bank
+# "vanzan01/cursor-memory-bank"
 
-@see: https://github.com/vanzan01/cursor-memory-bank/blob/ea4c04f847c3051d7172572935cabab6dfc321df/README.md
+* @see: [about.md](geminy/about.md)
+* @see: https://github.com/vanzan01/cursor-memory-bank/blob/ea4c04f847c3051d7172572935cabab6dfc321df/README.md
 
 ## Ссылки
 
+Внутренние:
+* geminy:
+  * [about-vanzan01-cursor-memory-bank.md](geminy/about-vanzan01-cursor-memory-bank.md)
+  * [Как использовать Context7 в связке с "vanzan01/cursor-memory-bank"?](geminy/how-to-use-Context7-in-conjunction-with-vanzan01_cursor-memory-bank.md)
+* [sample-install](sample-install) - Скрипт, который подготовит пустой проект с "vanzan01/cursor-memory-bank"
+
+Внешние:
 * Домашняя
   * Сам проект (базовые *.md файлы и описание).  
     https://github.com/vanzan01/cursor-memory-bank
