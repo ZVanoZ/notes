@@ -1,0 +1,9 @@
+--------------------------------------------------------------------------------------------------
+-- Использование физического диска в VirtualBox
+-- Решаем задачу установки ОС из образа на HDD диск, подключаемый через [USB-SATA;USB-IDE] контроллер.
+-- https://mnorin.com/ispol-zovanie-fizicheskogo-diska-v-virtualbox.html
+-----
+
+$ sudo VBoxManage internalcommands createrawvmdk -filename drive_sde.vmdk -rawdisk /dev/sde
+$ sudo virtualbox
+--------------------------------------------------------------------------------------------------

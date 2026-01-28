@@ -1,2 +1,1 @@
-LIST:
-* [firefox](../index/EN/F/firefox)
+@SEE: [firefox](../index/EN/F/firefox)

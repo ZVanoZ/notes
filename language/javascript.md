@@ -1,0 +1,1 @@
+@SEE: [javascript](../index/EN/J/javascript)

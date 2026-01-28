@@ -1,0 +1,1 @@
+@SEE: [cursor](../index/EN/C/cursor)

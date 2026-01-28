@@ -36,8 +36,7 @@
 
 ## Ссылки на материалы для изучения.
 
-@see:
-* Официальные ресурсы
+@SEE: Официальные ресурсы
   * Rules provide system-level instructions to Agent. 
     https://cursor.com/docs/context/rules
 * "vanzan01/cursor-memory-bank"
