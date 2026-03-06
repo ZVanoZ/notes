@@ -1,1 +1,0 @@
-@SEE: [firefox](../index/EN/F/firefox)

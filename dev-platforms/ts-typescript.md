@@ -1,1 +1,0 @@
-@SEE: [typescript](../index/EN/T/typescript)

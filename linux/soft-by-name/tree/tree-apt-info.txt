@@ -1,0 +1,22 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Package: tree
+Version: 2.1.0-1
+Priority: optional
+Section: utils
+Maintainer: Florian Ernst <florian@debian.org>
+Installed-Size: 116 kB
+Depends: libc6 (>= 2.34)
+Homepage: http://mama.indstate.edu/users/ice/tree/
+Tag: implemented-in::c, interface::commandline, role::program,
+ scope::utility, use::browsing, works-with::file
+Download-Size: 52,5 kB
+APT-Manual-Installed: no
+APT-Sources: http://deb.debian.org/debian bookworm/main amd64 Packages
+Description: отображение структуры каталога в цвете
+ Tree — команда рекурсивного отображения структуры каталогов, выводящая
+ перечень файлов с соответствующими глубине отступами и цветовой
+ идентификацией при установленной переменной окружения LS_COLORS и выводе в
+ терминал.
+

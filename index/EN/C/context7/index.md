@@ -7,7 +7,7 @@
 ## Ссылки 
 
 Внутренние: 
-* [сontext7](../cursor/%D1%81ontext7) - Информация об Context7 в связке с Cursor
+* [сontext7](../cursor/mcp-server/context7) - Информация об Context7 в связке с Cursor
 
 Внешние:
 * Домашняя https://context7.com/

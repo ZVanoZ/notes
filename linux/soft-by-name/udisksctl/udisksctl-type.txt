@@ -1,0 +1,1 @@
+для udisksctl вычислен хэш (/usr/bin/udisksctl)

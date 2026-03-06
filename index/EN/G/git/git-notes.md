@@ -102,16 +102,25 @@ git remote add origin <url>
 # https://git-scm.com/docs/git-config
 # https://g.co/gemini/share/3c5d93d7a9b2
 # Она позволяет указать режим прав доступа по умолчанию для новых файлов, создаваемых в репозитории.
+
+# Текущее состояние
+git config core.filemode
+git config --global core.filemode
+git config --local core.filemode
+
 ## Удалить локальную опцию. Применяется, чтобы начала действовать глобальная. 
 git config --unset core.filemode
 ## Удалить глобальную опцию
 git config --unset --global core.filemode
-# Игнорировать смену прав на файлах
+# Игнорировать смену прав на файлах 
+# > Жесткая установка false поможет убрать из индекса файлы, если опция была true и мы сменили права.
 # @tags: права, прав, chmod
 ## Для проекта
 git config core.filemode false
 ## Глобально
 git config --global code.filemode false
+
+
 ````
 
 ### Настройка GIT/Вывод отладочной информации
