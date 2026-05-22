@@ -2,6 +2,7 @@
 
 * [Что такое S3 Garage?](geminy/0010/answer.md)
 * [Ссылки на ресурсы разработчика S3 Garage](geminy/0020/answer.md)
+* [Как запустить Garage в Docker?](geminy/0030/answer.md)
 
 ## Ресурсы
 

@@ -6,8 +6,11 @@
 
 ## "AI", "Искусственный интеллект"
 
+* [claude-code](index/EN/C/claude-code)
 * [context7](index/EN/C/context7)
 * [cursor](index/EN/C/cursor)
+* [cursor-memory-bank](index/EN/C/cursor/cursor-memory-bank)
+* [g3 - AI Coding Agent](index/EN/G/g3/ai-coding-agent/g3.md)
 * [mcp](index/EN/M/mcp)
 * [ollama](index/EN/O/ollama)
 

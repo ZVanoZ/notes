@@ -1,3 +1,5 @@
+# "jetbrains.md"
+
 ---
 
 * Вопрос
@@ -7,16 +9,30 @@
 Следует разделять маски символами "&" и "|"
 
 * Пример: сравнить все, кроме каталогов  ".idea", "data", "dev", "tests"
+
 ```text
 !.idea/* &  !data/* &  !dev/* &  !tests/*
+
+!.idea/* & !*tmp/* & !*data/* & !*public/cache/* & !node_modules/*  & !*vendor/*
 ```
 
 * Пример: сравнить только каталоги "application", "library"
+
 ```text
 application/* | library/*
 ```
 
-----
+* Другое ...
+
+```text
+# tpl-back-app
+!.idea/* & !*tmp/*& !*logs/*.log   & !node_modules/*  & !*vendor/*
+
+# tpl-front-components
+!.idea/* & !*tmp/*& !*logs/*.log   & !node_modules/*  & !*app/vendor/*  & !*build/cache/*
+```
+
+---
 
 * Вопрос
 Почему PhpStorm переходит на связанный файл в той же вкладке и как это изменить?

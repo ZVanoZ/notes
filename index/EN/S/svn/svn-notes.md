@@ -180,6 +180,11 @@ $ svn status
 # Показывает изменения в локальной копии, при этом не учитывает (M - modified, A - added, D - deleted) файлы
 $ svn status | grep "^[^MAD]"
 
+# Показывает конфликты в локальной копии
+$ svn status | grep "^C"
+# или
+$ svn status | grep "^[^MADU]"
+
 # Расширенная информация о локальной копии
 svn status -u
 

@@ -46,6 +46,10 @@ node -v
 type node
 # node является /home/ivan/.nvm/versions/node/v16.14.1/bin/node
 #-----
+
+# Полусить список LTS версий с сервера
+nvm ls-remote --lts
+
 # Установить последнюю субверсию 21й версии
 nvm install 21
 #-----

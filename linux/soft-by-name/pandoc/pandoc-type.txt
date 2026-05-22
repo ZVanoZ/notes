@@ -1,0 +1,1 @@
+для pandoc вычислен хэш (/usr/bin/pandoc)

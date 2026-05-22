@@ -1,0 +1,83 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Package: pandoc
+Version: 2.17.1.1-2~deb12u1
+Priority: optional
+Section: text
+Maintainer: Debian Haskell Group <debian-haskell@lists.debian.org>
+Installed-Size: 172 MB
+Provides: pandoc-abi (= 1.22.2.1-1)
+Depends: libc6 (>= 2.34), libffi8 (>= 3.4), libgmp10 (>= 2:6.2.1+dfsg1), liblua5.3-0, libyaml-0-2, zlib1g (>= 1:1.1.4), pandoc-data (>= 2.17.1.1-2~deb12u1), pandoc-data (<< 2.17.1.1-2~deb12u1.~)
+Suggests: texlive-latex-recommended, texlive-xetex, texlive-luatex, pandoc-citeproc, texlive-latex-extra, context, wkhtmltopdf, librsvg2-bin, groff, ghc, nodejs, php, perl, python, ruby, r-base-core, libjs-mathjax, libjs-katex, citation-style-language-styles
+Homepage: https://pandoc.org/
+Tag: devel::doc, implemented-in::haskell, interface::commandline,
+ role::documentation, role::program, use::converting,
+ works-with-format::bib, works-with-format::docbook,
+ works-with-format::html, works-with-format::json,
+ works-with-format::man, works-with-format::odf,
+ works-with-format::plaintext, works-with-format::tex,
+ works-with-format::xml, works-with::text
+Download-Size: 21,3 MB
+APT-Manual-Installed: yes
+APT-Sources: http://deb.debian.org/debian bookworm/main amd64 Packages
+Description: general markup converter
+ Pandoc is a Haskell library for converting
+ from one markup format to another,
+ and a command-line tool that uses this library.
+ The formats it can handle include
+  * light markup formats
+    (many variants of Markdown, reStructuredText, AsciiDoc,
+     Org-mode, Muse, Textile, txt2tags)
+  * HTML formats (HTML 4 and 5)
+  * Ebook formats (EPUB v2 and v3, FB2)
+  * Documentation formats (GNU TexInfo, Haddock)
+  * Roff formats (man, ms)
+  * TeX formats (LaTeX, ConTeXt)
+  * XML formats
+    (DocBook 4 and 5, JATS, TEI Simple, OpenDocument)
+  * Outline formats (OPML)
+  * Bibliography formats (BibTeX, BibLaTeX, CSL JSON, CSL YAML)
+  * Word processor formats (Docx, RTF, ODT)
+  * Interactive notebook formats (Jupyter notebook ipynb)
+  * Page layout formats (InDesign ICML)
+  * Wiki markup formats
+    (MediaWiki, DokuWiki, TikiWiki, TWiki,
+     Vimwiki, XWiki, ZimWiki, Jira wiki, Creole)
+  * Slide show formats
+    (LaTeX Beamer, PowerPoint, Slidy,
+     reveal.js, Slideous, S5, DZSlides)
+  * Data formats (CSV tables)
+  * PDF (via external programs such as pdflatex or wkhtmltopdf)
+ .
+ Pandoc can convert mathematical content in documents
+ between TeX, MathML, Word equations, roff eqn, and plain text.
+ It includes a powerful system
+ for automatic citations and bibliographies,
+ and it can be customized extensively using templates, filters,
+ and custom readers and writers written in Lua.
+ .
+ This package contains the pandoc tool.
+ .
+ Some uses of Pandoc require additional packages:
+  * SVG content in PDF output requires librsvg2-bin.
+  * YAML metadata in TeX-related output requires texlive-latex-extra.
+  * *.hs filters not set executable requires ghc.
+  * *.js filters not set executable requires nodejs.
+  * *.php filters not set executable requires php.
+  * *.pl filters not set executable requires perl.
+  * *.py filters not set executable requires python.
+  * *.rb filters not set executable requires ruby.
+  * *.r filters not set executable requires r-base-core.
+  * LaTeX output, and PDF output via PDFLaTeX,
+    require texlive-latex-recommended.
+  * XeLaTeX output, and PDF output via XeLaTeX, require texlive-xetex.
+  * LuaTeX output, and PDF output via LuaTeX, require texlive-luatex.
+  * ConTeXt output, and PDF output via ConTeXt, require context.
+  * PDF output via wkhtmltopdf requires wkhtmltopdf.
+  * Roff man and roff ms output, and PDF output via roff ms,
+    require groff.
+  * MathJax-rendered equations require libjs-mathjax.
+  * KaTeX-rendered equations require node-katex.
+  * option --csl may use styles in citation-style-language-styles.
+

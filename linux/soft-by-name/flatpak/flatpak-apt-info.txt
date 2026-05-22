@@ -1,0 +1,36 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Package: flatpak
+Version: 1.14.10-1~deb12u1
+Priority: optional
+Section: admin
+Maintainer: Utopia Maintenance Team <pkg-utopia-maintainers@lists.alioth.debian.org>
+Installed-Size: 7.554 kB
+Depends: adduser, bubblewrap (>= 0.8.0-2+deb12u1~), bubblewrap (<< 0.8.1~) | bubblewrap (>= 0.10.0~), fuse3, xdg-dbus-proxy (>= 0.1.0), libappstream4 (>= 0.10.0), libarchive13 (>= 3.0.4), libc6 (>= 2.34), libcurl3-gnutls (>= 7.16.2), libdconf1 (>= 0.26.0), libfuse3-3 (>= 3.2.3), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.67.3+git20210214), libgpgme11 (>= 1.1.8), libjson-glib-1.0-0 (>= 1.5.2), libmalcontent-0-0 (>= 0.6.0), libostree-1-1 (>= 2020.8), libpolkit-agent-1-0 (>= 0.105), libpolkit-gobject-1-0 (>= 0.101), libseccomp2 (>= 2.5.2), libsystemd0, libxau6 (>= 1:1.0.9), libxml2 (>= 2.7.4), libzstd1 (>= 1.5.2)
+Recommends: ca-certificates, default-dbus-system-bus | dbus-system-bus, desktop-file-utils, hicolor-icon-theme, gtk-update-icon-cache, libpam-systemd, p11-kit, polkitd | policykit-1, shared-mime-info, xdg-desktop-portal (>= 1.6), xdg-desktop-portal-gtk (>= 1.6) | xdg-desktop-portal-backend, xdg-user-dirs
+Suggests: avahi-daemon, malcontent-gui
+Conflicts: xdg-app
+Replaces: xdg-app
+Homepage: https://flatpak.org/
+Download-Size: 1.400 kB
+APT-Manual-Installed: yes
+APT-Sources: http://deb.debian.org/debian bookworm/main amd64 Packages
+Description: Application deployment framework for desktop apps
+ Flatpak installs, manages and runs sandboxed desktop application bundles.
+ Application bundles run partially isolated from the wider system, using
+ containerization techniques such as namespaces to prevent direct access
+ to system resources. Resources from outside the sandbox can be accessed
+ via "portal" services, which are responsible for access control; for
+ example, the Documents portal displays an "Open" dialog outside the
+ sandbox, then allows the application to access only the selected file.
+ .
+ Each application uses a specified "runtime", or set of libraries, which is
+ available as /usr inside its sandbox. This can be used to run application
+ bundles with multiple, potentially incompatible sets of dependencies within
+ the same desktop environment.
+ .
+ This package contains the services and executables needed to install and
+ launch sandboxed applications, and the portal services needed to provide
+ limited access to resources outside the sandbox.
+
