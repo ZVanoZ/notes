@@ -6,7 +6,53 @@ JetBrains Air is the Agentic Development Environment where Codex, Claude Agent, 
 
 ## Links
 
-# Домашняя 
+* Домашняя 
 https://air.dev/
-#  Установка через toolbox (см. [jet-brains-toolbox.md](../toolbox/jet-brains-toolbox.md))
+* Getting started
+https://www.jetbrains.com/help/air/getting-started.html
+
+## Install
+
+* Установка через toolbox (см. [jet-brains-toolbox.md](../toolbox/jet-brains-toolbox.md))
 https://www.jetbrains.com/toolbox-app/
+
+* Страница загрузки
+
+https://air.dev/download
+
+Установка в linux  из терминала с использованием curl
+```shell
+curl -fsSL https://jb.gg/air-install.sh | sh
+```
+
+## Run
+
+После установки в главном меню OS появляется пункт Air.
+
+Тыкаем на него.
+
+Открывается IDE и предлагает авторизироваться при помощи одного из трех AI сервисов.
+
+Я выбрал Google Geminy.
+
+Открылось окно авторизации с вариантами "По eMail" и "API-KEY".
+* "По eMail" - не удалось авторищироваться.
+* "API-KEY" - удалось.  Ключ сгенерировал на странице https://aistudio.google.com/api-keys
+
+
+## Начало работы.
+
+
+Тыкаем кнопку "Открыть папку".
+
+Окно делится на 3 части, подобно IDE "Cursor".
+* Слева - список чатов.
+* Центр - текущий чат.
+* Справа - дерево пректа.
+
+В чате вбиваем PROMPT
+```text
+Просканируй директорию. О чем проект?
+```
+* Если выбран "Geminy 3.6 Flash", то получаем ответ.
+* Если выбран "Geminy 3.1 Pro (Default)", то получаем ошибку.
