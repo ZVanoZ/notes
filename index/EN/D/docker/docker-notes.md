@@ -126,6 +126,11 @@ docker container logs local.webgate-app-t1 1>/dev/null
 #PHP: file_put_contents('php://stdout', 'some text')
 docker container logs local.webgate-app-t1 2>/dev/null
 ````
+
+```shell
+docker logs local.app.web  --details -n 100 -f
+```
+
 * Посмотреть какой тип драйвера используется в контейнере
 ````shell
 docker inspect -f '{{.HostConfig.LogConfig.Type}}' local.webgate-app-t1

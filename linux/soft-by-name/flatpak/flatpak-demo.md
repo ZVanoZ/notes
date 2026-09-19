@@ -44,6 +44,7 @@ flatpak info com.obsproject.Studio.Plugin.DroidCam
 ````
 
 * Запустить приложение
+
 ````shell
 flatpak run com.obsproject.Studio.Plugin.DroidCam
 ````
