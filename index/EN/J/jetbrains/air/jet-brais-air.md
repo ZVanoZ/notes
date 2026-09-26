@@ -32,12 +32,50 @@ curl -fsSL https://jb.gg/air-install.sh | sh
 Тыкаем на него.
 
 Открывается IDE и предлагает авторизироваться при помощи одного из трех AI сервисов.
+```text
+1. Anthropic
+Clasude Agent
+
+2. OpenAI
+Codex
+
+3. Google
+???
+```
 
 Я выбрал Google Geminy.
 
 Открылось окно авторизации с вариантами "По eMail" и "API-KEY".
-* "По eMail" - не удалось авторищироваться.
+* "Google Account (Personal or Workspace)"
+```text
+"По eMail" - не удалось авторищироваться.  
+
+-- В браузере:
+---- 1.
+Войдите в аккаунт Google
+Убедитесь, что вы скачали приложение из сервиса Google
+<e-mail...>
+
+Не выполняйте вход в приложение "Gemini Code Assist and Gemini CLI", если вы скачали его не из сервиса Google.
+Если вы скачали приложение "Gemini Code Assist and Gemini CLI" из сервиса Google, оно может запросить повторный вход после недавнего обновления.
+Если вы не уверены, что скачали приложение "Gemini Code Assist and Gemini CLI" из сервиса Google, вам следует удалить его.
+---- 2.
+authorization successful
+You will now be redirected to Air"
+
+-- В IDE Air
+unable to log in with google
+Feminy Code Assist for individuals: This client is no longer suppported for Geminy Code Assist for individuals.
+To continue using Geminy, please migrate to the Antigravity suite of progects: https://antigravity.google
+
+[Try Again]
+```
 * "API-KEY" - удалось.  Ключ сгенерировал на странице https://aistudio.google.com/api-keys
+```text
+Вбиваем ключ, нажимаем ОК.
+Появляется предыдущее окно, но в нем подсвечен зеленым блок "Google API Key".
+
+```
 
 ## Начало работы.
 

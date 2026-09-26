@@ -137,8 +137,22 @@ git config --global credential.helper
 # /var/www/git-credential-helper.sh
 # И тут же удалим локальные настройки "credential"
 git config --remove-section credential
-
 ````
+
+### Клонирование с выводом дополнительной информации
+
+* Базовый вариант для чтения человеком   
+  `GIT_TRACE=1 GIT_TRANSFER_TRACE=1 GIT_CURL_VERBOSE=1 GIT_TRACE_PACKET=1 git clone <URL_РЕПОЗИТОРИЯ>`
+
+* Человекочитаемый формат с таймингами (perf):  
+  `GIT_TRACE2_PERF=1 GIT_TRACE=1 GIT_TRANSFER_TRACE=1 GIT_CURL_VERBOSE=1 git clone <URL_РЕПОЗИТОРИЯ>`
+
+* Максимально подробный JSON-формат (события, вложенность, метрики памяти):  
+  `GIT_TRACE2_EVENT=1 GIT_TRACE=1 GIT_TRANSFER_TRACE=1 GIT_CURL_VERBOSE=1 git clone <URL_РЕПОЗИТОРИЯ>`
+
+* Абсолютно максимальная команда для отладки clone (HTTPS)  
+  Если нужно собрать вообще всю возможную информацию от сети до микросекунд выполнения внутри ядра Git:  
+  `GIT_TRACE=1 GIT_TRANSFER_TRACE=1 GIT_CURL_VERBOSE=1 GIT_TRACE_PACKET=1 GIT_TRACE2_PERF=1 git clone <URL_РЕПОЗИТОРИЯ>`
 
 ### Настройка GIT/credential
 
@@ -311,6 +325,7 @@ $ git clean -fd
 ## Работа с логом
 
 tags:
+
 * работа с историей
 * история
 * лог
@@ -450,12 +465,14 @@ echo '**/library/dio-zf1future/*' >> .gitignore
 ````JS
 // composer.json
 {
-	"repositories": [
-		{
-			"type": "path",
-			"url": "./library/dio-zf1future/"
-		}
-	]
+    "repositories"
+:
+    [
+        {
+            "type": "path",
+            "url": "./library/dio-zf1future/"
+        }
+    ]
 }
 ````
 
@@ -879,6 +896,7 @@ git log --format="%aN <%aE>" | sort -f | uniq > AUTHORS.txt
 
 Обновление файла "AUTHORS.txt" скриптом из "package.json" (для проектов под Node).  
 См. [jsdom/jsdom](https://github.com/jsdom/jsdom)
+
 ```json
 {
   "name": "jsdom",
